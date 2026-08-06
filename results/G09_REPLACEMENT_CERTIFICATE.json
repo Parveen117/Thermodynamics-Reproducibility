@@ -1,0 +1,83 @@
+{
+  "campaign": "G09_COMMON_DOMAIN_CHANNEL_REPLACEMENT",
+  "status": "INCONCLUSIVE_REPLACEMENT_DATA_ACQUISITION",
+  "base_channels": [
+    "G_CONDUCTANCE",
+    "KE_THERMAL_CONDUCTANCE",
+    "SIGMA_Q"
+  ],
+  "required_temperature_range_K": [110.0, 260.0],
+  "candidate_count": 5,
+  "ready_candidates": [],
+  "ranking": [
+    {
+      "rank": 1,
+      "candidate_id": "CE_AAMIR_2021",
+      "decision": "BEST_REPLACEMENT_PENDING_DIGITIZATION_OR_AUTHOR_DATA",
+      "strengths": [
+        "independent publication",
+        "electronic temperature and carrier density controls",
+        "reported uncertainty discussion in the supplement",
+        "directly relevant electronic thermodynamic response"
+      ],
+      "blockers": [
+        "no verified machine-readable two-dimensional table",
+        "digitization covariance not frozen",
+        "device compatibility with the 2025 transport devices not established"
+      ]
+    },
+    {
+      "rank": 2,
+      "candidate_id": "DE_BLOCK_2021",
+      "decision": "STRONG_REPLACEMENT_PENDING_AUTHOR_DATA_OR_DIGITIZATION",
+      "strengths": [
+        "independent publication",
+        "electronic temperature and carrier-density or gate control",
+        "uncertainty markers in the supplement",
+        "underlying data stated to be available from the authors"
+      ],
+      "blockers": [
+        "no verified public machine-readable table",
+        "author data not yet acquired",
+        "device-class compatibility not frozen"
+      ]
+    },
+    {
+      "rank": 3,
+      "candidate_id": "CQ_XIA_DROESCHER",
+      "decision": "REJECT_CURRENTLY_ONE_DIMENSIONAL",
+      "blockers": [
+        "temperature-density surface not verified",
+        "machine-readable table not verified",
+        "uncertainty contract not frozen"
+      ]
+    },
+    {
+      "rank": 4,
+      "candidate_id": "ETA_OVER_S_MAJUMDAR_FIG4B",
+      "decision": "REJECT_DERIVED_AND_CATEGORICAL_DENSITY",
+      "blockers": [
+        "same publication and shared inputs",
+        "doping regime is categorical rather than a resolved numeric density axis",
+        "derived from transport and thermodynamic inputs already used elsewhere"
+      ]
+    },
+    {
+      "rank": 5,
+      "candidate_id": "SIGMA_VIA_KE_JOIN_MAJUMDAR_FIG3A_FIG3B",
+      "decision": "REJECT_CIRCULAR_CHANNEL_CONSTRUCTION",
+      "blockers": [
+        "requires joining through K_e, an existing base channel",
+        "not algebraically independent",
+        "shared source and calibration covariance"
+      ]
+    }
+  ],
+  "selected_acquisition_target": "CE_AAMIR_2021",
+  "secondary_acquisition_target": "DE_BLOCK_2021",
+  "fit_allowed": false,
+  "experimental_plucker_significance_computed": false,
+  "next_stage": "G10_CE_DIGITIZATION_AND_AUTHOR_DATA_CONTRACT",
+  "ci_status": "PENDING_GITHUB_BILLING_UNLOCK",
+  "claim_boundary": "No replacement channel is ready. G09 selects acquisition priorities only and does not authorize a four-channel fit or graphene Pluecker significance."
+}
