@@ -1,0 +1,66 @@
+{
+  "campaign": "G01_GRAPHENE_FEASIBILITY",
+  "status": "SOURCE_ACQUISITION",
+  "material_contract": {
+    "material": "monolayer graphene",
+    "excluded": [
+      "graphene oxide",
+      "reduced graphene oxide",
+      "graphene composites",
+      "graphite",
+      "bilayer or multilayer graphene unless separately versioned"
+    ]
+  },
+  "state_chart": {
+    "coordinates": ["electronic_temperature", "carrier_density"],
+    "symbols": ["T_e", "n"],
+    "reason": "These are independently controllable variables represented across graphene electronic-response experiments. Spatial dimensionality is not used as the state-manifold dimension."
+  },
+  "candidate_channels": {
+    "1": "electronic heat capacity C_e",
+    "2": "quantum capacitance C_q or inverse compressibility dmu/dn",
+    "3": "electrical conductivity sigma",
+    "4": "electronic thermal diffusivity D_e or electronic thermal conductivity kappa_e"
+  },
+  "frozen_significance": {
+    "definition": "z = abs(plucker_residual) / plucker_standard_error",
+    "rejection_threshold": 5.0,
+    "interpretation": {
+      "z_less_than_or_equal_to_5": "NOT_FALSIFIED",
+      "z_greater_than_5": "FALSIFIED_MEASUREMENT_CONTRACT",
+      "z_equal_to_30": "THIRTY_SIGMA_REJECTION"
+    }
+  },
+  "required_metadata": [
+    "layer number",
+    "substrate or suspension",
+    "encapsulation",
+    "magnetic field",
+    "strain",
+    "defect and contamination state",
+    "device mobility",
+    "contact geometry",
+    "lattice temperature",
+    "electronic temperature",
+    "carrier-density calibration",
+    "measurement uncertainty"
+  ],
+  "data_gates": {
+    "machine_readable_numeric_values": true,
+    "two_dimensional_local_support": true,
+    "uncertainty_or_covariance_model": true,
+    "compatible_material_contract": true,
+    "no_theory_as_experimental_evidence": true,
+    "no_residual_before_contract_freeze": true
+  },
+  "allowed_outcomes": [
+    "PASS_CONTROL",
+    "FAIL_CONTROL",
+    "NOT_FALSIFIED",
+    "FALSIFIED_MEASUREMENT_CONTRACT",
+    "INCONCLUSIVE_DATA_COVERAGE",
+    "INCONCLUSIVE_SOURCE_COMPATIBILITY",
+    "INCONCLUSIVE_UNCERTAINTY_MODEL"
+  ],
+  "current_result": "NO_GRAPHENE_SIGNIFICANCE_COMPUTED"
+}
