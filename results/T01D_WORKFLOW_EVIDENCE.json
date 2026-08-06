@@ -1,0 +1,18 @@
+{
+  "primary_v2": {
+    "workflow": "T01D independent ThermoML Pluecker test v2",
+    "run_id": 31069601461,
+    "head_sha": "9433e208032a087bff6d5b6f5141af6ee9f6bed9",
+    "conclusion": "success",
+    "artifact": "t01d-independent-thermoml-pluecker-v2",
+    "artifact_sha256": "af0e637afdf8145d8a3066f7bbc30385e158254e04e4ef9d92a27f96fb44e35a"
+  },
+  "bootstrap": {
+    "workflow": "T01D bootstrap robustness audit",
+    "run_id": 31069737943,
+    "head_sha": "229f0e7b46507adc81df7326ee40d2df92dd45d3",
+    "conclusion": "success",
+    "artifact": "t01d-bootstrap-robustness",
+    "artifact_sha256": "8728b47806b8d1118bd7515b24f4fa9a0dbca1e450ab1425410d2b29f7bca872"
+  }
+}

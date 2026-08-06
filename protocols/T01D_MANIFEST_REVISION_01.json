@@ -1,0 +1,37 @@
+{
+  "campaign": "T01D_THERMOML_EXPERIMENTAL",
+  "revision": 1,
+  "trigger": "Manifest v1 returned INCONCLUSIVE_FIT_GEOMETRY before any Pluecker residual was computed.",
+  "v1_result": {
+    "status": "INCONCLUSIVE_FIT_GEOMETRY",
+    "failed_fit_slots": {
+      "14.left": {
+        "doi": "10.1021/je500977g",
+        "reason": "effective sample size 5.612443065628857 below frozen gate 6.5"
+      },
+      "24.right": {
+        "doi": "10.1016/j.fluid.2005.12.036",
+        "reason": "only 6 points survived the frozen fit window and uncertainty filter, below frozen minimum 9"
+      }
+    },
+    "residual_computed": false,
+    "pair_values_computed": false
+  },
+  "replacement_rule": "Choose unused independent publications using only pre-residual state-space topology, point count, and uncertainty availability. Do not change the evaluation point, channel definitions, fit model, bandwidths, gates, uncertainty rule, or rejection threshold.",
+  "replacements": {
+    "14.left": {
+      "old_doi": "10.1021/je500977g",
+      "new_doi": "10.1021/je500062a",
+      "channel": "density",
+      "reason": "85-point hydrostatic-balance density surface with direct pressure coverage around the frozen evaluation region"
+    },
+    "24.right": {
+      "old_doi": "10.1016/j.fluid.2005.12.036",
+      "new_doi": "10.1021/acs.jced.5b00152",
+      "channel": "viscosity",
+      "reason": "35-point capillary-viscosity surface with dense temperature and pressure coverage around the frozen evaluation region"
+    }
+  },
+  "unchanged_fit_contract": "protocols/T01D_FIT_CONTRACT.json",
+  "residual_seen_before_revision": false
+}

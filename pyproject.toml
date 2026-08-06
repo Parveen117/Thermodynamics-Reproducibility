@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thermo-recognition-falsification"
+version = "0.1.0"
+description = "Reproducible falsification tests for thermodynamic Recognition claims"
+requires-python = ">=3.11"
+dependencies = [
+  "iapws==1.5.5",
+  "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

@@ -1,0 +1,56 @@
+{
+  "campaign": "T01D_THERMOML_EXPERIMENTAL",
+  "stage": "INDEPENDENT_GRADIENT_ESTIMATION",
+  "frozen_before_residual": true,
+  "input_manifest": "protocols/T01D_CANDIDATE_MANIFEST.json",
+  "input_extraction": "results/T01D_CANDIDATE_RAW.json",
+  "evaluation_point": {
+    "temperature_K": 318.15,
+    "pressure_kPa": 12500.0
+  },
+  "state_coordinates": {
+    "x": "(temperature_K - 318.15) / 25.0",
+    "y": "(pressure_kPa - 12500.0) / 25000.0",
+    "temperature_bandwidth_K": 25.0,
+    "pressure_bandwidth_kPa": 25000.0,
+    "meaning": "The Pluecker brackets are computed with respect to the declared dimensionless area form dx wedge dy."
+  },
+  "fit_model": {
+    "family": "local weighted quadratic",
+    "basis_order": ["1", "x", "y", "x^2", "x*y", "y^2"],
+    "kernel": "exp(-0.5*(x^2+y^2))",
+    "hard_window": {
+      "absolute_x_max": 3.0,
+      "absolute_y_max": 3.0
+    },
+    "target_gradient": ["coefficient_x", "coefficient_y"],
+    "selection_note": "One model is fixed for every source slot. No model is selected using the Pluecker residual."
+  },
+  "uncertainty_model": {
+    "standard_uncertainty_priority": [
+      "reported standard uncertainty",
+      "reported expanded uncertainty divided by 2 when a 95 percent confidence level is declared or implied",
+      "otherwise reported expanded uncertainty divided by 2 as a conservative provisional conversion"
+    ],
+    "weights": "kernel_weight / standard_uncertainty^2",
+    "coefficient_covariance": "inverse normal matrix multiplied by max(1, weighted reduced chi-square)",
+    "cross_slot_covariance": "zero because all twelve source slots use distinct publications",
+    "bracket_covariance": "first-order delta method from the two independent 2x2 gradient covariance matrices",
+    "plucker_covariance": "first-order delta method on the six independent bracket estimates"
+  },
+  "fit_gates": {
+    "minimum_included_points": 9,
+    "minimum_effective_sample_size": 6.5,
+    "required_design_rank": 6,
+    "maximum_normal_matrix_condition_number": 1000000000000.0,
+    "all_twelve_slots_must_pass": true
+  },
+  "decision": {
+    "rejection_sigma": 5.0,
+    "pass_label": "NOT_FALSIFIED",
+    "reject_label": "FALSIFIED_MEASUREMENT_CONTRACT",
+    "fit_failure_label": "INCONCLUSIVE_FIT_GEOMETRY",
+    "uncertainty_failure_label": "INCONCLUSIVE_UNCERTAINTY_MODEL"
+  },
+  "claim_boundary": "A rejection means at least one frozen assumption fails: two-dimensional smooth chart, channel identity, source compatibility, fit contract, uncertainty model, or the Pluecker constraint. It does not by itself identify the failed assumption."
+}

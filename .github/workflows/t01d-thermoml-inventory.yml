@@ -1,0 +1,95 @@
+name: T01D ThermoML water inventory
+
+on:
+  push:
+    paths:
+      - ".github/workflows/t01d-thermoml-inventory.yml"
+      - "scripts/build_t01d_water_inventory.py"
+      - "tests/test_thermoml_inventory.py"
+  pull_request:
+    paths:
+      - ".github/workflows/t01d-thermoml-inventory.yml"
+      - "scripts/build_t01d_water_inventory.py"
+      - "tests/test_thermoml_inventory.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  THERMOML_URL: https://data.nist.gov/od/ds/mds2-2422/ThermoML.v2020-09-30.tgz
+  THERMOML_SHA256: 231161b5e443dc1ae0e5da8429d86a88474cb722016e5b790817bb31c58d7ec2
+  THERMOML_ARCHIVE: /tmp/ThermoML.v2020-09-30.tgz
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install test dependencies
+        run: python -m pip install -e ".[test]"
+
+      - name: Run inventory unit tests
+        run: python -m pytest tests/test_thermoml_inventory.py
+
+      - name: Restore pinned ThermoML archive
+        id: thermoml-cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.THERMOML_ARCHIVE }}
+          key: thermoml-v2020-09-30-${{ env.THERMOML_SHA256 }}
+
+      - name: Download pinned NIST archive
+        if: steps.thermoml-cache.outputs.cache-hit != 'true'
+        run: |
+          curl --location --fail --retry 5 --retry-delay 5 \
+            --output "${THERMOML_ARCHIVE}" "${THERMOML_URL}"
+
+      - name: Verify NIST archive hash
+        run: echo "${THERMOML_SHA256}  ${THERMOML_ARCHIVE}" | sha256sum --check --strict
+
+      - name: Extract JSON records
+        run: |
+          rm -rf /tmp/thermoml-json
+          mkdir -p /tmp/thermoml-json
+          tar -xzf "${THERMOML_ARCHIVE}" -C /tmp/thermoml-json \
+            --wildcards --no-anchored '*.json'
+          echo "JSON files: $(find /tmp/thermoml-json -type f -name '*.json' | wc -l)"
+
+      - name: Build pure-water inventory
+        run: |
+          python scripts/build_t01d_water_inventory.py /tmp/thermoml-json \
+            --output results/T01D_WATER_INVENTORY.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          source = Path("results/T01D_WATER_INVENTORY.json")
+          data = json.loads(source.read_text())
+          summary = {
+              "campaign": data["campaign"],
+              "stage": data["stage"],
+              "archive": data["archive"],
+              "water_identifier": data["water_identifier"],
+              "summary": data["summary"],
+          }
+          Path("results/T01D_WATER_INVENTORY_SUMMARY.json").write_text(
+              json.dumps(summary, indent=2, sort_keys=True) + "\n"
+          )
+          PY
+
+      - name: Upload inventory certificates
+        uses: actions/upload-artifact@v4
+        with:
+          name: t01d-thermoml-water-inventory
+          path: |
+            results/T01D_WATER_INVENTORY.json
+            results/T01D_WATER_INVENTORY_SUMMARY.json
+          if-no-files-found: error

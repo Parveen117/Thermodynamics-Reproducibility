@@ -1,0 +1,111 @@
+{
+  "baseline_pairs": [
+    -0.7,
+    1.7,
+    1.9,
+    2.7,
+    4.15,
+    -2.75
+  ],
+  "baseline_residual": -8.881784197001252e-16,
+  "campaign": "T01_PLUCKER_INDEPENDENT_BRACKETS",
+  "common_gradients": {
+    "u": [
+      1.0,
+      2.0,
+      -1.0,
+      0.5
+    ],
+    "v": [
+      0.2,
+      -0.3,
+      1.5,
+      2.0
+    ]
+  },
+  "control": {
+    "normalized_residual": 2.2735912445926664e-17,
+    "note": "Common-gradient construction is decomposable by definition; passing this control cannot validate the physical hypothesis.",
+    "pair_order": [
+      "12",
+      "13",
+      "14",
+      "23",
+      "24",
+      "34"
+    ],
+    "residual": -8.881784197001252e-16,
+    "standard_error": null,
+    "status": "PASS_CONTROL",
+    "z_score": null,
+    "z_threshold": null
+  },
+  "expected": {
+    "control": "PASS_CONTROL",
+    "large_independent_perturbation": "FALSIFIED_MEASUREMENT_CONTRACT",
+    "small_independent_perturbation": "NOT_FALSIFIED"
+  },
+  "large_independent_perturbation": {
+    "pairs": [
+      -0.7,
+      1.7,
+      1.9,
+      2.7,
+      4.15,
+      -2.65
+    ],
+    "result": {
+      "normalized_residual": 0.0018170019467878304,
+      "note": "The verdict applies to the frozen conjunction of chart, channels, provenance, calibration, and uncertainty model.",
+      "pair_order": [
+        "12",
+        "13",
+        "14",
+        "23",
+        "24",
+        "34"
+      ],
+      "residual": -0.07000000000000117,
+      "standard_error": 0.00620685105347309,
+      "status": "FALSIFIED_MEASUREMENT_CONTRACT",
+      "z_score": 11.2778604475827,
+      "z_threshold": 5.0
+    }
+  },
+  "pair_order": [
+    "12",
+    "13",
+    "14",
+    "23",
+    "24",
+    "34"
+  ],
+  "small_independent_perturbation": {
+    "pairs": [
+      -0.7,
+      1.7,
+      1.9,
+      2.7,
+      4.15,
+      -2.749
+    ],
+    "result": {
+      "normalized_residual": 1.7921375902908566e-05,
+      "note": "The verdict applies to the frozen conjunction of chart, channels, provenance, calibration, and uncertainty model.",
+      "pair_order": [
+        "12",
+        "13",
+        "14",
+        "23",
+        "24",
+        "34"
+      ],
+      "residual": -0.0007000000000010331,
+      "standard_error": 0.006249760075394895,
+      "status": "NOT_FALSIFIED",
+      "z_score": 0.1120042996141421,
+      "z_threshold": 5.0
+    }
+  },
+  "stage": "T01B_INDEPENDENT_BRACKET_SYNTHETIC"
+}
