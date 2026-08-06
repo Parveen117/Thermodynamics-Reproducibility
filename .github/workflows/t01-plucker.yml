@@ -27,3 +27,10 @@ jobs:
         run: |
           python scripts/run_t01_synthetic_audit.py
           git diff --exit-code results/T01_SYNTHETIC_AUDIT.json
+      - name: Run IAPWS-95 water control
+        run: python scripts/run_t01_iapws95_control.py
+      - name: Upload IAPWS-95 certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: t01c-iapws95-python-${{ matrix.python-version }}
+          path: results/T01C_IAPWS95_CONTROL.json
