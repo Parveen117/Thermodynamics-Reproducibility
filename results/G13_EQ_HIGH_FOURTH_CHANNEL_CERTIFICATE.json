@@ -1,0 +1,46 @@
+{
+  "campaign": "G13_EQ_HIGH_FOURTH_CHANNEL_SEARCH",
+  "claim_boundary": "G13 selects equilibrium Seebeck coefficient as the strongest fourth-channel acquisition target. No candidate is fit-ready, no fourth response surface is admitted, and no graphene Pluecker residual or significance is computed.",
+  "decisive_reasons": [
+    "Equilibrium Seebeck coefficient is the strongest directly measured and conceptually independent fourth-response candidate.",
+    "The primary Wang-Shi source reports broad temperature and carrier-density coverage, but public machine-readable arrays and covariance are not verified.",
+    "The Zuev-Kim source provides clearly verified density sweeps at only 150 K and 200 K inside the 110-260 K sector, below the frozen three-temperature gate.",
+    "Quantum capacitance lacks a verified target-window temperature-density surface, Hall density duplicates a chart coordinate, and transient or Raman candidates fail sector or two-dimensional coverage gates."
+  ],
+  "errors": [],
+  "existing_channel_count": 3,
+  "experimental_plucker_significance_computed": false,
+  "fit_allowed": false,
+  "fit_ready_candidate_count": 0,
+  "fourth_channel_ready": false,
+  "next_stage": "G14_SEEBECK_AUTHOR_DATA_AND_DIGITIZATION_CONTRACT",
+  "required_author_data": [
+    "pointwise measured Seebeck coefficient versus gate voltage or carrier density at each equilibrium temperature",
+    "temperature list and sample thermometer calibration",
+    "thermovoltage and temperature-gradient raw or fit-level data",
+    "gate-voltage to carrier-density calibration and uncertainty",
+    "pointwise statistical uncertainty and shared systematic covariance",
+    "device identifiers, sweep direction, contact geometry and annealing state"
+  ],
+  "secondary_candidate_id": "SEEBECK_ZUEV_KIM_2009",
+  "secondary_target_window_temperatures_K": [
+    150.0,
+    200.0
+  ],
+  "secondary_temperature_gate_pass": false,
+  "selected_candidate_equilibrium": true,
+  "selected_candidate_id": "SEEBECK_WANG_SHI_2011",
+  "selected_candidate_machine_readable_ready": false,
+  "selected_candidate_uncertainty_ready": false,
+  "selected_coordinates": [
+    "equilibrium_sample_temperature_K",
+    "carrier_density_1e12_cm_minus_2"
+  ],
+  "selected_observable": "equilibrium Seebeck coefficient S(T,n)",
+  "selected_sector_id": "EQ_HIGH_TN",
+  "selected_temperature_range_K": [
+    110.0,
+    260.0
+  ],
+  "status": "INCONCLUSIVE_EQ_HIGH_FOURTH_CHANNEL_ACQUISITION"
+}
