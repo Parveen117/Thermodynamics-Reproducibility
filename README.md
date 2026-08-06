@@ -51,6 +51,7 @@ The actual falsification campaign therefore requires the six pairwise bracket ch
 ## Allowed outcomes
 
 - `PASS_CONTROL`
+- `FAIL_CONTROL`
 - `NOT_FALSIFIED`
 - `FALSIFIED_MEASUREMENT_CONTRACT`
 - `INCONCLUSIVE_DATA_COVERAGE`
@@ -58,12 +59,30 @@ The actual falsification campaign therefore requires the six pairwise bracket ch
 
 No failed result may be renamed as curvature, hidden memory, or a new constitutive law after inspection. The observation contract is frozen before the residual is evaluated.
 
+## Reproduce
+
+```bash
+python -m pip install -e ".[test]"
+python -m pytest
+python scripts/run_t01_synthetic_audit.py
+```
+
+The generated certificate must match `results/T01_SYNTHETIC_AUDIT.json` exactly.
+
 ## Source hierarchy
 
 - IAPWS R6-95(2018), the official IAPWS-95 formulation for ordinary water.
 - NIST ThermoML Archive, an XML-based IUPAC representation of experimental thermophysical and thermochemical data.
 - Recognition Kernel Framework thermodynamic theorem archive.
 
-## Status
+## Current result
 
-Repository initialized. Core algebra, uncertainty propagation, synthetic audit, and data adapters are developed on review branches before merge.
+```text
+T01A common-gradient algebra                     PASS_CONTROL
+T01B small independent inconsistency             NOT_FALSIFIED
+T01B large independent inconsistency             FALSIFIED_MEASUREMENT_CONTRACT
+T01C IAPWS-95 water control                      NEXT
+T01D ThermoML independent experimental test      BLOCKED ON DATASET ASSEMBLY
+```
+
+The local validation suite currently contains seven passing tests. GitHub Actions reproduces the test suite and synthetic certificate on Python 3.11 and 3.12.
