@@ -1,0 +1,38 @@
+{
+  "campaign": "G05_MAJUMDAR_SOURCE_DATA_DISCOVERY",
+  "doi": "10.1038/s41567-025-02972-z",
+  "article_url": "https://www.nature.com/articles/s41567-025-02972-z",
+  "media_stem": "41567_2025_2972",
+  "candidate_indices": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "candidate_extensions": ["xlsx", "xls", "zip"],
+  "candidate_bases": [
+    "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41567-025-02972-z/MediaObjects/",
+    "https://static-content.springer.com/esm/art%3A10.1038%2Fs41567-025-02972-z/MediaObjects/"
+  ],
+  "expected_channel_relevance": [
+    "electrical_conductivity",
+    "electronic_thermal_conductivity",
+    "carrier_density",
+    "temperature"
+  ],
+  "audit_contract": {
+    "accept_only_official_nature_or_springer_hosts": true,
+    "record_resolved_url": true,
+    "record_byte_size": true,
+    "record_sha256": true,
+    "record_workbook_sheet_names": true,
+    "record_sheet_dimensions": true,
+    "record_cell_type_counts": true,
+    "record_formula_counts": true,
+    "record_merged_range_counts": true,
+    "record_hidden_sheet_flags": true,
+    "store_raw_workbook": false,
+    "upload_raw_workbook_as_artifact": false,
+    "store_cell_values": false
+  },
+  "allowed_statuses": [
+    "PASS_SOURCE_DATA_DISCOVERY",
+    "INCONCLUSIVE_SOURCE_DATA_DISCOVERY"
+  ],
+  "claim_boundary": "Workbook discovery establishes machine-readable availability and topology only. It does not establish a four-channel measurement contract or a graphene Pluecker result."
+}

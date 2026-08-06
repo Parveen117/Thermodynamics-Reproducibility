@@ -1,0 +1,104 @@
+{
+  "campaign": "G11_DE_COVERAGE_AND_STATE_VARIABLE_AUDIT",
+  "source": {
+    "doi": "10.1038/s41565-021-00957-6",
+    "supplement_filename": "41565_2021_957_MOESM1_ESM.pdf",
+    "supplement_sha256": "b60cec3dcec1468d9885f00bfa53912f9259a755992c7f247234aca8bb6d3b0b",
+    "supplement_page_count": 21,
+    "data_availability": "available from the corresponding author on reasonable request",
+    "corresponding_author": "Klaas-Jan Tielrooij"
+  },
+  "base_chart": {
+    "coordinates": [
+      "equilibrium_sample_temperature_K",
+      "carrier_density_1e12_cm_minus_2"
+    ],
+    "temperature_range_K": [110.0, 260.0],
+    "source": "Majumdar 2025 equilibrium transport workbooks"
+  },
+  "candidate_chart": {
+    "coordinates": [
+      "transient_peak_electron_temperature_K",
+      "carrier_density_1e12_cm_minus_2"
+    ],
+    "lattice_temperature_K": 300.0,
+    "electron_temperature_control": "incident optical power converted using T_e = sqrt(T_0^2 + bP)",
+    "density_control": "split-gate voltage converted using the hBN parallel-plate capacitance model",
+    "temperature_coordinate_matches_base_chart": false
+  },
+  "measurement_chain": {
+    "primary_observable": "interacting thermoelectric current Delta I_TE(Delta x, Delta t)",
+    "spatial_width_observables": [
+      "second moment <Delta x^2>",
+      "Gaussian width sigma_x^2",
+      "Gaussian width sigma_y^2"
+    ],
+    "diffusive_regime": {
+      "measured_conditions": "three Fermi energies between approximately 75 and 190 meV",
+      "comparison_diffusivity": "D = mu E_F / (2e) from electrical mobility measurements",
+      "direct_dense_D_surface": false
+    },
+    "hydrodynamic_regime": {
+      "estimate": "D = (width_min - width_focus) / (2 Delta t_IRF)",
+      "reported_estimates_cm2_per_s": [29000.0, 39000.0, 70000.0],
+      "direct_dense_D_surface": false
+    }
+  },
+  "figure_typing": [
+    {
+      "figure": "Fig_2e",
+      "role": "MEASURED_SPATIAL_SPREAD_WITH_MOBILITY_BASED_COMPARISON",
+      "measured_Fermi_energy_count": 3
+    },
+    {
+      "figure": "Fig_3e_f",
+      "role": "MEASURED_GAUSSIAN_WIDTHS_VERSUS_OPTICAL_POWER_AND_GATE_VOLTAGE",
+      "direct_diffusivity_table": false
+    },
+    {
+      "figure": "Fig_3g_h",
+      "role": "THEORY_CALCULATED_DIFFUSIVITY_SURFACES",
+      "fit_allowed": false
+    },
+    {
+      "figure": "Supplementary_Fig_5",
+      "role": "FULL_MEASURED_WIDTH_DATASET_VERSUS_POWER_AND_GATE_VOLTAGE",
+      "public_machine_readable_table_verified": false
+    },
+    {
+      "figure": "Supplementary_Fig_9",
+      "role": "POWER_TO_PEAK_ELECTRON_TEMPERATURE_CALIBRATION",
+      "public_machine_readable_table_verified": false
+    },
+    {
+      "figure": "Extended_Data_Fig_1",
+      "role": "ELECTRICAL_MOBILITY_AND_CALCULATED_DIFFUSIVITY",
+      "extrapolation_present": true,
+      "fit_allowed_as_direct_thermal_surface": false
+    }
+  ],
+  "replacement_gate": {
+    "raw_spatiotemporal_maps_publicly_machine_readable": false,
+    "pointwise_measured_D_Te_n_table_publicly_verified": false,
+    "power_to_Te_calibration_covariance_frozen": false,
+    "gate_to_density_calibration_covariance_frozen": false,
+    "focus_width_and_IRF_covariance_frozen": false,
+    "state_variable_alignment_with_base_chart": false,
+    "theory_surfaces_allowed_as_experimental_data": false,
+    "no_temperature_coordinate_substitution": true,
+    "no_model_surface_as_measurement": true
+  },
+  "author_request_target": {
+    "highest_priority_request": "Raw Delta I_TE(Delta x, Delta t) maps and fit outputs for every optical-power and gate-voltage condition used in Figs. 2 and 3 and Supplementary Fig. 5.",
+    "calibration_request": [
+      "incident-power to peak-electron-temperature calibration parameter b and uncertainty",
+      "gate-voltage to carrier-density calibration and uncertainty",
+      "instrument-response time and covariance",
+      "measured focus widths and covariance",
+      "Gaussian and second-moment fit covariance",
+      "device, sweep and regime labels"
+    ],
+    "derived_data_request": "Pointwise experimental diffusivity estimates with uncertainty and flags distinguishing measured, mobility-derived, simulated and Boltzmann-calculated values."
+  },
+  "claim_boundary": "G11 audits whether Block 2021 can supply an experimental D_e(T,n) replacement. Transient peak electron temperature is not silently identified with the equilibrium sample-temperature coordinate of the base channels, and calculated diffusivity surfaces are not treated as measured data."
+}

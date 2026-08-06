@@ -1,0 +1,46 @@
+{
+  "campaign": "G07_SOURCE_DATA_NUMERICAL_TOPOLOGY",
+  "doi": "10.1038/s41567-025-02972-z",
+  "source_certificate": "results/G05_SOURCE_DATA_CERTIFICATE.json",
+  "download_base": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41567-025-02972-z/MediaObjects/",
+  "target_sheets": {
+    "41567_2025_2972_MOESM5_ESM.xlsx": ["Fig_5a", "Fig_5b", "Fig_5c"],
+    "41567_2025_2972_MOESM6_ESM.xlsx": ["Fig_1c", "Fig_1d", "Fig_1g", "Fig_1h"],
+    "41567_2025_2972_MOESM7_ESM.xlsx": ["Fig_2b", "Fig_2c", "Fig_2d", "Fig_2d_inset"],
+    "41567_2025_2972_MOESM8_ESM.xlsx": ["Fig_3a", "Fig_3b", "Fig_3c", "Fig_3d", "Fig_3e"],
+    "41567_2025_2972_MOESM9_ESM.xlsx": ["Fig_4a", "Fig_4a_inset", "Fig_4b", "Fig_4b_right inset"],
+    "41567_2025_2972_MOESM10_ESM.xlsx": ["Extended_Data_Fig_1_left", "Extended_Data_Fig_1_right"]
+  },
+  "audit_contract": {
+    "verify_g05_sha256_and_byte_size": true,
+    "record_text_header_coordinates": true,
+    "maximum_recorded_text_headers_per_sheet": 160,
+    "record_numeric_cell_count": true,
+    "record_formula_cell_count": true,
+    "record_connected_numeric_block_bounds": true,
+    "record_numeric_block_count_min_max_only": true,
+    "record_labeled_horizontal_and_vertical_numeric_runs": true,
+    "record_top_numeric_rows_and_columns": true,
+    "record_raw_numeric_cells": false,
+    "record_full_numeric_arrays": false,
+    "store_raw_workbooks": false,
+    "upload_raw_workbooks_as_artifacts": false
+  },
+  "layout_classes": [
+    "LONG_FORM_TABLE_CANDIDATE",
+    "WIDE_TEMPERATURE_SERIES_CANDIDATE",
+    "GRID_SURFACE_CANDIDATE",
+    "MULTIPLE_ONE_DIMENSIONAL_CURVES",
+    "SUMMARY_OR_DERIVED_TABLE",
+    "UNRESOLVED_LAYOUT"
+  ],
+  "surface_gate": {
+    "minimum_distinct_temperature_support": 3,
+    "minimum_distinct_density_support": 5,
+    "minimum_numeric_observations": 15,
+    "requires_observable_header": true,
+    "requires_units_or_scaling_note": true,
+    "requires_uncertainty_or_replicate_contract_before_fitting": true
+  },
+  "claim_boundary": "Numerical topology can identify candidate response surfaces but does not establish independent channels, uncertainty, covariance, or a graphene Pluecker result."
+}

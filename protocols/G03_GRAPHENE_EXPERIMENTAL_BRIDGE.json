@@ -1,0 +1,112 @@
+{
+  "campaign": "G03_GRAPHENE_EXPERIMENTAL_BRIDGE",
+  "status": "TWO_CHANNEL_COMMON_DEVICE_ROUTE_AVAILABLE",
+  "significance_computed": false,
+  "target_chart": [
+    "electronic_temperature",
+    "carrier_density"
+  ],
+  "material_contract": {
+    "preferred": "hBN-encapsulated monolayer graphene",
+    "must_not_mix_without_explicit_model": [
+      "suspended and substrate-supported devices",
+      "monolayer and bilayer or magic-angle graphene",
+      "lattice and electronic temperatures",
+      "high-disorder and ultraclean transport regimes",
+      "different magnetic-field sectors"
+    ]
+  },
+  "source_routes": [
+    {
+      "source_id": "G03_SIGMA_KAPPA_MAJUMDAR_2025",
+      "doi": "10.1038/s41567-025-02972-z",
+      "title": "Universality in quantum critical flow of charge and heat in ultraclean graphene",
+      "channels": [
+        "electrical_conductivity",
+        "electronic_thermal_conductivity"
+      ],
+      "material": "ultraclean hBN-encapsulated graphene devices",
+      "strength": "two measured transport channels from a compatible device programme",
+      "repository": "NIMS Materials Data Repository dataset 6f293ba2-7f08-417f-a717-a8421b2624b7",
+      "available_files": [
+        "accepted manuscript PDF",
+        "supplementary information PDF"
+      ],
+      "machine_readable_tables_verified": false,
+      "role": "highest-priority same-device acquisition source",
+      "independence_class": "COMMON_DEVICE_CONTROL_ONLY"
+    },
+    {
+      "source_id": "G03_CE_AAMIR_2021",
+      "doi": "10.1021/acs.nanolett.1c01553",
+      "title": "Ultrasensitive Calorimetric Measurements of the Electronic Heat Capacity of Graphene",
+      "channels": [
+        "electronic_heat_capacity"
+      ],
+      "material": "monolayer graphene device",
+      "available_files": [
+        "supporting information PDF nl1c01553_si_001.pdf"
+      ],
+      "machine_readable_tables_verified": false,
+      "role": "primary heat-capacity surface candidate",
+      "independence_class": "SEPARATE_PUBLICATION"
+    },
+    {
+      "source_id": "G03_DE_BLOCK_2021",
+      "doi": "10.1038/s41565-021-00957-6",
+      "title": "Observation of giant and tunable thermal diffusivity of a Dirac fluid at room temperature",
+      "channels": [
+        "electronic_thermal_diffusivity",
+        "electrical_conductivity"
+      ],
+      "material": "hBN-encapsulated monolayer graphene",
+      "controls_reported": [
+        "electronic_temperature",
+        "carrier_density"
+      ],
+      "data_availability": "raw data available from corresponding author on reasonable request",
+      "machine_readable_tables_verified": false,
+      "role": "strongest chart-matched diffusivity source",
+      "independence_class": "SEPARATE_PUBLICATION"
+    },
+    {
+      "source_id": "G03_CQ_XIA_2009",
+      "doi": "10.1038/nnano.2009.177",
+      "title": "Measurement of the quantum capacitance of graphene",
+      "channels": [
+        "quantum_capacitance"
+      ],
+      "coverage_limitation": "publicly visible coverage is primarily gate potential or carrier density, not a verified two-dimensional temperature-density surface",
+      "machine_readable_tables_verified": false,
+      "role": "compressibility anchor pending temperature coverage",
+      "independence_class": "SEPARATE_PUBLICATION"
+    }
+  ],
+  "acquisition_order": [
+    "Audit the Majumdar 2025 supplement for explicit temperature-density tables for electrical and thermal conductivity.",
+    "Recover Aamir 2021 heat-capacity values and uncertainty from its supplement or obtain author-supplied raw data.",
+    "Request or reproducibly digitize Block 2021 diffusivity data with carrier-temperature and density coordinates.",
+    "Resolve the missing temperature dimension for quantum capacitance or replace that channel before freezing the four-channel contract."
+  ],
+  "allowed_next_outputs": [
+    "source hashes and licences",
+    "axis and unit manifests",
+    "digitization uncertainty certificates",
+    "same-device two-channel coverage maps",
+    "INCONCLUSIVE_DATA_COVERAGE"
+  ],
+  "forbidden_until_four_surface_gate": [
+    "graphene Pluecker residual",
+    "graphene Pluecker sigma significance",
+    "claim that spatial two-dimensionality confirms the state-manifold theorem",
+    "reuse of one fitted four-channel model as independent experimental evidence"
+  ],
+  "four_surface_gate": {
+    "required_channels": 4,
+    "required_chart_dimensions": 2,
+    "required_uncertainty": true,
+    "required_sample_compatibility_audit": true,
+    "required_provenance_freeze_before_residual": true,
+    "current_status": "NOT_MET"
+  }
+}

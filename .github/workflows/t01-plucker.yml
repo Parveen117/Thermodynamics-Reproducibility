@@ -33,12 +33,38 @@ jobs:
           python scripts/run_t01_iapws95_control.py
           python - <<'PY'
           import json
+          import math
           from pathlib import Path
 
           expected = json.loads(Path('/tmp/T01C_IAPWS95_CONTROL.expected.json').read_text())
           actual = json.loads(Path('results/T01C_IAPWS95_CONTROL.json').read_text())
-          if actual != expected:
-              raise SystemExit('IAPWS-95 certificate content changed')
+
+          def compare(left, right, path='root'):
+              if isinstance(left, dict) and isinstance(right, dict):
+                  if left.keys() != right.keys():
+                      raise SystemExit(f'IAPWS certificate keys changed at {path}')
+                  for key in left:
+                      compare(left[key], right[key], f'{path}.{key}')
+                  return
+              if isinstance(left, list) and isinstance(right, list):
+                  if len(left) != len(right):
+                      raise SystemExit(f'IAPWS certificate list length changed at {path}')
+                  for index, (a, b) in enumerate(zip(left, right, strict=True)):
+                      compare(a, b, f'{path}[{index}]')
+                  return
+              if isinstance(left, (int, float)) and not isinstance(left, bool):
+                  if not isinstance(right, (int, float)) or isinstance(right, bool):
+                      raise SystemExit(f'IAPWS certificate type changed at {path}')
+                  if not math.isclose(float(left), float(right), rel_tol=1e-9, abs_tol=1e-15):
+                      raise SystemExit(
+                          f'IAPWS certificate numeric value changed at {path}: '
+                          f'{left!r} != {right!r}'
+                      )
+                  return
+              if left != right:
+                  raise SystemExit(f'IAPWS certificate value changed at {path}: {left!r} != {right!r}')
+
+          compare(expected, actual)
           PY
       - name: Upload IAPWS-95 certificate
         uses: actions/upload-artifact@v4

@@ -1,0 +1,86 @@
+{
+  "campaign": "G07_SOURCE_DATA_NUMERICAL_TOPOLOGY",
+  "status": "PASS_NUMERICAL_TOPOLOGY",
+  "workflow_run_id": 31081284131,
+  "workflow_head_sha": "deb0a2990e40bb23b296289bf4386700b957e894",
+  "artifact_id": 8959586620,
+  "artifact_digest": "sha256:22d0a33be50a1952cf110436a2cb5d0072b7cef4fddc4aa823e4158802eae14c",
+  "workbook_count": 6,
+  "sheet_count": 22,
+  "pin_failures": [],
+  "strict_structural_surface_candidate_count": 0,
+  "strict_gate_interpretation": "The generic long-form surface gate did not pass because temperature and density are encoded in repeated paired-column layouts or metadata rows rather than one standardized T-n-observable table. The failure is not evidence that numerical data are absent.",
+  "high_priority_layouts": [
+    {
+      "filename": "41567_2025_2972_MOESM6_ESM.xlsx",
+      "sheet": "Fig_1c",
+      "observable": "electrical conductance G",
+      "layout": "repeated n-G column pairs indexed by temperature",
+      "numeric_cell_count": 22724,
+      "detected_temperature_series_count": 14,
+      "density_observable_pairs": 14,
+      "uncertainty_marker_present": false,
+      "status": "MANUAL_SCHEMA_REQUIRED"
+    },
+    {
+      "filename": "41567_2025_2972_MOESM5_ESM.xlsx",
+      "sheet": "Fig_5c",
+      "observable": "Lorenz ratio L/L0",
+      "layout": "twelve repeated n-response pairs: measured, ideal, and phenomenological sets at four temperatures",
+      "numeric_cell_count": 9750,
+      "density_observable_pairs": 12,
+      "measured_pair_count": 4,
+      "theory_or_model_pair_count": 8,
+      "uncertainty_marker_present": false,
+      "status": "MANUAL_SCHEMA_REQUIRED_AND_THEORY_SEPARATION_REQUIRED"
+    },
+    {
+      "filename": "41567_2025_2972_MOESM9_ESM.xlsx",
+      "sheet": "Fig_4a_inset",
+      "observable": "Sigma minus Sigma(0,T)",
+      "layout": "repeated density-response pairs indexed by temperature",
+      "numeric_cell_count": 25036,
+      "detected_temperature_series_count": 39,
+      "uncertainty_marker_present": false,
+      "status": "MANUAL_SCHEMA_REQUIRED"
+    },
+    {
+      "filename": "41567_2025_2972_MOESM8_ESM.xlsx",
+      "sheet": "Fig_3c",
+      "observable": "Sigma_Q",
+      "layout": "compact electrical-transport table with T, n, and Sigma_Q labels",
+      "numeric_cell_count": 55,
+      "uncertainty_marker_present": false,
+      "status": "SMALL_TABLE_SCHEMA_AUDIT_REQUIRED"
+    },
+    {
+      "filename": "41567_2025_2972_MOESM8_ESM.xlsx",
+      "sheet": "Fig_3d",
+      "observable": "Sigma_Q",
+      "layout": "wide temperature-and-doping series",
+      "numeric_cell_count": 4443,
+      "uncertainty_marker_present": false,
+      "status": "MANUAL_SCHEMA_REQUIRED"
+    },
+    {
+      "filename": "41567_2025_2972_MOESM10_ESM.xlsx",
+      "sheet": "Extended_Data_Fig_1_right",
+      "observable": "dV/dI versus DC current bias",
+      "layout": "temperature-indexed nonlinear transport curves at selected density classes",
+      "numeric_cell_count": 3224,
+      "status": "AUXILIARY_NONLINEAR_TRANSPORT_NOT_PRIMARY_RESPONSE_SURFACE"
+    }
+  ],
+  "fit_gate": {
+    "raw_workbooks_available": true,
+    "exact_paired_column_schema_frozen": false,
+    "measurement_vs_theory_columns_separated": false,
+    "reported_uncertainty_available_in_candidate_sheets": false,
+    "fit_allowed": false,
+    "next_stage": "G08_EXPLICIT_COLUMN_SCHEMA_AND_COVERAGE_AUDIT"
+  },
+  "raw_workbooks_stored": false,
+  "raw_numeric_cells_recorded": false,
+  "experimental_plucker_significance_computed": false,
+  "claim_boundary": "G07 establishes source-data topology only. It does not yet authorize fitting, bracket construction, or a graphene Pluecker significance."
+}

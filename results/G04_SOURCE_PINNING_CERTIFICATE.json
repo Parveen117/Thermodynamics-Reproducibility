@@ -1,0 +1,77 @@
+{
+  "campaign": "G04_GRAPHENE_SOURCE_PINNING",
+  "status": "PASS_SOURCE_PINNING",
+  "workflow_run_id": 31079440310,
+  "workflow_head_sha": "ab1e5d37957e972f5092e65bce528195cc054cf4",
+  "artifact_id": 8958863582,
+  "artifact_digest": "sha256:636090d8a3f0479a8e57a9c522e6066eacfc4f3e4cef429584cdbc4a78679eb8",
+  "source_count": 4,
+  "pinned_source_count": 4,
+  "machine_readable_ready_channels": [],
+  "source_files_committed": false,
+  "source_files_uploaded_as_artifacts": false,
+  "experimental_plucker_significance_computed": false,
+  "sources": [
+    {
+      "source_id": "G04_MAJUMDAR_2025_MANUSCRIPT",
+      "filename": "2025A01299G_Author's Accepted Manuscript.pdf",
+      "acquisition_route": "NIMS dataset ZIP extraction",
+      "byte_size": 5022223,
+      "sha256": "4e21186e3d9a999ce71f180e0b26fdabb5041c60959824e54a71fac95720fff7",
+      "page_count": 15,
+      "topology_status": "PDF_TEXT_AND_FIGURES_ONLY",
+      "machine_readable_attachment_names": [],
+      "keyword_totals": {
+        "chart": 10,
+        "conductivity": 13,
+        "uncertainty": 1
+      }
+    },
+    {
+      "source_id": "G04_MAJUMDAR_2025_SUPPLEMENT",
+      "filename": "2025A01299G_41567_2025_2972_MOESM1_ESM.pdf",
+      "acquisition_route": "NIMS dataset ZIP extraction",
+      "byte_size": 2897821,
+      "sha256": "9b867524ddeb073e798bbed5bc6062a321a28d1d148f0832ba861cbe8d4c8e12",
+      "page_count": 22,
+      "topology_status": "PDF_TEXT_AND_FIGURES_ONLY",
+      "machine_readable_attachment_names": [],
+      "keyword_totals": {
+        "chart": 11,
+        "conductivity": 18,
+        "uncertainty": 0
+      }
+    },
+    {
+      "source_id": "G04_AAMIR_2021_SUPPLEMENT",
+      "filename": "nl1c01553_si_001.pdf",
+      "acquisition_route": "ACS Figshare API fallback",
+      "byte_size": 1999547,
+      "sha256": "f3665ddf503d23400452d10366a39e783ab58ceabe5c80b04a03f2c375c7ef05",
+      "page_count": 31,
+      "topology_status": "PDF_TEXT_AND_FIGURES_ONLY",
+      "machine_readable_attachment_names": [],
+      "keyword_totals": {
+        "chart": 37,
+        "calorimetry": 33,
+        "uncertainty": 8
+      }
+    },
+    {
+      "source_id": "G04_BLOCK_2021_SUPPLEMENT",
+      "filename": "41565_2021_957_MOESM1_ESM.pdf",
+      "acquisition_route": "Springer Nature direct supplementary URL",
+      "byte_size": 1698762,
+      "sha256": "b60cec3dcec1468d9885f00bfa53912f9259a755992c7f247234aca8bb6d3b0b",
+      "page_count": 21,
+      "topology_status": "PDF_TEXT_AND_FIGURES_ONLY",
+      "machine_readable_attachment_names": [],
+      "keyword_totals": {
+        "chart": 16,
+        "diffusivity": 5,
+        "uncertainty": 3
+      }
+    }
+  ],
+  "claim_boundary": "All four official PDF sources are provenance-pinned. None contains an embedded machine-readable response table, so no graphene experimental Pluecker residual or significance is computed."
+}

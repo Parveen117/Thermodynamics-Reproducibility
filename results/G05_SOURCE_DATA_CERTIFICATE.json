@@ -1,0 +1,106 @@
+{
+  "campaign": "G05_MAJUMDAR_SOURCE_DATA_DISCOVERY",
+  "doi": "10.1038/s41567-025-02972-z",
+  "status": "PASS_SOURCE_DATA_DISCOVERY",
+  "workflow_run_id": 31079870532,
+  "workflow_head_sha": "4be96318f9db4788c366f492a7f6cd71a0efd6c9",
+  "artifact_id": 8959026849,
+  "artifact_digest": "sha256:ea9f0fe9c3bd66e3137090e56a883f3820a9ce30f38422dab37ef547234f9743",
+  "workbook_count": 9,
+  "raw_workbooks_stored": false,
+  "raw_workbooks_uploaded_as_artifacts": false,
+  "experimental_plucker_significance_computed": false,
+  "workbooks": [
+    {
+      "filename": "41567_2025_2972_MOESM2_ESM.xlsx",
+      "byte_size": 179389,
+      "sha256": "aa43c5b3f04c1c2f647916e93fb2469bf1f9729430e1d0f11ce9ee50759b0131",
+      "sheet_count": 4,
+      "sheet_titles": ["Fig_S2c", "Fig_S2d", "Fig_S2e", "Fig_S2f"],
+      "numeric_cell_count": 15288,
+      "text_cell_count": 37,
+      "formula_cell_count": 0
+    },
+    {
+      "filename": "41567_2025_2972_MOESM3_ESM.xlsx",
+      "byte_size": 81332,
+      "sha256": "21ba12161e215510e609ec3b79560d984d281c0ae6c95f61b5db112f595ed4c6",
+      "sheet_count": 2,
+      "sheet_titles": ["Fig_S3a", "Fig_S3b"],
+      "numeric_cell_count": 5304,
+      "text_cell_count": 3555,
+      "formula_cell_count": 0
+    },
+    {
+      "filename": "41567_2025_2972_MOESM4_ESM.xlsx",
+      "byte_size": 6678970,
+      "sha256": "52b189ba39d84c51e8280cc855b367222ecc7c290e828e7e4d3464baa8cc3794",
+      "sheet_count": 2,
+      "sheet_titles": ["Fig_S4b", "Fig_S4c"],
+      "numeric_cell_count": 776485,
+      "text_cell_count": 10,
+      "formula_cell_count": 0
+    },
+    {
+      "filename": "41567_2025_2972_MOESM5_ESM.xlsx",
+      "byte_size": 104093,
+      "sha256": "c6ab475172dbcb0120a04623b9cc8ed8917a7a990a529747bbbe0a19c799f5d7",
+      "sheet_count": 3,
+      "sheet_titles": ["Fig_5a", "Fig_5b", "Fig_5c"],
+      "numeric_cell_count": 12982,
+      "text_cell_count": 66,
+      "formula_cell_count": 0
+    },
+    {
+      "filename": "41567_2025_2972_MOESM6_ESM.xlsx",
+      "byte_size": 208349,
+      "sha256": "9f0ae870bfd1885f00d54f14f4deaa118f22c6a064ef95a8772507a8e54ca7e5",
+      "sheet_count": 6,
+      "sheet_titles": ["Fig_1c", "Fig_1d", "Fig_1e", "Fig_1f", "Fig_1g", "Fig_1h"],
+      "numeric_cell_count": 24136,
+      "text_cell_count": 14294,
+      "formula_cell_count": 0
+    },
+    {
+      "filename": "41567_2025_2972_MOESM7_ESM.xlsx",
+      "byte_size": 14623,
+      "sha256": "77da749f1fda7dce168472c1b484419a5dd9de5be3f1d143cce00f9b53d3c265",
+      "sheet_count": 4,
+      "sheet_titles": ["Fig_2b", "Fig_2c", "Fig_2d", "Fig_2d_inset"],
+      "numeric_cell_count": 430,
+      "text_cell_count": 93,
+      "formula_cell_count": 0
+    },
+    {
+      "filename": "41567_2025_2972_MOESM8_ESM.xlsx",
+      "byte_size": 81167,
+      "sha256": "876d1b9a800a92b1fffe92293aaf421f8a6848a4f6c8ab169f7d142d57c1855d",
+      "sheet_count": 5,
+      "sheet_titles": ["Fig_3a", "Fig_3b", "Fig_3c", "Fig_3d", "Fig_3e"],
+      "numeric_cell_count": 7316,
+      "text_cell_count": 762,
+      "formula_cell_count": 0
+    },
+    {
+      "filename": "41567_2025_2972_MOESM9_ESM.xlsx",
+      "byte_size": 165193,
+      "sha256": "aebcc419bbd7dc77e55a807ca32d00340f33c19504e66231ccf359b2b431b01e",
+      "sheet_count": 4,
+      "sheet_titles": ["Fig_4a", "Fig_4a_inset", "Fig_4b", "Fig_4b_right inset"],
+      "numeric_cell_count": 25887,
+      "text_cell_count": 492,
+      "formula_cell_count": 0
+    },
+    {
+      "filename": "41567_2025_2972_MOESM10_ESM.xlsx",
+      "byte_size": 1346684,
+      "sha256": "0354a2dd4e7db543dd2015f80eab1e1ebcbf0cd78becd01fcf9c12aefa3f4ba5",
+      "sheet_count": 2,
+      "sheet_titles": ["Extended_Data_Fig_1_left", "Extended_Data_Fig_1_right"],
+      "numeric_cell_count": 170255,
+      "text_cell_count": 97,
+      "formula_cell_count": 0
+    }
+  ],
+  "claim_boundary": "Nine official source-data workbooks are machine-readable and provenance-pinned. Their existence does not by itself establish two-dimensional local support, channel independence, a four-channel contract, or a graphene Pluecker result."
+}

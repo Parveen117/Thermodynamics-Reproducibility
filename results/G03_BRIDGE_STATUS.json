@@ -1,0 +1,29 @@
+{
+  "campaign": "G03_GRAPHENE_EXPERIMENTAL_BRIDGE",
+  "status": "TWO_CHANNEL_COMMON_DEVICE_ROUTE_AVAILABLE",
+  "experimental_plucker_significance_computed": false,
+  "completed": [
+    "G01 primary-source feasibility ledger",
+    "G02 ideal massless-Dirac common-model control",
+    "G03 same-device electrical and thermal conductivity source identification",
+    "G03 acquisition and digitization contracts"
+  ],
+  "g02_control": {
+    "status": "PASS_CONTROL",
+    "maximum_normalized_plucker_residual": 9.623875392445127e-18,
+    "maximum_skew_rank_tail_ratio": 1.137913056238364e-16,
+    "maximum_neutrality_formula_error": 9.464077248116687e-15,
+    "maximum_mu_parity_error": 0.0
+  },
+  "experimental_coverage": {
+    "same_device_channels_available_for_acquisition": [
+      "electrical_conductivity",
+      "electronic_thermal_conductivity"
+    ],
+    "heat_capacity_candidate": "PDF_AND_SUPPORTING_INFORMATION_AVAILABLE",
+    "thermal_diffusivity_candidate": "AUTHOR_DATA_OR_DIGITIZATION",
+    "temperature_resolved_quantum_capacitance": "UNRESOLVED",
+    "four_surface_gate": "NOT_MET"
+  },
+  "next_gate": "Pin source files and audit numerical table topology before any digitization or experimental residual."
+}

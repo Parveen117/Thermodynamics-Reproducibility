@@ -1,0 +1,46 @@
+{
+  "base_temperature_range_K": [
+    110.0,
+    260.0
+  ],
+  "campaign": "G10_CE_COVERAGE_AND_AUTHOR_DATA_CONTRACT",
+  "claim_boundary": "G10 audits whether the measured heat-capacity data can replace the missing fourth response channel. Theory curves and the second-device unnormalized estimate are not experimental replacement surfaces. No Pluecker residual or significance is computed.",
+  "decisive_reason": "Measured density-resolved heat-capacity curves stop at 100 K, below the 110 K lower bound of the current base-channel range. The measured 15-195 K temperature sweep is at one fixed carrier density and therefore cannot supply local derivatives in both T and n.",
+  "density_resolved_ce_temperature_support_K": [
+    15.5,
+    60.0,
+    100.0
+  ],
+  "density_resolved_exact_overlap_K": [],
+  "errors": [],
+  "experimental_plucker_significance_computed": false,
+  "fallback_next_channel": "DE_BLOCK_2021",
+  "fit_allowed": false,
+  "fixed_density_ce_temperature_range_K": [
+    15.0,
+    195.0
+  ],
+  "fixed_density_continuous_overlap_K": [
+    110.0,
+    195.0
+  ],
+  "fixed_density_overlap_is_two_dimensional": false,
+  "selected_next_action": "REQUEST_OR_DIGITIZE_ADDITIONAL_DENSITY_SWEEPS_AT_110_TO_195_K",
+  "status": "INCONCLUSIVE_TWO_DIMENSIONAL_COMMON_DOMAIN",
+  "supplement_pin_verified": true,
+  "two_dimensional_replacement_ready": false,
+  "verification": {
+    "workflow_run_id": 31084233191,
+    "head_sha": "bfe97238fe9a83a23f2423cea8e4b45d5afb8fc1",
+    "python_3_11": {
+      "status": "SUCCESS",
+      "artifact_id": 8960729510,
+      "artifact_digest": "sha256:d1e50fb0993b15a89a92f184b3d7476381634bd0375bc93075befabcc36a2f4b"
+    },
+    "python_3_12": {
+      "status": "SUCCESS",
+      "artifact_id": 8960732999,
+      "artifact_digest": "sha256:deeb6ae8486fb7a8343e69ae6c7316997fb0328364a6bff3b26be238c9299660"
+    }
+  }
+}

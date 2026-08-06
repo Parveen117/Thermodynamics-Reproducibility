@@ -1,0 +1,60 @@
+name: G10 graphene heat-capacity coverage
+
+on:
+  push:
+    paths:
+      - ".github/workflows/g10-ce-coverage.yml"
+      - "protocols/G10_CE_COVERAGE_CONTRACT.json"
+      - "scripts/run_g10_ce_coverage_audit.py"
+      - "tests/test_g10_ce_coverage.py"
+      - "results/G10_CE_COVERAGE_CERTIFICATE.json"
+      - "graphene/G10_CE_ACQUISITION_AND_DIGITIZATION.md"
+  pull_request:
+    paths:
+      - ".github/workflows/g10-ce-coverage.yml"
+      - "protocols/G10_CE_COVERAGE_CONTRACT.json"
+      - "scripts/run_g10_ce_coverage_audit.py"
+      - "tests/test_g10_ce_coverage.py"
+      - "results/G10_CE_COVERAGE_CERTIFICATE.json"
+      - "graphene/G10_CE_ACQUISITION_AND_DIGITIZATION.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-coverage:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[test]"
+      - name: Test G10 coverage gates
+        run: python -m pytest tests/test_g10_ce_coverage.py
+      - name: Reproduce G10 certificate
+        run: |
+          cp results/G10_CE_COVERAGE_CERTIFICATE.json /tmp/G10.expected.json
+          python scripts/run_g10_ce_coverage_audit.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path('/tmp/G10.expected.json').read_text())
+          actual = json.loads(Path('results/G10_CE_COVERAGE_CERTIFICATE.json').read_text())
+          expected.pop('verification', None)
+          if expected != actual:
+              raise SystemExit('G10 certificate changed')
+          PY
+      - name: Upload G10 certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: g10-ce-coverage-python-${{ matrix.python-version }}
+          path: results/G10_CE_COVERAGE_CERTIFICATE.json
+          if-no-files-found: error

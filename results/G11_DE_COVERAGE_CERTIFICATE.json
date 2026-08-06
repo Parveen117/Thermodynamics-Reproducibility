@@ -1,0 +1,40 @@
+{
+  "author_data_required": true,
+  "base_temperature_coordinate": "equilibrium_sample_temperature_K",
+  "calculated_diffusivity_surface_excluded": true,
+  "campaign": "G11_DE_COVERAGE_AND_STATE_VARIABLE_AUDIT",
+  "candidate_temperature_coordinate": "transient_peak_electron_temperature_K",
+  "claim_boundary": "G11 audits whether Block 2021 can supply an experimental D_e(T,n) replacement. Transient peak electron temperature is not silently identified with the equilibrium sample-temperature coordinate of the base channels, and calculated diffusivity surfaces are not treated as measured data.",
+  "decisive_reasons": [
+    "The base channels use an equilibrium sample-temperature coordinate, while Block 2021 varies a transient peak electron temperature inferred from optical power at fixed 300 K lattice temperature.",
+    "The primary measurement is Delta I_TE spatial-temporal response and fitted width, not a public pointwise measured D(T_e,n) table.",
+    "The complete Fig. 3g-h diffusivity surfaces are Boltzmann calculations and cannot be promoted to experimental response channels.",
+    "Power, density, focus-width and instrument-response covariance are not frozen from public machine-readable data."
+  ],
+  "direct_dense_measured_diffusivity_surface": false,
+  "errors": [],
+  "experimental_plucker_significance_computed": false,
+  "fit_allowed": false,
+  "lattice_temperature_K": 300.0,
+  "next_stage": "G12_TEMPERATURE_COORDINATE_REDESIGN",
+  "primary_measured_observable": "interacting thermoelectric current Delta I_TE(Delta x, Delta t)",
+  "selected_next_action": "REQUEST_RAW_MAPS_FIT_OUTPUTS_AND_CALIBRATIONS",
+  "status": "INCONCLUSIVE_STATE_VARIABLE_ALIGNMENT_AND_MEASURED_SURFACE",
+  "supplement_pin_verified": true,
+  "temperature_coordinates_identical": false,
+  "two_dimensional_replacement_ready": false,
+  "verification": {
+    "workflow_run_id": 31084233105,
+    "head_sha": "bfe97238fe9a83a23f2423cea8e4b45d5afb8fc1",
+    "python_3_11": {
+      "status": "SUCCESS",
+      "artifact_id": 8960730523,
+      "artifact_digest": "sha256:96a28dd71b4762b66f7da18d8d6df2c9f338886ae87a05d8027f02d374056fa4"
+    },
+    "python_3_12": {
+      "status": "SUCCESS",
+      "artifact_id": 8960729881,
+      "artifact_digest": "sha256:96a28dd71b4762b66f7da18d8d6df2c9f338886ae87a05d8027f02d374056fa4"
+    }
+  }
+}

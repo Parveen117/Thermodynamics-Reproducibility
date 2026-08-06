@@ -1,0 +1,112 @@
+{
+  "campaign": "G08_GRAPHENE_FOUR_CHANNEL_SCHEMA",
+  "doi": "10.1038/s41567-025-02972-z",
+  "source_certificate": "results/G05_SOURCE_DATA_CERTIFICATE.json",
+  "download_base": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41567-025-02972-z/MediaObjects/",
+  "state_chart": ["temperature_K", "carrier_density_1e12_cm_minus_2"],
+  "channels": [
+    {
+      "channel_id": "G_CONDUCTANCE",
+      "observable": "electrical conductance G",
+      "workbook": "41567_2025_2972_MOESM6_ESM.xlsx",
+      "sheet": "Fig_1c",
+      "schema_type": "PAIRED_WIDE_SERIES",
+      "x_header": "n",
+      "y_header": "G",
+      "temperature_metadata_row": 2,
+      "unit_row": 3,
+      "data_start_row": 5,
+      "density_scale_to_chart_unit": 1e-16,
+      "pair_columns": [
+        ["B", "C"], ["D", "E"], ["F", "G"], ["H", "I"],
+        ["J", "K"], ["L", "M"], ["N", "O"], ["P", "Q"],
+        ["R", "S"], ["T", "U"], ["V", "W"], ["X", "Y"],
+        ["Z", "AA"], ["AB", "AC"]
+      ],
+      "measurement_class": "DIRECT_TRANSPORT_RESPONSE",
+      "reported_uncertainty_in_sheet": false
+    },
+    {
+      "channel_id": "KE_THERMAL_CONDUCTANCE",
+      "observable": "electronic thermal conductance K_e",
+      "workbook": "41567_2025_2972_MOESM8_ESM.xlsx",
+      "sheet": "Fig_3a",
+      "schema_type": "PAIRED_WIDE_SERIES",
+      "x_header": "n",
+      "y_header": "K_e",
+      "temperature_metadata_row": 3,
+      "temperature_metadata_column": "y",
+      "unit_row": 2,
+      "data_start_row": 5,
+      "density_scale_to_chart_unit": 1.0,
+      "pair_columns": [["B", "C"], ["D", "E"], ["F", "G"]],
+      "measurement_class": "EXTRACTED_THERMAL_TRANSPORT_RESPONSE",
+      "reported_uncertainty_in_sheet": false
+    },
+    {
+      "channel_id": "SIGMA_Q",
+      "observable": "quantum-critical conductivity Sigma_Q",
+      "workbook": "41567_2025_2972_MOESM8_ESM.xlsx",
+      "sheet": "Fig_3c",
+      "schema_type": "TEMPERATURE_BY_DENSITY_GRID",
+      "temperature_column": "B",
+      "temperature_start_row": 5,
+      "temperature_end_row": 10,
+      "density_metadata_row": 3,
+      "density_start_column": "C",
+      "density_end_column": "I",
+      "observable_start_row": 5,
+      "observable_end_row": 10,
+      "observable_start_column": "C",
+      "observable_end_column": "I",
+      "unit_row": 2,
+      "density_scale_to_chart_unit": 1.0,
+      "measurement_class": "FIT_EXTRACTED_TRANSPORT_PARAMETER",
+      "reported_uncertainty_in_sheet": false
+    },
+    {
+      "channel_id": "LORENZ_RATIO",
+      "observable": "Lorenz ratio L/L0",
+      "workbook": "41567_2025_2972_MOESM5_ESM.xlsx",
+      "sheet": "Fig_5c",
+      "schema_type": "PAIRED_WIDE_SERIES",
+      "x_header": "n",
+      "y_header": "L/L0",
+      "temperature_metadata_row": 3,
+      "unit_row": 2,
+      "data_start_row": 5,
+      "density_scale_to_chart_unit": 1.0,
+      "pair_columns": [["B", "C"], ["D", "E"], ["F", "G"], ["H", "I"]],
+      "excluded_model_columns": {
+        "ideal": [["J", "K"], ["L", "M"], ["N", "O"], ["P", "Q"]],
+        "phenomenological": [["R", "S"], ["T", "U"], ["V", "W"], ["X", "Y"]]
+      },
+      "measurement_class": "MEASURED_DERIVED_RATIO",
+      "reported_uncertainty_in_sheet": false
+    }
+  ],
+  "coverage_contract": {
+    "minimum_points_per_series": 5,
+    "no_temperature_extrapolation": true,
+    "no_density_extrapolation": true,
+    "strict_common_domain_required_before_fitting": true,
+    "exact_temperature_support_intersection_reported": true,
+    "continuous_temperature_range_intersection_reported": true,
+    "density_range_intersection_reported": true
+  },
+  "independence_contract": {
+    "same_publication": true,
+    "shared_device_or_calibration_possible": true,
+    "derived_channels_present": true,
+    "independent_six_bracket_falsification": false,
+    "allowed_role": "SOURCE_DATA_CONTROL_AND_FEASIBILITY_ONLY"
+  },
+  "allowed_statuses": [
+    "PASS_SCHEMA_AUDIT",
+    "INCONCLUSIVE_COMMON_DOMAIN",
+    "INCONCLUSIVE_UNCERTAINTY_MODEL",
+    "INCONCLUSIVE_SOURCE_INDEPENDENCE",
+    "FAIL_SCHEMA_AUDIT"
+  ],
+  "claim_boundary": "G08 may establish four source-data response channels and their common-domain geometry. It cannot claim independent experimental Pluecker confirmation because all channels come from one publication and no channel-level covariance is yet frozen."
+}

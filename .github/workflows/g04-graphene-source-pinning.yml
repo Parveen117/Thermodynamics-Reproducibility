@@ -1,0 +1,68 @@
+name: G04 graphene official source pinning
+
+on:
+  push:
+    paths:
+      - ".github/workflows/g04-graphene-source-pinning.yml"
+      - "protocols/G04_GRAPHENE_SOURCE_PINNING.json"
+      - "scripts/run_g04_source_acquisition.py"
+      - "scripts/run_g04_source_acquisition_v2.py"
+      - "scripts/validate_g04_source_pins.py"
+      - "tests/test_g04_source_acquisition.py"
+      - "tests/test_g04_source_acquisition_v2.py"
+      - "tests/test_g04_pin_validation.py"
+      - "results/G04_SOURCE_PINNING_CERTIFICATE.json"
+  pull_request:
+    paths:
+      - ".github/workflows/g04-graphene-source-pinning.yml"
+      - "protocols/G04_GRAPHENE_SOURCE_PINNING.json"
+      - "scripts/run_g04_source_acquisition.py"
+      - "scripts/run_g04_source_acquisition_v2.py"
+      - "scripts/validate_g04_source_pins.py"
+      - "tests/test_g04_source_acquisition.py"
+      - "tests/test_g04_source_acquisition_v2.py"
+      - "tests/test_g04_pin_validation.py"
+      - "results/G04_SOURCE_PINNING_CERTIFICATE.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install -e ".[test]"
+          python -m pip install "pypdf==5.9.0"
+      - name: Test acquisition and pin helpers
+        run: |
+          python -m pytest \
+            tests/test_g04_source_acquisition.py \
+            tests/test_g04_source_acquisition_v2.py \
+            tests/test_g04_pin_validation.py
+      - name: Acquire official PDFs and emit metadata-only audit
+        run: python scripts/run_g04_source_acquisition_v2.py
+      - name: Validate observed files against frozen pins
+        run: python scripts/validate_g04_source_pins.py
+      - name: Confirm source files were not retained
+        run: |
+          if find . -type f -iname '*.pdf' -print -quit | grep -q .; then
+            echo 'PDF source file unexpectedly retained in the checkout' >&2
+            exit 1
+          fi
+      - name: Upload metadata-only certificates
+        uses: actions/upload-artifact@v4
+        with:
+          name: g04-graphene-source-acquisition-audit
+          path: |
+            results/G04_SOURCE_ACQUISITION_AUDIT.json
+            results/G04_PIN_VALIDATION.json
+          if-no-files-found: error

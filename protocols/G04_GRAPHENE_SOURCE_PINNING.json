@@ -1,0 +1,78 @@
+{
+  "campaign": "G04_GRAPHENE_SOURCE_PINNING",
+  "stage": "OFFICIAL_PDF_ACQUISITION_AND_TOPOLOGY_AUDIT",
+  "source_files_committed": false,
+  "output_file": "results/G04_SOURCE_ACQUISITION_AUDIT.json",
+  "sources": [
+    {
+      "source_id": "G04_MAJUMDAR_2025_MANUSCRIPT",
+      "doi": "10.1038/s41567-025-02972-z",
+      "landing_url": "https://mdr.nims.go.jp/datasets/6f293ba2-7f08-417f-a717-a8421b2624b7?locale=en",
+      "expected_filename": "2025A01299G_Author's Accepted Manuscript.pdf",
+      "channels": ["electrical_conductivity", "electronic_thermal_conductivity"],
+      "rights": "In Copyright; Springer Nature accepted-manuscript terms apply",
+      "redistribute_source_file": false,
+      "min_bytes": 1000000
+    },
+    {
+      "source_id": "G04_MAJUMDAR_2025_SUPPLEMENT",
+      "doi": "10.1038/s41567-025-02972-z",
+      "landing_url": "https://mdr.nims.go.jp/datasets/6f293ba2-7f08-417f-a717-a8421b2624b7?locale=en",
+      "expected_filename": "2025A01299G_41567_2025_2972_MOESM1_ESM.pdf",
+      "channels": ["electrical_conductivity", "electronic_thermal_conductivity"],
+      "rights": "In Copyright; repository access does not imply unrestricted redistribution",
+      "redistribute_source_file": false,
+      "min_bytes": 1000000
+    },
+    {
+      "source_id": "G04_AAMIR_2021_SUPPLEMENT",
+      "doi": "10.1021/acs.nanolett.1c01553",
+      "direct_urls": [
+        "https://pubs.acs.org/doi/suppl/10.1021/acs.nanolett.1c01553/suppl_file/nl1c01553_si_001.pdf",
+        "https://pubs.acs.org/doi/suppl/10.1021/acs.nanolett.1c01553/suppl_file/nl1c01553_si_001.pdf?download=1"
+      ],
+      "figshare_search_title": "Ultrasensitive Calorimetric Measurements of the Electronic Heat Capacity of Graphene",
+      "landing_url": "https://pubs.acs.org/doi/10.1021/acs.nanolett.1c01553",
+      "expected_filename": "nl1c01553_si_001.pdf",
+      "channels": ["electronic_heat_capacity"],
+      "rights": "Copyright American Chemical Society; free supporting-information access",
+      "redistribute_source_file": false,
+      "min_bytes": 500000
+    },
+    {
+      "source_id": "G04_BLOCK_2021_SUPPLEMENT",
+      "doi": "10.1038/s41565-021-00957-6",
+      "direct_urls": [
+        "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41565-021-00957-6/MediaObjects/41565_2021_957_MOESM1_ESM.pdf"
+      ],
+      "landing_url": "https://www.nature.com/articles/s41565-021-00957-6",
+      "expected_filename": "41565_2021_957_MOESM1_ESM.pdf",
+      "channels": ["electronic_thermal_diffusivity"],
+      "rights": "Creative Commons Attribution 4.0 article and supplementary information",
+      "redistribute_source_file": false,
+      "min_bytes": 500000
+    }
+  ],
+  "audit_contract": {
+    "require_pdf_signature": true,
+    "record_resolved_url": true,
+    "record_byte_size": true,
+    "record_sha256": true,
+    "record_page_count": true,
+    "record_pdf_metadata": true,
+    "record_embedded_attachment_names": true,
+    "record_machine_readable_attachment_names": true,
+    "extract_text_only_for_counts": true,
+    "store_extracted_source_text": false,
+    "store_source_pdf_as_workflow_artifact": false,
+    "keyword_groups": {
+      "chart": ["electronic temperature", "electron temperature", "carrier density", "gate voltage", "fermi temperature"],
+      "conductivity": ["electrical conductivity", "thermal conductivity", "wiedemann", "lorenz"],
+      "calorimetry": ["heat capacity", "thermal relaxation", "johnson noise"],
+      "diffusivity": ["thermal diffusivity", "heat spreading", "spatiotemporal"],
+      "uncertainty": ["uncertainty", "error bar", "standard deviation", "confidence interval"],
+      "topology": ["supplementary figure", "supplementary table", "source data"]
+    }
+  },
+  "claim_boundary": "A successfully pinned PDF is provenance evidence, not a machine-readable response surface and not a graphene Pluecker result."
+}

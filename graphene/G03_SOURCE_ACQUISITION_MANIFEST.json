@@ -1,0 +1,83 @@
+{
+  "campaign": "G03_GRAPHENE_EXPERIMENTAL_BRIDGE",
+  "stage": "SOURCE_FILE_ACQUISITION",
+  "files_pinned": false,
+  "targets": [
+    {
+      "priority": 1,
+      "source_id": "G03_SIGMA_KAPPA_MAJUMDAR_2025",
+      "doi": "10.1038/s41567-025-02972-z",
+      "repository_record": "NIMS_MDR_6f293ba2-7f08-417f-a717-a8421b2624b7",
+      "expected_files": [
+        "accepted manuscript PDF",
+        "supplementary information PDF"
+      ],
+      "channels": [
+        "electrical_conductivity",
+        "electronic_thermal_conductivity"
+      ],
+      "required_after_download": [
+        "exact filename",
+        "byte size",
+        "sha256",
+        "licence or access terms",
+        "figure and table inventory",
+        "temperature-density coverage",
+        "uncertainty coverage",
+        "device covariance note"
+      ],
+      "status": "READY_TO_ACQUIRE"
+    },
+    {
+      "priority": 2,
+      "source_id": "G03_CE_AAMIR_2021",
+      "doi": "10.1021/acs.nanolett.1c01553",
+      "expected_files": [
+        "nl1c01553_si_001.pdf"
+      ],
+      "channels": [
+        "electronic_heat_capacity"
+      ],
+      "required_after_download": [
+        "exact filename",
+        "byte size",
+        "sha256",
+        "licence or access terms",
+        "measured versus theoretical curve classification",
+        "temperature-density coverage",
+        "reported uncertainty coverage"
+      ],
+      "status": "READY_TO_ACQUIRE"
+    },
+    {
+      "priority": 3,
+      "source_id": "G03_DE_BLOCK_2021",
+      "doi": "10.1038/s41565-021-00957-6",
+      "expected_files": [
+        "supporting information PDF",
+        "author-supplied raw data if obtained"
+      ],
+      "channels": [
+        "electronic_thermal_diffusivity"
+      ],
+      "required_after_download": [
+        "exact filename",
+        "byte size",
+        "sha256",
+        "hydrodynamic or diffusive regime labels",
+        "temperature-density coverage",
+        "reported uncertainty coverage"
+      ],
+      "status": "AUTHOR_REQUEST_OR_DIGITIZATION"
+    }
+  ],
+  "digitization_policy": {
+    "allowed_only_after_source_hash": true,
+    "raw_and_digitized_values_separate": true,
+    "axis_calibration_uncertainty_required": true,
+    "point_extraction_uncertainty_required": true,
+    "untouched_figure_crop_required": true,
+    "theory_curve_as_experimental_data": false
+  },
+  "residual_gate": "FORBIDDEN_UNTIL_FOUR_COMPATIBLE_SURFACES_AND_COVARIANCE_ARE_FROZEN"
+}

@@ -1,0 +1,71 @@
+{
+  "campaign": "G06_SOURCE_DATA_VARIABLE_MAP",
+  "doi": "10.1038/s41567-025-02972-z",
+  "source_certificate": "results/G05_SOURCE_DATA_CERTIFICATE.json",
+  "download_base": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41567-025-02972-z/MediaObjects/",
+  "text_only_audit": true,
+  "store_numeric_cell_values": false,
+  "store_raw_workbooks": false,
+  "keyword_groups": {
+    "temperature_control": [
+      "temperature",
+      "electron temperature",
+      "electronic temperature",
+      "fermi temperature",
+      " T ",
+      "T (K)",
+      "T(K)"
+    ],
+    "density_control": [
+      "carrier density",
+      "charge density",
+      "density n",
+      "n (cm",
+      "n(cm",
+      "gate voltage",
+      "Vg"
+    ],
+    "electrical_transport": [
+      "electrical conductivity",
+      "conductivity",
+      "conductance",
+      "resistance",
+      "sigma",
+      "σ"
+    ],
+    "thermal_transport": [
+      "thermal conductivity",
+      "electronic thermal conductivity",
+      "kappa",
+      "κ",
+      "Lorenz",
+      "Wiedemann"
+    ],
+    "derived_hydrodynamics": [
+      "viscosity",
+      "entropy",
+      "enthalpy",
+      "mean free path",
+      "Knudsen"
+    ],
+    "uncertainty": [
+      "error",
+      "uncertainty",
+      "standard deviation",
+      "confidence interval"
+    ]
+  },
+  "classification_contract": {
+    "two_control_candidate_requires_temperature_and_density_markers": true,
+    "observable_channel_requires_matching_text_marker": true,
+    "no_channel_inferred_from_figure_number_alone": true,
+    "shared_workbook_and_device_covariance_required": true
+  },
+  "allowed_sheet_statuses": [
+    "TWO_CONTROL_CHANNEL_CANDIDATE",
+    "TWO_CONTROL_OBSERVABLE_UNRESOLVED",
+    "ONE_CONTROL_OR_UNRESOLVED",
+    "DERIVED_OR_AUXILIARY_CHANNEL"
+  ],
+  "claim_boundary": "Textual variable mapping identifies candidate sheets only. Numerical values, units, local support, uncertainty, and covariance must pass separate gates before fitting or Pluecker evaluation."
+}

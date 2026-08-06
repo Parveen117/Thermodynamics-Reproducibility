@@ -1,0 +1,52 @@
+name: G07 graphene numerical topology
+
+on:
+  push:
+    paths:
+      - ".github/workflows/g07-source-data-topology.yml"
+      - "protocols/G07_SOURCE_DATA_TOPOLOGY.json"
+      - "scripts/run_g07_numerical_topology.py"
+      - "tests/test_g07_numerical_topology.py"
+      - "results/G05_SOURCE_DATA_CERTIFICATE.json"
+  pull_request:
+    paths:
+      - ".github/workflows/g07-source-data-topology.yml"
+      - "protocols/G07_SOURCE_DATA_TOPOLOGY.json"
+      - "scripts/run_g07_numerical_topology.py"
+      - "tests/test_g07_numerical_topology.py"
+      - "results/G05_SOURCE_DATA_CERTIFICATE.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-topology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install -e ".[test]"
+          python -m pip install "openpyxl==3.1.5"
+      - name: Test topology helpers
+        run: python -m pytest tests/test_g07_numerical_topology.py
+      - name: Audit numerical topology without retaining source arrays
+        run: python scripts/run_g07_numerical_topology.py
+      - name: Confirm raw workbooks were not retained
+        run: |
+          if find . -type f \( -iname '*.xlsx' -o -iname '*.xls' \) -print -quit | grep -q .; then
+            echo 'Raw workbook unexpectedly retained' >&2
+            exit 1
+          fi
+      - name: Upload topology-only certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: g07-graphene-numerical-topology
+          path: results/G07_NUMERICAL_TOPOLOGY.json
+          if-no-files-found: error

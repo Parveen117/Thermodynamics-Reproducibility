@@ -1,0 +1,17 @@
+{
+  "campaign": "G01_GRAPHENE_FEASIBILITY",
+  "errors": [],
+  "machine_readable_ready_channels": [],
+  "represented_channels": [
+    "electrical_conductivity",
+    "electronic_heat_capacity",
+    "electronic_thermal_conductivity",
+    "electronic_thermal_diffusivity",
+    "lattice_thermal_expansion",
+    "quantum_capacitance"
+  ],
+  "significance_computed": false,
+  "source_count": 8,
+  "status": "PASS_FEASIBILITY_LEDGER",
+  "warnings": []
+}

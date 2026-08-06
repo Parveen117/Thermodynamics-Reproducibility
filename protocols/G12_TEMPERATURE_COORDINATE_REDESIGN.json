@@ -1,0 +1,158 @@
+{
+  "campaign": "G12_TEMPERATURE_COORDINATE_REDESIGN",
+  "objective": "Choose a physically typed two-coordinate graphene state sector without identifying equilibrium temperature, transient electron temperature, lattice temperature, or reduced degeneracy coordinates by notation alone.",
+  "theorem_contract": {
+    "required_state_dimension": 2,
+    "single_smooth_sector_required": true,
+    "cross_sector_brackets_forbidden": true,
+    "hidden_protocol_variable_substitution_forbidden": true
+  },
+  "temperature_types": {
+    "equilibrium_sample_temperature_K": {
+      "meaning": "Sample temperature under equilibrium or near-equilibrium transport conditions, with electronic and lattice subsystems treated as equilibrated within the measurement contract.",
+      "compatible_sources": ["MAJUMDAR_2025", "AAMIR_2021_SMALL_SIGNAL_SECTOR"]
+    },
+    "transient_peak_electron_temperature_K": {
+      "meaning": "Peak electronic temperature produced by pulsed optical excitation and inferred from incident power.",
+      "compatible_sources": ["BLOCK_2021"],
+      "not_identical_to": "equilibrium_sample_temperature_K"
+    },
+    "lattice_temperature_K": {
+      "meaning": "Lattice or bath temperature held fixed during a transient electronic-heating experiment.",
+      "compatible_sources": ["BLOCK_2021"],
+      "not_identical_to": "transient_peak_electron_temperature_K"
+    },
+    "reduced_temperature_T_over_TF": {
+      "meaning": "Temperature divided by the density-dependent Fermi temperature within one already-typed sector.",
+      "global_graphene_chart_allowed": false,
+      "singular_at_carrier_density_zero": true,
+      "reason": "For ideal monolayer graphene T_F is proportional to sqrt(abs(n)); the coordinate is undefined at the Dirac point n = 0."
+    }
+  },
+  "sectors": [
+    {
+      "sector_id": "EQ_HIGH_TN",
+      "coordinates": [
+        "equilibrium_sample_temperature_K",
+        "carrier_density_1e12_cm_minus_2"
+      ],
+      "dimension": 2,
+      "temperature_window_K": [110.0, 260.0],
+      "existing_channels": [
+        "G_CONDUCTANCE",
+        "KE_THERMAL_CONDUCTANCE",
+        "SIGMA_Q"
+      ],
+      "existing_channel_count": 3,
+      "machine_readable_source_data": true,
+      "contains_dirac_point_support": true,
+      "theorem_eligible": true,
+      "selected_primary_sector": true,
+      "fourth_channel_ready": false,
+      "fit_allowed": false,
+      "next_requirement": "One directly measured equilibrium response surface on the same T-n window, with uncertainty and independent provenance."
+    },
+    {
+      "sector_id": "EQ_LOW_TN",
+      "coordinates": [
+        "equilibrium_sample_temperature_K",
+        "carrier_density_1e12_cm_minus_2"
+      ],
+      "dimension": 2,
+      "candidate_temperature_window_K": [60.0, 100.0],
+      "candidate_channels": [
+        "G_CONDUCTANCE",
+        "LORENZ_RATIO",
+        "CE_AAMIR_2021"
+      ],
+      "theorem_eligible": true,
+      "selected_primary_sector": false,
+      "fourth_channel_ready": false,
+      "fit_allowed": false,
+      "blockers": [
+        "Only one exact shared density-resolved heat-capacity and Lorenz-ratio temperature is presently verified at 100 K.",
+        "Heat-capacity arrays and covariance are not publicly machine-readable.",
+        "A fourth independent equilibrium response remains absent."
+      ]
+    },
+    {
+      "sector_id": "TRANSIENT_HOT_TE_N",
+      "coordinates": [
+        "transient_peak_electron_temperature_K",
+        "carrier_density_1e12_cm_minus_2"
+      ],
+      "dimension": 2,
+      "fixed_lattice_temperature_K": 300.0,
+      "protocol_metadata": [
+        "incident_optical_power",
+        "pump_probe_delay",
+        "focus_width",
+        "instrument_response_time"
+      ],
+      "candidate_channels": ["DE_BLOCK_2021"],
+      "theorem_eligible": true,
+      "selected_primary_sector": false,
+      "join_with_equilibrium_sector_allowed": false,
+      "fourth_channel_ready": false,
+      "fit_allowed": false,
+      "blockers": [
+        "Only one candidate response family is presently identified.",
+        "Raw measured diffusivity surface and calibration covariance are not public.",
+        "Protocol metadata must remain frozen and cannot be hidden inside the temperature symbol."
+      ]
+    },
+    {
+      "sector_id": "REDUCED_DEGENERACY_T_OVER_TF_N",
+      "coordinates": [
+        "reduced_temperature_T_over_TF",
+        "carrier_density_1e12_cm_minus_2"
+      ],
+      "dimension": 2,
+      "theorem_eligible": false,
+      "selected_primary_sector": false,
+      "singular_at_carrier_density_zero": true,
+      "join_equilibrium_and_transient_sectors": false,
+      "fit_allowed": false,
+      "reason": "A dimensionless reparameterization can be used only inside one typed sector away from n = 0; it does not erase equilibrium-versus-transient protocol differences."
+    },
+    {
+      "sector_id": "NONEQUILIBRIUM_TE_TL_N",
+      "coordinates": [
+        "transient_peak_electron_temperature_K",
+        "lattice_temperature_K",
+        "carrier_density_1e12_cm_minus_2"
+      ],
+      "dimension": 3,
+      "physically_honest_for_mixed_temperature_experiments": true,
+      "theorem_eligible": false,
+      "selected_primary_sector": false,
+      "fit_allowed": false,
+      "reason": "The current Pluecker theorem is frozen for a two-dimensional state chart. A three-coordinate nonequilibrium manifold requires a different theorem or a genuinely common fixed-lattice slice."
+    }
+  ],
+  "selection": {
+    "selected_sector_id": "EQ_HIGH_TN",
+    "status": "SELECT_EQUILIBRIUM_HIGH_T_SECTOR",
+    "reasons": [
+      "Three provenance-pinned machine-readable response channels already live on this equilibrium sector.",
+      "The coordinate remains regular at the Dirac point.",
+      "No transient drive or lattice-temperature variable is hidden inside the selected temperature coordinate.",
+      "The sector is two-dimensional and therefore compatible with the frozen theorem."
+    ],
+    "rejected_shortcuts": [
+      "IDENTIFY_TRANSIENT_TE_WITH_EQUILIBRIUM_T",
+      "USE_T_OVER_TF_AS_GLOBAL_CHART_ACROSS_N_ZERO",
+      "PROJECT_TE_TL_N_TO_TWO_DIMENSIONS_WITHOUT_A_CLOSURE_THEOREM",
+      "COMPUTE_CROSS_SECTOR_BRACKETS"
+    ]
+  },
+  "current_gate": {
+    "selected_sector_has_four_channels": false,
+    "uncertainty_model_frozen": false,
+    "independent_six_bracket_contract_ready": false,
+    "fit_allowed": false,
+    "experimental_plucker_significance_computed": false
+  },
+  "next_stage": "G13_EQ_HIGH_FOURTH_CHANNEL_SEARCH",
+  "claim_boundary": "G12 selects and types the temperature coordinate. It does not create a fourth response channel, identify equilibrium and transient temperatures, or authorize a graphene Pluecker fit or significance."
+}

@@ -1,0 +1,55 @@
+name: G01 graphene feasibility
+
+on:
+  push:
+    paths:
+      - ".github/workflows/g01-graphene-feasibility.yml"
+      - "graphene/**"
+      - "protocols/G01_GRAPHENE_FEASIBILITY.json"
+      - "scripts/validate_g01_source_ledger.py"
+      - "tests/test_g01_source_ledger.py"
+      - "tests/test_graphene_claim_guard.py"
+      - "results/G01_FEASIBILITY_AUDIT.json"
+      - "src/thermo_recognition/plucker.py"
+  pull_request:
+    paths:
+      - ".github/workflows/g01-graphene-feasibility.yml"
+      - "graphene/**"
+      - "protocols/G01_GRAPHENE_FEASIBILITY.json"
+      - "scripts/validate_g01_source_ledger.py"
+      - "tests/test_g01_source_ledger.py"
+      - "tests/test_graphene_claim_guard.py"
+      - "results/G01_FEASIBILITY_AUDIT.json"
+      - "src/thermo_recognition/plucker.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  feasibility:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[test]"
+      - name: Run graphene guard tests
+        run: python -m pytest tests/test_graphene_claim_guard.py tests/test_g01_source_ledger.py
+      - name: Reproduce feasibility audit
+        run: |
+          cp results/G01_FEASIBILITY_AUDIT.json /tmp/G01_FEASIBILITY_AUDIT.expected.json
+          python scripts/validate_g01_source_ledger.py
+          diff -u /tmp/G01_FEASIBILITY_AUDIT.expected.json results/G01_FEASIBILITY_AUDIT.json
+      - name: Upload audit certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: g01-graphene-feasibility-python-${{ matrix.python-version }}
+          path: results/G01_FEASIBILITY_AUDIT.json
+          if-no-files-found: error

@@ -1,0 +1,92 @@
+{
+  "campaign": "G01_GRAPHENE_FEASIBILITY",
+  "stage": "SOURCE_AND_CHART_AUDIT",
+  "significance_computed": false,
+  "material_contract": {
+    "preferred_material": "hBN-encapsulated monolayer graphene",
+    "excluded_or_separately_versioned": [
+      "graphene oxide",
+      "reduced graphene oxide",
+      "graphene composites",
+      "graphite",
+      "bilayer or multilayer graphene",
+      "suspended graphene mixed with encapsulated devices without a compatibility model"
+    ]
+  },
+  "state_chart": {
+    "coordinates": [
+      "electronic_temperature",
+      "carrier_density"
+    ],
+    "symbols": [
+      "T_e",
+      "n"
+    ],
+    "rationale": "Electronic temperature and carrier density are experimentally tunable graphene controls. Spatial dimensionality is not used as a substitute for declaring a state chart."
+  },
+  "candidate_channels": [
+    "electronic_heat_capacity",
+    "quantum_capacitance_or_inverse_compressibility",
+    "electrical_conductivity",
+    "electronic_thermal_diffusivity_or_conductivity"
+  ],
+  "frozen_nuisance_variables": [
+    "layer_number",
+    "substrate_or_suspension",
+    "encapsulation",
+    "strain_and_rippling",
+    "defects_contamination_and_disorder",
+    "contact_geometry_and_mobility",
+    "magnetic_field_and_displacement_field",
+    "electronic_versus_lattice_temperature"
+  ],
+  "frozen_significance": {
+    "definition": "z_P = abs(plucker_residual) / plucker_standard_error",
+    "rejection_threshold": 5.0,
+    "interpretation": {
+      "z_less_than_or_equal_to_5": "NOT_FALSIFIED",
+      "z_greater_than_5": "FALSIFIED_MEASUREMENT_CONTRACT",
+      "z_equal_to_30": "THIRTY_SIGMA_PLUCKER_REJECTION"
+    },
+    "raman_hysteresis_statistic_is_separate": true
+  },
+  "gates": {
+    "thermoml_pristine_graphene_archive": "INSUFFICIENT",
+    "online_primary_source_ledger": "PASS_FEASIBILITY_LEDGER",
+    "ideal_dirac_common_model_control": "PASS_CONTROL",
+    "same_device_electrical_and_thermal_conductivity_route": "AVAILABLE_FOR_ACQUISITION",
+    "four_machine_readable_two_dimensional_surfaces": "NOT_MET",
+    "uncertainty_and_covariance_contract": "NOT_MET",
+    "experimental_plucker_residual": "FORBIDDEN_UNTIL_ALL_GATES_PASS"
+  },
+  "required_metadata": [
+    "layer number",
+    "substrate or suspension",
+    "encapsulation",
+    "magnetic field",
+    "strain",
+    "defect and contamination state",
+    "device mobility",
+    "contact geometry",
+    "lattice temperature",
+    "electronic temperature",
+    "carrier-density calibration",
+    "measurement uncertainty"
+  ],
+  "next_actions": [
+    "Acquire and hash the 2025 NIMS-hosted charge-and-heat transport supplement.",
+    "Audit the supplement for explicit temperature-density numerical tables and uncertainties.",
+    "Acquire the 2021 electronic heat-capacity supplement and identify digitizable surfaces.",
+    "Resolve a temperature-dependent quantum-capacitance surface or replace that channel before freezing the experiment."
+  ],
+  "allowed_outcomes": [
+    "PASS_CONTROL",
+    "FAIL_CONTROL",
+    "NOT_FALSIFIED",
+    "FALSIFIED_MEASUREMENT_CONTRACT",
+    "INCONCLUSIVE_DATA_COVERAGE",
+    "INCONCLUSIVE_SOURCE_COMPATIBILITY",
+    "INCONCLUSIVE_UNCERTAINTY_MODEL"
+  ],
+  "claim_boundary": "No experimental graphene Pluecker significance may be reported from this feasibility contract. G02 is a model control; G03 remains an acquisition bridge."
+}
