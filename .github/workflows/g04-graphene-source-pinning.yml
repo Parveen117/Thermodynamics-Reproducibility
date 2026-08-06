@@ -6,14 +6,18 @@ on:
       - ".github/workflows/g04-graphene-source-pinning.yml"
       - "protocols/G04_GRAPHENE_SOURCE_PINNING.json"
       - "scripts/run_g04_source_acquisition.py"
+      - "scripts/run_g04_source_acquisition_v2.py"
       - "tests/test_g04_source_acquisition.py"
+      - "tests/test_g04_source_acquisition_v2.py"
       - "results/G04_SOURCE_ACQUISITION_AUDIT.json"
   pull_request:
     paths:
       - ".github/workflows/g04-graphene-source-pinning.yml"
       - "protocols/G04_GRAPHENE_SOURCE_PINNING.json"
       - "scripts/run_g04_source_acquisition.py"
+      - "scripts/run_g04_source_acquisition_v2.py"
       - "tests/test_g04_source_acquisition.py"
+      - "tests/test_g04_source_acquisition_v2.py"
       - "results/G04_SOURCE_ACQUISITION_AUDIT.json"
   workflow_dispatch:
 
@@ -35,9 +39,12 @@ jobs:
           python -m pip install -e ".[test]"
           python -m pip install "pypdf==5.9.0"
       - name: Test acquisition helpers
-        run: python -m pytest tests/test_g04_source_acquisition.py
+        run: |
+          python -m pytest \
+            tests/test_g04_source_acquisition.py \
+            tests/test_g04_source_acquisition_v2.py
       - name: Acquire official PDFs and emit metadata-only certificate
-        run: python scripts/run_g04_source_acquisition.py
+        run: python scripts/run_g04_source_acquisition_v2.py
       - name: Confirm source files were not retained
         run: |
           if find . -type f -iname '*.pdf' -print -quit | grep -q .; then
