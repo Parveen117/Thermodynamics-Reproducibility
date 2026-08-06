@@ -13,7 +13,7 @@
     {
       "rank": 1,
       "candidate_id": "CE_AAMIR_2021",
-      "decision": "BEST_REPLACEMENT_PENDING_DIGITIZATION_OR_AUTHOR_DATA",
+      "decision": "AUDITED_IN_G10_INCONCLUSIVE_TWO_DIMENSIONAL_COMMON_DOMAIN",
       "strengths": [
         "independent publication",
         "electronic temperature and carrier density controls",
@@ -21,15 +21,15 @@
         "directly relevant electronic thermodynamic response"
       ],
       "blockers": [
-        "no verified machine-readable two-dimensional table",
-        "digitization covariance not frozen",
+        "density-resolved measured curves stop at 100 K",
+        "the 15-195 K measured temperature curve is at one fixed carrier density",
         "device compatibility with the 2025 transport devices not established"
       ]
     },
     {
       "rank": 2,
       "candidate_id": "DE_BLOCK_2021",
-      "decision": "STRONG_REPLACEMENT_PENDING_AUTHOR_DATA_OR_DIGITIZATION",
+      "decision": "AUDITED_IN_G11_INCONCLUSIVE_STATE_VARIABLE_ALIGNMENT",
       "strengths": [
         "independent publication",
         "electronic temperature and carrier-density or gate control",
@@ -37,9 +37,9 @@
         "underlying data stated to be available from the authors"
       ],
       "blockers": [
-        "no verified public machine-readable table",
-        "author data not yet acquired",
-        "device-class compatibility not frozen"
+        "transient peak electron temperature is not the equilibrium sample-temperature coordinate of the base channels",
+        "no verified public pointwise measured D(T_e,n) table",
+        "raw maps, fit outputs and calibration covariance not yet acquired"
       ]
     },
     {
@@ -77,7 +77,7 @@
   "secondary_acquisition_target": "DE_BLOCK_2021",
   "fit_allowed": false,
   "experimental_plucker_significance_computed": false,
-  "next_stage": "G10_CE_DIGITIZATION_AND_AUTHOR_DATA_CONTRACT",
+  "next_stage": "G12_TEMPERATURE_COORDINATE_REDESIGN",
   "ci_verification": {
     "workflow_run_id": 31084233784,
     "head_sha": "bfe97238fe9a83a23f2423cea8e4b45d5afb8fc1",
@@ -85,5 +85,5 @@
     "artifact_id": 8960728844,
     "artifact_digest": "sha256:a3d13c84f214e9f1d29d4aba86a7698d3f6bf4c3557fa1b8b40dffae238c81c1"
   },
-  "claim_boundary": "No replacement channel is ready. G09 selects acquisition priorities only and does not authorize a four-channel fit or graphene Pluecker significance."
+  "claim_boundary": "No replacement channel is ready. G10 and G11 close the first two acquisition candidates as inconclusive and require chart redesign before any four-channel fit or graphene Pluecker significance."
 }
