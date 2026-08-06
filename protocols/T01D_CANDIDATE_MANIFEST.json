@@ -1,0 +1,119 @@
+{
+  "campaign": "T01D_THERMOML_EXPERIMENTAL",
+  "theorem_target": "Universal skew four-channel response-bracket theorem and Pluecker residual",
+  "claim_boundary": {
+    "strict_caloric_mechanical_tetrad": "INCONCLUSIVE_DATA_COVERAGE",
+    "extended_four_channel_geometry": "CANDIDATE_CHANNEL_SET_AVAILABLE",
+    "note": "The selected channels are smooth constitutive response scalars on the liquid-water (T,P) chart. This tests the paper's any-four-channel theorem, not the narrower original six-coordinate thermodynamic tetrad."
+  },
+  "archive": {
+    "name": "ThermoML.v2020-09-30.tgz",
+    "sha256": "231161b5e443dc1ae0e5da8429d86a88474cb722016e5b790817bb31c58d7ec2",
+    "source": "https://data.nist.gov/od/ds/mds2-2422/ThermoML.v2020-09-30.tgz",
+    "doi": "10.18434/mds2-2422"
+  },
+  "material": {
+    "name": "ordinary water",
+    "standard_inchi_key": "XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+    "phase": "stable single-phase liquid"
+  },
+  "chart": {
+    "coordinates": ["temperature_K", "pressure_kPa"],
+    "evaluation_point": {
+      "temperature_K": 318.15,
+      "pressure_kPa": 12500.0
+    },
+    "frozen_fit_domain": {
+      "temperature_K": [313.15, 323.15],
+      "pressure_kPa": [10000.0, 15000.0]
+    },
+    "excluded": [
+      "saturation line",
+      "critical neighbourhood",
+      "spinodal or metastable region"
+    ]
+  },
+  "channels": {
+    "1": {
+      "symbol": "rho",
+      "category": "density",
+      "property_name": "Mass density, kg/m3",
+      "reference_scale": 1000.0,
+      "reference_unit": "kg/m3"
+    },
+    "2": {
+      "symbol": "w",
+      "category": "speed_of_sound",
+      "property_name": "Speed of sound, m/s",
+      "reference_scale": 1500.0,
+      "reference_unit": "m/s"
+    },
+    "3": {
+      "symbol": "cp",
+      "category": "isobaric_heat_capacity",
+      "property_name": "Molar heat capacity at constant pressure, J/K/mol",
+      "reference_scale": 75.0,
+      "reference_unit": "J/K/mol"
+    },
+    "4": {
+      "symbol": "eta",
+      "category": "viscosity",
+      "property_name": "Viscosity, Pa*s",
+      "reference_scale": 0.001,
+      "reference_unit": "Pa*s"
+    }
+  },
+  "inventory_coverage": {
+    "density": 6,
+    "speed_of_sound": 4,
+    "isobaric_heat_capacity": 3,
+    "viscosity": 6,
+    "meaning": "Number of independent surface-capable publications whose reported T and P ranges cover the frozen fit domain."
+  },
+  "pair_order": ["12", "13", "14", "23", "24", "34"],
+  "pair_assignments": {
+    "12": {
+      "left_channel": "1",
+      "left_doi": "10.1016/j.jct.2012.09.026",
+      "right_channel": "2",
+      "right_doi": "10.1007/s10765-005-8587-2"
+    },
+    "13": {
+      "left_channel": "1",
+      "left_doi": "10.1016/j.tca.2014.03.042",
+      "right_channel": "3",
+      "right_doi": "10.1016/j.fluid.2013.08.007"
+    },
+    "14": {
+      "left_channel": "1",
+      "left_doi": "10.1021/je500977g",
+      "right_channel": "4",
+      "right_doi": "10.1016/j.fluid.2004.10.028"
+    },
+    "23": {
+      "left_channel": "2",
+      "left_doi": "10.1016/j.jct.2016.09.022",
+      "right_channel": "3",
+      "right_doi": "10.1016/j.fluid.2014.03.017"
+    },
+    "24": {
+      "left_channel": "2",
+      "left_doi": "10.1016/j.jct.2019.03.022",
+      "right_channel": "4",
+      "right_doi": "10.1016/j.fluid.2005.12.036"
+    },
+    "34": {
+      "left_channel": "3",
+      "left_doi": "10.1016/j.fluid.2016.07.034",
+      "right_channel": "4",
+      "right_doi": "10.1016/j.tca.2005.08.036"
+    }
+  },
+  "source_independence": {
+    "unique_source_slots": 12,
+    "unique_dois": 12,
+    "shared_publications_across_pair_assignments": 0,
+    "note": "Every channel occurrence in the six bracket pairs is assigned to a distinct publication. No four global fitted surfaces are reused to manufacture the six brackets."
+  },
+  "frozen_before_residual": true
+}
