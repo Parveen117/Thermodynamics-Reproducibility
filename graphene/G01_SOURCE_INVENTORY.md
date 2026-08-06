@@ -1,94 +1,106 @@
-# G01 Graphene Online-Source Inventory
+# G01 Graphene Online-Data Inventory
 
-## Objective
+## Scope
 
-Determine whether online experimental data support a non-tautological four-channel Pluecker test for graphene.
+This inventory asks whether public online sources can support a four-channel Pluecker experiment on a frozen two-control graphene state chart.
 
-## ThermoML finding
-
-A repository-wide search of the pinned ThermoML mirror for `graphene` returns records dominated by:
-
-- graphene or graphene-oxide aerogels;
-- composite phase-change materials;
-- graphene oxide and reduced graphene oxide;
-- nanofluids and hybrid materials.
-
-These records are not a centralized archive of pristine single-layer graphene response surfaces. ThermoML is therefore not the direct graphene analogue of the pure-water campaign.
-
-## Scientifically coherent chart
-
-The strongest initial graphene chart is
+The preferred chart is
 
 \[
 (T_e,n),
 \]
 
-where:
+with electronic temperature and carrier density as controls.
 
-- `T_e` is electronic temperature;
-- `n` is carrier density.
+A paper being online is not sufficient. A source must also provide usable coordinate coverage, units, uncertainty, material identity, and enough numerical information to reconstruct local gradients without inventing points from a theory curve.
 
-This chart is preferable to `(T, P)` because graphene electronic responses are commonly tuned by heating and electrostatic gating, while a conventional hydrostatic-pressure chart is not well represented by open graphene measurements.
-
-## Candidate four-channel set
-
-1. Electronic heat capacity, `C_e(T_e,n)`
-2. Quantum capacitance or inverse electronic compressibility, `C_q(T_e,n)` or `dmu/dn`
-3. Electrical conductivity, `sigma(T_e,n)`
-4. Electronic thermal diffusivity or conductivity, `D_e(T_e,n)` or `kappa_e(T_e,n)`
-
-All channels must refer to compatible monolayer graphene devices and the same declared chart. Lattice heat capacity, lattice thermal expansion, and electronic responses must not be mixed without a physical identification of their state variables.
-
-## Primary-source map
+## Current source map
 
 ### Electronic heat capacity
 
-- Mohammed Ali Aamir et al., *Ultrasensitive Calorimetric Measurements of the Electronic Heat Capacity of Graphene*, Nano Letters 21, 5330-5337 (2021), DOI `10.1021/acs.nanolett.1c01553`.
-- Role: direct electronic heat-capacity measurement with electronic-temperature and carrier-density dependence.
-- Availability: article and free supporting information are online; a raw machine-readable two-dimensional table has not yet been verified.
+**Aamir et al. (2021), DOI 10.1021/acs.nanolett.1c01553**
+
+- Direct graphene electronic calorimetry.
+- Reports electronic heat capacities below `1e-19 J/K`.
+- Supporting information is publicly available as `nl1c01553_si_001.pdf`.
+- Public machine-readable two-dimensional tables have not been verified.
+- Role: primary `C_e(T_e,n)` acquisition candidate.
 
 ### Quantum capacitance / compressibility
 
-- Jilin Xia et al., *Measurement of the quantum capacitance of graphene*, Nature Nanotechnology 4, 505-509 (2009), DOI `10.1038/nnano.2009.177`.
-- S. Droescher et al., *Quantum capacitance and density of states of graphene*, arXiv `1001.4690` and related publication.
-- Role: direct capacitance response versus gate-controlled carrier density.
-- Limitation: much of the readily accessible evidence is one-dimensional in density rather than a full `(T_e,n)` surface.
+**Xia et al. (2009), DOI 10.1038/nnano.2009.177**
 
-### Electronic thermal transport
+- Direct graphene quantum-capacitance measurement.
+- Publicly visible coverage is mainly gate potential or carrier density.
+- A temperature-resolved two-dimensional surface has not yet been verified.
 
-- Alexander Block et al., *Observation of giant and tunable thermal diffusivity of a Dirac fluid at room temperature*, Nature Nanotechnology 16, 1195-1200 (2021), DOI `10.1038/s41565-021-00957-6`.
-- Role: thermal diffusivity controlled by electronic temperature and carrier density.
-- Limitation: the paper states that supporting data are available from the corresponding author on reasonable request rather than providing a directly downloadable raw-data table.
+**Droescher et al. (2010), arXiv:1001.4690**
 
-- Serap Yigen, *Electronic Thermal Conductivity Measurements in Graphene*, doctoral thesis, Concordia University (2015).
-- Role: electronic thermal conductivity versus electron temperature and carrier density.
-- Limitation: numerical data appear primarily in figures and thesis analysis; machine-readable source tables require verification.
+- Independent quantum-capacitance and density-of-states source.
+- Also appears primarily one-dimensional in density unless additional sweeps are recovered.
 
-### Electrical conductivity
+The missing temperature dimension remains the main bottleneck for the fourth channel.
 
-- Experimental graphene transport literature contains conductivity as a function of carrier density and temperature, but source compatibility depends strongly on suspension, encapsulation, disorder, and contact geometry.
-- A theoretical surface or a digitized literature figure can be used only as a control or exploratory pilot, not as independent experimental falsification.
+### Electronic thermal diffusivity
 
-### Thermal expansion warning
+**Block et al. (2021), DOI 10.1038/s41565-021-00957-6**
 
-- Duhee Yoon et al., *Negative Thermal Expansion Coefficient of Graphene Measured by Raman Spectroscopy*, Nano Letters 11, 3227-3231 (2011), DOI `10.1021/nl201488g`.
-- Later measurements report substantial substrate, contamination, strain, and out-of-plane-coupling effects, including disagreement over sign and temperature dependence.
-- Thermal expansion is therefore evidence against the claim that graphene has no hidden variables. It is not yet a suitable fourth channel for the electronic `(T_e,n)` chart.
+- hBN-encapsulated monolayer graphene.
+- Explicitly studies response versus electronic temperature and carrier density.
+- Strongest chart-matched diffusivity source.
+- Underlying data are available from the corresponding author on reasonable request.
+- Role: author-data request or reproducible digitization with a declared extraction covariance.
 
-## Data gates
+### Electrical and electronic thermal conductivity
 
-Before a Pluecker residual may be computed, the campaign requires:
+**Majumdar et al. (2025), DOI 10.1038/s41567-025-02972-z**
 
-- four response surfaces on one declared two-control chart;
-- compatible monolayer graphene class;
-- numerical tables or reproducibly extracted values;
-- uncertainties or a defensible covariance model;
-- at least two-dimensional local support around the evaluation point;
-- no silent substitution of theoretical curves for experimental surfaces;
-- explicit treatment of shared samples, methods, and nuisance parameters.
+- Studies charge and heat transport in ultraclean graphene near the Dirac point.
+- Provides electrical conductivity and electronic thermal conductivity within one compatible device programme.
+- NIMS Materials Data Repository record `6f293ba2-7f08-417f-a717-a8421b2624b7` hosts the accepted manuscript and supplementary information.
+- Public machine-readable numerical tables have not yet been verified.
+- Role: highest-priority same-device two-channel acquisition route.
 
-## Current verdict
+A same-device pair is scientifically valuable for calibration and covariance modelling. It is not automatically independent evidence for all six Pluecker brackets.
 
-`ONLINE_DATA_EXIST_BUT_FOUR_CHANNEL_CONTRACT_NOT_YET_ASSEMBLED`
+### Alternative electronic thermal conductivity
 
-Graphene data are available online, but the claimed thirty-sigma result does not presently exist as a verified repository result. The next step is a source-data acquisition campaign on the `(T_e,n)` chart, beginning with heat capacity and electronic thermal transport.
+**Yigen (2015), Concordia University thesis**
+
+- Suspended graphene transistors.
+- Reports electronic thermal conductivity versus electron temperature and carrier density.
+- Public thesis PDF exists, but machine-readable tables are not yet verified.
+- Mixing suspended devices with encapsulated-device data requires an explicit sample-compatibility model.
+
+### Lattice thermal expansion
+
+**Yoon et al. (2011), DOI 10.1021/nl201488g**
+
+- Raman-derived thermal expansion for substrate-supported graphene.
+- Valuable as a warning about substrate strain and lattice/electronic temperature separation.
+- Excluded from the current electronic `(T_e,n)` channel set.
+
+## ThermoML result
+
+ThermoML searches for graphene are dominated by graphene oxide, reduced graphene oxide, composites, aerogels, and phase-change hybrids. These records do not form a pristine monolayer four-surface archive.
+
+Status:
+
+```text
+ThermoML pristine graphene route                 INSUFFICIENT
+same-device conductivity pair                    AVAILABLE FOR ACQUISITION
+heat-capacity surface                            PDF/SI AVAILABLE
+thermal-diffusivity surface                      AUTHOR DATA OR DIGITIZATION
+quantum-capacitance temperature surface          UNRESOLVED
+four-channel machine-readable contract           NOT MET
+```
+
+## Acquisition rules
+
+1. Freeze the material class and state chart before digitization.
+2. Hash every downloaded source and record its licence or access terms.
+3. Preserve reported values separately from digitized values.
+4. Attach axis-calibration and point-extraction uncertainty to every digitized datum.
+5. Do not use a model-generated curve as experimental raw data.
+6. Do not compute a graphene Pluecker residual before four compatible two-dimensional response surfaces pass the coverage gate.
+7. Same-device channels must carry their shared covariance rather than being labelled independent by convenience.
