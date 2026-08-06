@@ -1,0 +1,80 @@
+{
+  "campaign": "T01_PLUCKER_INDEPENDENT_BRACKETS",
+  "claim_boundary": "One Helmholtz equation of state supplies every channel. This validates the numerical pipeline and thermodynamic identities but is not an independent experimental falsification test.",
+  "control_points": [
+    {
+      "dimensionless_channels": {"K_S": 0.9193012397876265, "K_T": 0.9593530287253194, "cp": 0.9981832540403688, "cv": 1.0462007540687115},
+      "flat_closure": 0.9999999999999998,
+      "flat_closure_error": 2.220446049250313e-16,
+      "normalized_plucker_residual": 3.533498065462128e-17,
+      "note": "IAPWS-95 supplies one smooth Helmholtz equation of state. The Pluecker calculation is therefore a common-gradient control, not independent experimental falsification.",
+      "plucker_residual": 1.0587911840678754e-22,
+      "pressure_MPa": 0.1,
+      "raw_channels": {"K_S_MPa": 2114.392851511541, "K_T_MPa": 2110.5766631957026, "cp_kJ_kgK": 4.192369666969549, "cv_kJ_kgK": 4.184803016274846, "density_kg_m3": 999.5166736769577, "kappa_S_per_MPa": 0.0004729490072221528, "kappa_T_per_MPa": 0.00047380415856861736, "sound_speed_m_s": 1454.446728967448},
+      "sound_bulk_modulus_MPa": 2114.392851511541,
+      "sound_bulk_relative_error": 0.0,
+      "status": "PASS_CONTROL",
+      "temperature_K": 285.0
+    },
+    {
+      "dimensionless_channels": {"K_S": 0.976869394442696, "K_T": 1.0089456454430483, "cp": 0.9953903623854587, "cv": 1.0325446537583245},
+      "flat_closure": 1.0,
+      "flat_closure_error": 0.0,
+      "normalized_plucker_residual": 2.90038803794152e-17,
+      "note": "IAPWS-95 supplies one smooth Helmholtz equation of state. The Pluecker calculation is therefore a common-gradient control, not independent experimental falsification.",
+      "plucker_residual": -2.6469779601696886e-23,
+      "pressure_MPa": 0.1,
+      "raw_channels": {"K_S_MPa": 2246.799607218201, "K_T_MPa": 2219.680419974706, "cp_kJ_kgK": 4.180639522018927, "cv_kJ_kgK": 4.130178615033298, "density_kg_m3": 996.5563403888971, "kappa_S_per_MPa": 0.0004450775212828688, "kappa_T_per_MPa": 0.00045051530436592994, "sound_speed_m_s": 1501.520415005737},
+      "sound_bulk_modulus_MPa": 2246.799607218201,
+      "sound_bulk_relative_error": 0.0,
+      "status": "PASS_CONTROL",
+      "temperature_K": 300.0
+    },
+    {
+      "dimensionless_channels": {"K_S": 0.9792389146742791, "K_T": 1.0112812375788283, "cp": 0.9947865727603197, "cv": 1.0318043262428143},
+      "flat_closure": 1.0,
+      "flat_closure_error": 0.0,
+      "normalized_plucker_residual": 2.879975437536307e-17,
+      "note": "IAPWS-95 supplies one smooth Helmholtz equation of state. The Pluecker calculation is therefore a common-gradient control, not independent experimental falsification.",
+      "plucker_residual": 2.6469779601696886e-23,
+      "pressure_MPa": 1.0,
+      "raw_channels": {"K_S_MPa": 2252.249503750842, "K_T_MPa": 2224.818722673422, "cp_kJ_kgK": 4.178103605593343, "cv_kJ_kgK": 4.127217304971257, "density_kg_m3": 996.9600226949963, "kappa_S_per_MPa": 0.0004440005418292352, "kappa_T_per_MPa": 0.00044947482228950504, "sound_speed_m_s": 1503.0359838250554},
+      "sound_bulk_modulus_MPa": 2252.249503750842,
+      "sound_bulk_relative_error": 0.0,
+      "status": "PASS_CONTROL",
+      "temperature_K": 300.0
+    },
+    {
+      "dimensionless_channels": {"K_S": 1.0378558265639817, "K_T": 1.041878914973412, "cp": 0.9930588310871515, "cv": 1.001242654623095},
+      "flat_closure": 1.0,
+      "flat_closure_error": 0.0,
+      "normalized_plucker_residual": 8.151094431987086e-18,
+      "note": "IAPWS-95 supplies one smooth Helmholtz equation of state. The Pluecker calculation is therefore a common-gradient control, not independent experimental falsification.",
+      "plucker_residual": 2.6469779601696886e-23,
+      "pressure_MPa": 5.0,
+      "raw_channels": {"K_S_MPa": 2387.0684010971577, "K_T_MPa": 2292.1336129415063, "cp_kJ_kgK": 4.170847090566037, "cv_kJ_kgK": 4.00497061849238, "density_kg_m3": 989.3131322264607, "kappa_S_per_MPa": 0.0004189238982596286, "kappa_T_per_MPa": 0.0004362747417314364, "sound_speed_m_s": 1553.3364913895246},
+      "sound_bulk_modulus_MPa": 2387.068401097157,
+      "sound_bulk_relative_error": 1.9050453295659672e-16,
+      "status": "PASS_CONTROL",
+      "temperature_K": 325.0
+    },
+    {
+      "dimensionless_channels": {"K_S": 1.0538272359404326, "K_T": 1.021745681264976, "cp": 0.9936750235563616, "cv": 0.967613479466832},
+      "flat_closure": 1.0,
+      "flat_closure_error": 0.0,
+      "normalized_plucker_residual": 7.147642123777662e-18,
+      "note": "IAPWS-95 supplies one smooth Helmholtz equation of state. The Pluecker calculation is therefore a common-gradient control, not independent experimental falsification.",
+      "plucker_residual": 3.970466940254533e-23,
+      "pressure_MPa": 10.0,
+      "raw_channels": {"K_S_MPa": 2423.802642662995, "K_T_MPa": 2247.8404987829467, "cp_kJ_kgK": 4.173435098936719, "cv_kJ_kgK": 3.870453917867328, "density_kg_m3": 978.089034190905, "kappa_S_per_MPa": 0.0004125748451620282, "kappa_T_per_MPa": 0.00044487142239025955, "sound_speed_m_s": 1574.1982758447111},
+      "sound_bulk_modulus_MPa": 2423.802642662995,
+      "sound_bulk_relative_error": 0.0,
+      "status": "PASS_CONTROL",
+      "temperature_K": 350.0
+    }
+  ],
+  "iapws_python_version": "1.5.5",
+  "overall_status": "PASS_CONTROL",
+  "source": "IAPWS R6-95(2018) through the pinned iapws Python implementation",
+  "stage": "T01C_IAPWS95_CONTROL"
+}
