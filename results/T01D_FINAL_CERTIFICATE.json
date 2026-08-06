@@ -1,0 +1,105 @@
+{
+  "campaign": "T01D_THERMOML_EXPERIMENTAL",
+  "status": "NOT_FALSIFIED",
+  "completed_stages": [
+    "full pinned ThermoML archive inventory",
+    "strict caloric-mechanical coverage audit",
+    "extended four-channel candidate selection",
+    "twelve-publication independent source extraction",
+    "frozen weighted quadratic gradient fits",
+    "independent six-bracket Pluecker test",
+    "200000-draw deterministic parametric bootstrap"
+  ],
+  "archive": {
+    "name": "ThermoML.v2020-09-30.tgz",
+    "doi": "10.18434/mds2-2422",
+    "sha256": "231161b5e443dc1ae0e5da8429d86a88474cb722016e5b790817bb31c58d7ec2"
+  },
+  "theorem_tested": "For any four smooth nondimensional response channels on a two-dimensional equilibrium chart, the six pairwise area brackets form a decomposable skew two-form and obey B12*B34 - B13*B24 + B14*B23 = 0.",
+  "strict_tetrad_result": {
+    "status": "INCONCLUSIVE_DATA_COVERAGE",
+    "reason": "The pinned ThermoML archive did not provide four independently replicated two-dimensional surfaces for the narrow caloric-mechanical tetrad."
+  },
+  "extended_channel_test": {
+    "material": "ordinary liquid water",
+    "evaluation_point": {
+      "temperature_K": 318.15,
+      "pressure_kPa": 12500.0
+    },
+    "dimensionless_chart": {
+      "x": "(T - 318.15 K) / 25 K",
+      "y": "(P - 12500 kPa) / 25000 kPa"
+    },
+    "channels": [
+      "mass density divided by 1000 kg/m3",
+      "speed of sound divided by 1500 m/s",
+      "molar isobaric heat capacity divided by 75 J/K/mol",
+      "viscosity divided by 0.001 Pa*s"
+    ],
+    "source_independence": {
+      "publication_slots": 12,
+      "unique_dois": 12,
+      "shared_publications": 0,
+      "note": "Each occurrence of a channel in the six bracket pairs was fitted from a distinct publication."
+    },
+    "pair_order": ["12", "13", "14", "23", "24", "34"],
+    "pair_values": [
+      -0.0005959310185588485,
+      0.00011625626492824943,
+      0.0024891336593456967,
+      -0.00012015283346372364,
+      0.009012945962227967,
+      0.0008701333019814832
+    ],
+    "pair_standard_errors": [
+      0.00002350784517805291,
+      0.00031066070348132434,
+      0.00024644002269034044,
+      0.0012666910363255185,
+      0.0014487015288521781,
+      0.011576526814531586
+    ],
+    "plucker_residual": -0.0000018654273205408826,
+    "plucker_standard_error_delta": 0.00000808728994960218,
+    "z_score_delta": 0.23066161002829436,
+    "rejection_threshold_sigma": 5.0,
+    "normalized_residual": 0.021061806318619137,
+    "primary_status": "NOT_FALSIFIED"
+  },
+  "bootstrap": {
+    "samples": 200000,
+    "seed": 20260806,
+    "mean_residual": -0.0000018695764797631504,
+    "standard_error": 0.00000814856878214715,
+    "bootstrap_to_delta_standard_error_ratio": 1.0075771776363704,
+    "bootstrap_z_score": 0.22892698956261887,
+    "zero_inside_95_percent_interval": true,
+    "zero_inside_99_percent_interval": true,
+    "zero_inside_99_9_percent_interval": true,
+    "bootstrap_status": "NOT_FALSIFIED"
+  },
+  "manifest_history": {
+    "version_1": {
+      "status": "INCONCLUSIVE_FIT_GEOMETRY",
+      "failed_slots": ["14.left", "24.right"],
+      "plucker_residual_computed": false
+    },
+    "version_2": {
+      "status": "NOT_FALSIFIED",
+      "replacement_basis": "Only pre-residual topology, point count, and uncertainty coverage were used; the fit contract was unchanged."
+    }
+  },
+  "limitations": [
+    "This is one state point and one frozen bandwidth/model contract.",
+    "ThermoML records are provenance-rich but are not critically evaluated by NIST.",
+    "Some source fits required covariance inflation because observed lack-of-fit exceeded reported point uncertainty.",
+    "NOT_FALSIFIED is not proof that the theorem is a new physical law; it means this independent measurement contract did not reject it.",
+    "A publication-grade conclusion still benefits from bandwidth, state-point, and alternative-source ensemble sensitivity studies."
+  ],
+  "workflow_evidence": {
+    "primary_v2_run_id": 31069601461,
+    "primary_artifact_sha256": "af0e637afdf8145d8a3066f7bbc30385e158254e04e4ef9d92a27f96fb44e35a",
+    "bootstrap_run_id": 31069737943,
+    "bootstrap_artifact_sha256": "8728b47806b8d1118bd7515b24f4fa9a0dbca1e450ab1425410d2b29f7bca872"
+  }
+}
