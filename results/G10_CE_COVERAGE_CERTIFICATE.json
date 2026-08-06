@@ -30,7 +30,17 @@
   "supplement_pin_verified": true,
   "two_dimensional_replacement_ready": false,
   "verification": {
-    "local_test_status": "3_PASSED",
-    "github_actions_status": "PENDING_ACCOUNT_BILLING_UNLOCK"
+    "workflow_run_id": 31084233191,
+    "head_sha": "bfe97238fe9a83a23f2423cea8e4b45d5afb8fc1",
+    "python_3_11": {
+      "status": "SUCCESS",
+      "artifact_id": 8960729510,
+      "artifact_digest": "sha256:d1e50fb0993b15a89a92f184b3d7476381634bd0375bc93075befabcc36a2f4b"
+    },
+    "python_3_12": {
+      "status": "SUCCESS",
+      "artifact_id": 8960732999,
+      "artifact_digest": "sha256:deeb6ae8486fb7a8343e69ae6c7316997fb0328364a6bff3b26be238c9299660"
+    }
   }
 }
