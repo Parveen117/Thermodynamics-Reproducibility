@@ -6,13 +6,7 @@ Empirical and computational falsification tests for thermodynamic claims in the 
 
 `T01_PLUCKER_INDEPENDENT_BRACKETS`
 
-The paper proves that four smooth response channels on a two-dimensional equilibrium chart generate a skew response-bracket matrix
-
-\[
-B_{ab}=\{f_a,f_b\},
-\]
-
-with
+For four smooth nondimensional response channels on a two-dimensional equilibrium chart, the paper proves that the six pairwise area brackets obey
 
 \[
 P(B)=B_{12}B_{34}-B_{13}B_{24}+B_{14}B_{23}=0.
@@ -26,38 +20,84 @@ If all six entries are constructed from one shared pair of estimated gradient ve
 B=uv^T-vu^T,
 \]
 
-then `P(B)=0` is an algebraic identity. That calculation is useful as an implementation and equation-of-state consistency control, but it cannot by itself falsify the two-dimensional thermodynamic hypothesis.
+then `P(B)=0` is an algebraic identity. That calculation is an implementation control, not a falsification test.
 
-The actual falsification campaign therefore requires the six pairwise bracket channels to be estimated independently, with disjoint or explicitly modelled provenance and a declared covariance matrix. The measured six-vector is then tested against the decomposable rank-two constraint.
+The empirical campaign therefore estimates the six bracket channels from disjoint publication slots with a declared covariance model.
 
-## Campaign ladder
+## Completed campaign ladder
 
 1. `T01A_COMMON_GRADIENT_CONTROL`
-   - Verify the exact algebra and numerical implementation.
-   - Demonstrate that common-gradient reconstruction is necessarily Pluecker-flat.
+   - exact algebra and numerical implementation;
+   - result: `PASS_CONTROL`.
 
 2. `T01B_INDEPENDENT_BRACKET_SYNTHETIC`
-   - Inject controlled cross-channel inconsistency.
-   - Verify that the statistical detector rejects beyond the declared uncertainty.
+   - small inconsistency: `NOT_FALSIFIED`;
+   - large inconsistency: `FALSIFIED_MEASUREMENT_CONTRACT` at 11.28 sigma.
 
 3. `T01C_IAPWS95_CONTROL`
-   - Use IAPWS-95 water properties as a smooth two-variable equation-of-state control.
-   - This is a numerical consistency test, not independent experimental falsification.
+   - five stable liquid-water states;
+   - result: `PASS_CONTROL`.
 
 4. `T01D_THERMOML_EXPERIMENTAL`
-   - Build independently sourced response channels from NIST ThermoML records.
-   - Preserve source, method, units, constraints, and uncertainty for every datum.
+   - pinned NIST ThermoML archive;
+   - twelve distinct publications for twelve source slots;
+   - density, sound speed, isobaric heat capacity, and viscosity;
+   - result: `NOT_FALSIFIED`.
 
-## Allowed outcomes
+## T01D primary result
 
-- `PASS_CONTROL`
-- `FAIL_CONTROL`
-- `NOT_FALSIFIED`
-- `FALSIFIED_MEASUREMENT_CONTRACT`
-- `INCONCLUSIVE_DATA_COVERAGE`
-- `INCONCLUSIVE_UNCERTAINTY_MODEL`
+Frozen state:
 
-No failed result may be renamed as curvature, hidden memory, or a new constitutive law after inspection. The observation contract is frozen before the residual is evaluated.
+```text
+T = 318.15 K
+P = 12.5 MPa
+```
+
+Primary delta-method result:
+
+```text
+Pluecker residual                  -1.8654273205408826e-06
+standard error                      8.08728994960218e-06
+z score                             0.23066161002829436
+rejection threshold                 5.0
+status                              NOT_FALSIFIED
+```
+
+Deterministic 200,000-draw bootstrap:
+
+```text
+bootstrap standard error            8.14856878214715e-06
+bootstrap / delta SE ratio           1.0075771776363704
+bootstrap z score                    0.22892698956261887
+zero inside 95%, 99%, 99.9% ranges  yes
+status                              NOT_FALSIFIED
+```
+
+The result is recorded in:
+
+- `results/T01D_FINAL_CERTIFICATE.json`
+- `results/T01D_RESULT.md`
+
+## Narrow-tetrad boundary
+
+The pinned ThermoML archive did not provide enough independent two-dimensional surfaces for the strict caloric-mechanical tetrad. That route is recorded as `INCONCLUSIVE_DATA_COVERAGE`.
+
+The completed experiment instead tests the paper's broader theorem for any four smooth nondimensional response channels. The channel substitution was made from the archive inventory before fitting or residual evaluation.
+
+## Manifest history
+
+Manifest v1 failed two fit-geometry gates and produced no bracket residual. The two weak source slots were replaced using only point topology and uncertainty availability. Manifest v1 remains archived, the revision is recorded, and the fit family, state, bandwidths, gates, uncertainty rule, and five-sigma threshold were unchanged in v2.
+
+## IAPWS-95 control
+
+```text
+states tested                         5
+T range                               285 K to 350 K
+P range                               0.1 MPa to 10 MPa
+maximum flat-closure error            2.220446049250313e-16
+maximum sound-bulk relative error     1.9050453295659672e-16
+maximum normalized Pluecker residual  3.533498065462128e-17
+```
 
 ## Reproduce
 
@@ -68,36 +108,8 @@ python scripts/run_t01_synthetic_audit.py
 python scripts/run_t01_iapws95_control.py
 ```
 
-The generated certificates must match:
+The ThermoML workflows download the pinned NIST archive, verify its SHA-256, extract the frozen source slots, reproduce the independent test, and run the bootstrap audit.
 
-- `results/T01_SYNTHETIC_AUDIT.json`
-- `results/T01C_IAPWS95_CONTROL.json`
+## Claim boundary
 
-## Source hierarchy
-
-- IAPWS R6-95(2018), the official IAPWS-95 formulation for ordinary water.
-- NIST ThermoML Archive, an XML-based IUPAC representation of experimental thermophysical and thermochemical data.
-- Recognition Kernel Framework thermodynamic theorem archive.
-
-## Current result
-
-```text
-T01A common-gradient algebra                     PASS_CONTROL
-T01B small independent inconsistency             NOT_FALSIFIED
-T01B large independent inconsistency             FALSIFIED_MEASUREMENT_CONTRACT (11.28 sigma)
-T01C IAPWS-95 water control                      PASS_CONTROL
-T01D ThermoML independent experimental test      NEXT DATA CAMPAIGN
-```
-
-IAPWS-95 control range:
-
-```text
-states tested                                    5
-T range                                          285 K to 350 K
-P range                                          0.1 MPa to 10 MPa
-maximum flat-closure error                       2.220446049250313e-16
-maximum sound-bulk relative error                1.9050453295659672e-16
-maximum normalized Pluecker residual             3.533498065462128e-17
-```
-
-The validation suite contains thirteen passing test cases. GitHub Actions reproduces both certificates on Python 3.11 and 3.12.
+`NOT_FALSIFIED` does not prove that the Recognition framework is uniquely selected by nature. It means the frozen independent measurement contract did not reject the Pluecker constraint. Stronger work should repeat the campaign across alternative state points, bandwidths, and unused source ensembles without redefining this completed primary result.
