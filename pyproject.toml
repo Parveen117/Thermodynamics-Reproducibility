@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Reproducible falsification tests for thermodynamic Recognition claims"
 requires-python = ">=3.11"
 dependencies = [
+  "iapws==1.5.5",
   "numpy>=1.26",
 ]
 
