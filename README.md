@@ -38,11 +38,11 @@ status                               NOT_FALSIFIED
 
 ## Graphene response campaign
 
-The transport-source campaign is separate from the earlier graphene Raman heating-cooling hysteresis statistic. The Raman experiment uses nonzero loop area significance. This campaign asks whether four response channels can support an independent Pluecker test on one frozen two-control chart.
+The transport-source campaign is separate from the earlier graphene Raman heating-cooling hysteresis statistic. The Raman experiment uses nonzero loop-area significance. This campaign asks whether four response channels can support an independent Pluecker test on one frozen two-control chart.
 
 ### G01–G07: sources, model control and topology
 
-- `G01`: freezes the chart and significance semantics.
+- `G01`: freezes chart and significance semantics.
 - `G02`: ideal massless-Dirac common-model control, `PASS_CONTROL`.
 - `G03`: identifies the first experimental bridge.
 - `G04`: pins four official PDFs without redistributing them.
@@ -69,57 +69,92 @@ status                        INCONCLUSIVE_COMMON_DOMAIN
 
 No extrapolation is permitted.
 
-### G09: replacement ranking
+### G09–G11: replacement audits
 
-Replacement priority:
+Replacement priority initially selected:
 
 1. Aamir 2021 electronic heat capacity `C_e`;
 2. Block 2021 electronic thermal diffusivity `D_e`.
 
-Circular same-source reconstructions and theory-derived substitutes are rejected.
+G10 found that density-resolved heat-capacity measurements stop at 100 K. A fixed-density curve reaches approximately 195 K but cannot supply local derivatives in both temperature and carrier density.
 
-### G10: electronic heat-capacity coverage
-
-Measured density-resolved `C_e(n)` support occurs at 15.5, 60 and 100 K. The current base channels begin at 110 K. A measured `C_e(T_e)` curve extends to approximately 195 K but only at one fixed density.
+G11 found that Block uses transient peak electronic temperature at fixed lattice temperature, whereas the base channels use equilibrium sample temperature. The complete published `D(T_F,T_e)` surfaces are calculations, not public measured response tables.
 
 ```text
-status                     INCONCLUSIVE_TWO_DIMENSIONAL_COMMON_DOMAIN
-density-resolved overlap   EMPTY
-fixed-density overlap      110-195 K
-replacement ready          false
+G10  INCONCLUSIVE_TWO_DIMENSIONAL_COMMON_DOMAIN
+G11  INCONCLUSIVE_STATE_VARIABLE_ALIGNMENT_AND_MEASURED_SURFACE
 ```
 
-A one-density temperature curve cannot supply local derivatives in both `T` and `n`.
+### G12: typed temperature-sector redesign
 
-### G11: thermal-diffusivity state-variable audit
-
-Block 2021 measures spatiotemporal thermoelectric current and fitted spatial widths at fixed lattice temperature `T_l = 300 K`. Its control variable is a transient peak electron temperature inferred from optical power.
-
-The base channels instead use equilibrium sample temperature. These are different physical coordinates:
+The campaign no longer uses an informal universal temperature coordinate. It freezes a sector atlas:
 
 ```text
-equilibrium sample temperature     != transient peak electron temperature
+EQ_HIGH_TN                         SELECT PRIMARY
+EQ_LOW_TN                          KEEP AS FALLBACK SECTOR
+TRANSIENT_HOT_TE_N                 SEPARATE COMPANION CAMPAIGN
+T_OVER_TF_N                        REJECT AS GLOBAL CHART
+TE_TL_N                            HONEST BUT THREE-DIMENSIONAL
 ```
 
-The complete published `D(T_F,T_e)` surfaces are Boltzmann calculations, while the measured objects are `Delta I_TE` maps and width-based diffusivity estimates.
+The selected primary chart is
+
+\[
+(T_{\mathrm{eq}},n),\qquad 110\ \mathrm{K}\le T_{\mathrm{eq}}\le260\ \mathrm{K},
+\]
+
+with three machine-readable responses:
+
+\[
+G(T,n),\qquad K_e(T,n),\qquad \Sigma_Q(T,n).
+\]
+
+`T/T_F` is rejected as a global chart because `T_F=0` at the Dirac point and because dimensionless scaling does not erase equilibrium-versus-transient protocol differences.
 
 ```text
-status              INCONCLUSIVE_STATE_VARIABLE_ALIGNMENT_AND_MEASURED_SURFACE
-replacement ready   false
-fit allowed         false
+status  PASS_SECTORIZED_TEMPERATURE_REDESIGN
 ```
 
-Raw maps, fit covariance, power-to-temperature calibration, density calibration, focus-width uncertainty and instrument-response covariance are required from the authors before any stronger use.
+### G13: equilibrium fourth-channel search
+
+The strongest acquisition target is the equilibrium Seebeck coefficient
+
+\[
+S(T,n)=-\frac{\Delta V}{\Delta T}.
+\]
+
+Primary target:
+
+- Wang and Shi 2011, DOI `10.1103/PhysRevB.83.113403`;
+- directly measured equilibrium thermoelectric response;
+- broad temperature and carrier-density coverage reported;
+- public machine-readable arrays, exact target-window support and covariance not verified.
+
+Secondary target:
+
+- Zuev, Chang and Kim 2009, DOI `10.1103/PhysRevLett.102.096807`;
+- clearly verified density sweeps inside 110–260 K occur at 150 and 200 K only;
+- fails the frozen minimum-three-temperature gate.
+
+Quantum capacitance lacks a verified target-window `T-n` surface. Hall-derived density duplicates a chart coordinate. Equilibrium Raman lacks a verified machine-readable `T-n` surface. Transient photo-thermoelectric and spin responses fail the G12 sector contract.
+
+```text
+status                    INCONCLUSIVE_EQ_HIGH_FOURTH_CHANNEL_ACQUISITION
+selected candidate        SEEBECK_WANG_SHI_2011
+secondary candidate       SEEBECK_ZUEV_KIM_2009
+fit-ready candidates      0
+fourth channel ready      false
+fit allowed               false
+Pluecker significance     not computed
+```
 
 ## Current scientific boundary
 
-The campaign has not produced an experimental graphene Pluecker score. It has instead identified three independent blockers:
+The valid primary sector and three existing response channels are frozen, but no fourth equilibrium response surface has passed all acquisition gates. The next stage is:
 
-1. empty common temperature support in the first four-channel set;
-2. insufficient two-dimensional heat-capacity coverage in the replacement set;
-3. incompatible meanings of temperature in the thermal-diffusivity replacement.
+`G14_SEEBECK_AUTHOR_DATA_AND_DIGITIZATION_CONTRACT`
 
-The next stage is `G12_TEMPERATURE_COORDINATE_REDESIGN`.
+G14 requires pointwise Seebeck data, exact temperature support, gate-to-density calibration, thermovoltage and temperature-gradient information, and statistical plus shared systematic covariance. Digitization cannot manufacture a missing temperature curve.
 
 ## Reproduce
 
@@ -128,6 +163,8 @@ python -m pip install -e ".[test]"
 python -m pytest
 python scripts/run_g10_ce_coverage_audit.py
 python scripts/run_g11_de_coverage_audit.py
+python scripts/run_g12_temperature_coordinate_redesign.py
+python scripts/run_g13_eq_high_fourth_channel_search.py
 ```
 
 `NOT_FALSIFIED` does not prove that the Recognition framework is uniquely selected by nature. It means a frozen measurement contract did not reject the stated constraint. No graphene experimental Pluecker significance may be announced until chart semantics, source independence, uncertainty and a common two-dimensional domain are all frozen and reproduced.
