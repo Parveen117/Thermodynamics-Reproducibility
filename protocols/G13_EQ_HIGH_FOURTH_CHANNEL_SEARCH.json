@@ -6,7 +6,10 @@
       "equilibrium_sample_temperature_K",
       "carrier_density_1e12_cm_minus_2"
     ],
-    "temperature_range_K": [110.0, 260.0],
+    "temperature_range_K": [
+      110.0,
+      260.0
+    ],
     "existing_channels": [
       "G_CONDUCTANCE",
       "KE_THERMAL_CONDUCTANCE",
@@ -18,11 +21,13 @@
     "equilibrium_measurement_required": true,
     "directly_measured_response_required": true,
     "carrier_density_resolved_required": true,
-    "minimum_distinct_temperatures_in_target_window": 3,
+    "minimum_distinct_temperatures_in_target_window_per_device": 3,
     "minimum_distinct_densities_per_temperature": 5,
     "machine_readable_numerical_data_required_before_fit": true,
     "pointwise_uncertainty_or_reconstructible_covariance_required": true,
     "independent_publication_preferred": true,
+    "same_device_surface_required": true,
+    "no_cross_device_temperature_pooling": true,
     "no_temperature_extrapolation": true,
     "no_density_extrapolation": true,
     "no_theory_curve_as_measurement": true,
@@ -31,22 +36,64 @@
   },
   "candidates": [
     {
-      "candidate_id": "SEEBECK_WANG_SHI_2011",
-      "observable": "equilibrium Seebeck coefficient S(T,n)",
+      "candidate_id": "SEEBECK_WANG_SHI_2011_THEORY",
+      "observable": "theoretical thermoelectric power near the Dirac point",
       "doi": "10.1103/PhysRevB.83.113403",
-      "arxiv": "1101.4676",
-      "measurement_class": "DIRECT_EQUILIBRIUM_THERMOELECTRIC_RESPONSE",
+      "source_class": "THEORY_ONLY",
+      "direct_measurement": false,
+      "decision": "REJECT_THEORY_NOT_MEASUREMENT",
+      "correction": "The paper is Effect of charged impurities on the thermoelectric power of graphene near the Dirac point and cannot serve as an experimental acquisition target."
+    },
+    {
+      "candidate_id": "SEEBECK_WEI_LAU_SHI_2009",
+      "observable": "equilibrium longitudinal Seebeck coefficient Sxx(T,n)",
+      "doi": "10.1103/PhysRevLett.102.166808",
+      "arxiv": "0812.1411",
+      "source_class": "DIRECT_EQUILIBRIUM_THERMOELECTRIC_MEASUREMENT",
       "independent_publication": true,
       "carrier_density_resolved": true,
-      "reported_temperature_scope": "wide temperature range",
-      "target_window_temperature_support_verified_from_primary_machine_readable_data": false,
+      "device_surfaces": [
+        {
+          "device_id": "WEI_DEVICE_1_FIG2",
+          "published_observable": "thermovoltage_Vth_vs_gate_voltage",
+          "verified_temperatures_K": [
+            16.0,
+            197.0,
+            253.0
+          ],
+          "verified_target_window_temperatures_K": [
+            197.0,
+            253.0
+          ],
+          "direct_seebeck_surface_ready": false,
+          "blocker": "pointwise DeltaT is required to convert Vth to Sxx"
+        },
+        {
+          "device_id": "WEI_DEVICE_2_FIG3",
+          "published_observable": "Seebeck_coefficient_Sxx_vs_gate_voltage",
+          "verified_temperatures_K": [
+            11.0,
+            20.0,
+            30.0,
+            40.0,
+            50.0,
+            100.0,
+            200.0,
+            255.0
+          ],
+          "verified_target_window_temperatures_K": [
+            200.0,
+            255.0
+          ],
+          "minimum_temperature_gate_pass": false
+        }
+      ],
       "public_machine_readable_arrays_verified": false,
       "pointwise_uncertainty_verified": false,
-      "shared_algebra_with_existing_channels": false,
-      "decision": "SELECT_PRIMARY_ACQUISITION_TARGET",
+      "decision": "SELECT_PRIMARY_AUTHOR_DATA_TARGET",
       "blockers": [
-        "raw S(T,n) arrays are not publicly verified",
-        "exact target-window temperature support must be pinned from author data or source files",
+        "no single published device has three verified target-window Seebeck density sweeps",
+        "native numerical arrays are not publicly verified",
         "thermovoltage, temperature-gradient and density-calibration covariance is not frozen"
       ]
     },
@@ -55,92 +102,89 @@
       "observable": "equilibrium thermoelectric power S(T,n)",
       "doi": "10.1103/PhysRevLett.102.096807",
       "arxiv": "0812.1393",
-      "measurement_class": "DIRECT_EQUILIBRIUM_THERMOELECTRIC_RESPONSE",
+      "source_class": "DIRECT_EQUILIBRIUM_THERMOELECTRIC_MEASUREMENT",
       "independent_publication": true,
       "carrier_density_resolved": true,
-      "verified_density_sweep_temperatures_K": [10.0, 40.0, 80.0, 150.0, 300.0, 15.0, 200.0],
-      "verified_target_window_temperatures_K": [150.0, 200.0],
+      "figure_surfaces": [
+        {
+          "figure_id": "ZUEV_FIG1",
+          "verified_temperatures_K": [
+            10.0,
+            40.0,
+            80.0,
+            150.0,
+            300.0
+          ],
+          "verified_target_window_temperatures_K": [
+            150.0
+          ]
+        },
+        {
+          "figure_id": "ZUEV_FIG2",
+          "verified_temperatures_K": [
+            15.0,
+            40.0,
+            200.0
+          ],
+          "verified_target_window_temperatures_K": [
+            200.0
+          ]
+        }
+      ],
+      "same_device_mapping_between_figures_verified": false,
       "minimum_temperature_gate_pass": false,
       "public_machine_readable_arrays_verified": false,
       "pointwise_uncertainty_verified": false,
-      "shared_algebra_with_existing_channels": false,
-      "decision": "SECONDARY_AUTHOR_DATA_TARGET",
+      "decision": "SELECT_SECONDARY_AUTHOR_DATA_TARGET",
       "blockers": [
-        "only two clearly verified density sweeps lie inside 110-260 K",
-        "raw numerical arrays are not publicly verified",
-        "temperature-gradient and thermovoltage covariance is not frozen"
+        "only 150 K and 200 K are verified inside the target window",
+        "same-device continuity between the two published figure sets is not frozen",
+        "raw numerical arrays and covariance are not publicly verified"
       ]
     },
     {
       "candidate_id": "QUANTUM_CAPACITANCE_XIA_2009",
-      "observable": "quantum capacitance C_q",
+      "observable": "quantum capacitance Cq",
       "doi": "10.1038/nnano.2009.177",
-      "measurement_class": "DIRECT_CAPACITANCE_RESPONSE",
-      "independent_publication": true,
-      "carrier_density_resolved": true,
+      "source_class": "DIRECT_CAPACITANCE_RESPONSE",
       "temperature_resolved_target_window": false,
-      "public_machine_readable_arrays_verified": false,
-      "decision": "REJECT_CURRENTLY_ONE_DIMENSIONAL",
-      "blockers": [
-        "direct measurement is reported primarily versus gate potential",
-        "three-temperature support inside 110-260 K is not verified",
-        "machine-readable two-dimensional table and covariance are not verified"
-      ]
+      "decision": "REJECT_CURRENTLY_ONE_DIMENSIONAL"
     },
     {
       "candidate_id": "HALL_COEFFICIENT_OR_CARRIER_DENSITY",
       "observable": "Hall coefficient or inferred carrier density",
-      "measurement_class": "ELECTRICAL_CALIBRATION_RESPONSE",
-      "independent_publication": true,
-      "carrier_density_resolved": false,
-      "decision": "REJECT_AS_COORDINATE_OR_CALIBRATION_CHANNEL",
-      "blockers": [
-        "carrier density is already a chart coordinate",
-        "Hall-derived density is not algebraically independent of the density calibration",
-        "using it as a response channel would duplicate the chart variable"
-      ]
+      "source_class": "ELECTRICAL_CALIBRATION_RESPONSE",
+      "decision": "REJECT_AS_COORDINATE_OR_CALIBRATION_CHANNEL"
     },
     {
       "candidate_id": "RAMAN_G_OR_2D_PEAK_EQUILIBRIUM",
       "observable": "equilibrium Raman peak position or linewidth",
-      "measurement_class": "OPTICAL_PHONON_RESPONSE",
-      "independent_publication": true,
-      "temperature_resolved_target_window": true,
+      "source_class": "OPTICAL_PHONON_RESPONSE",
       "carrier_density_resolved_target_window": false,
-      "decision": "REJECT_UNTIL_TWO_DIMENSIONAL_DENSITY_SWEEPS_EXIST",
-      "blockers": [
-        "available high-temperature Raman datasets are commonly temperature sweeps at fixed or uncontrolled density",
-        "the separate heating-cooling hysteresis experiment is not an equilibrium fourth-channel table",
-        "machine-readable T-n Raman surface and covariance are not verified"
-      ]
+      "decision": "REJECT_UNTIL_TWO_DIMENSIONAL_DENSITY_SWEEPS_EXIST"
     },
     {
       "candidate_id": "TRANSIENT_PHOTOTHERMOELECTRIC_OR_SPIN_RESPONSE",
       "observable": "photo-thermoelectric or thermally generated spin response",
-      "measurement_class": "NONEQUILIBRIUM_OR_DIFFERENT_MATERIAL_SECTOR",
-      "decision": "REJECT_CROSS_SECTOR",
-      "blockers": [
-        "transient electronic temperature is not the selected equilibrium coordinate",
-        "magnetic or bilayer graphene is outside the selected monolayer material contract",
-        "cross-sector brackets are forbidden by G12"
-      ]
+      "source_class": "NONEQUILIBRIUM_OR_DIFFERENT_MATERIAL_SECTOR",
+      "decision": "REJECT_CROSS_SECTOR"
     }
   ],
   "selection": {
-    "selected_candidate_id": "SEEBECK_WANG_SHI_2011",
-    "secondary_candidate_id": "SEEBECK_ZUEV_KIM_2009",
+    "primary_author_data_target_id": "SEEBECK_WEI_LAU_SHI_2009",
+    "secondary_author_data_target_id": "SEEBECK_ZUEV_KIM_2009",
     "fit_ready_candidate_count": 0,
     "fit_allowed": false,
     "experimental_plucker_significance_computed": false,
     "required_author_data": [
-      "pointwise measured Seebeck coefficient versus gate voltage or carrier density at each equilibrium temperature",
-      "temperature list and sample thermometer calibration",
+      "pointwise measured Seebeck coefficient versus gate voltage or carrier density for each device and equilibrium temperature",
+      "complete temperature list and mapping from every curve to a stable device identifier",
       "thermovoltage and temperature-gradient raw or fit-level data",
       "gate-voltage to carrier-density calibration and uncertainty",
       "pointwise statistical uncertainty and shared systematic covariance",
-      "device identifiers, sweep direction, contact geometry and annealing state"
+      "device geometry, contact configuration, sweep direction and annealing state"
     ]
   },
   "next_stage": "G14_SEEBECK_AUTHOR_DATA_AND_DIGITIZATION_CONTRACT",
-  "claim_boundary": "G13 selects equilibrium Seebeck coefficient as the strongest fourth-channel acquisition target. No candidate is fit-ready, no fourth response surface is admitted, and no graphene Pluecker residual or significance is computed."
+  "claim_boundary": "G13 corrects a theory-versus-measurement classification error and selects Wei-Lau-Shi 2009 and Zuev-Kim 2009 as author-data targets. No same-device source has three verified target-window Seebeck sweeps, no fourth response surface is admitted, and no graphene Pluecker residual or significance is computed."
 }
