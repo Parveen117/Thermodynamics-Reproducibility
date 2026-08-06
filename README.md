@@ -49,15 +49,30 @@ The result is recorded in:
 
 `G01_GRAPHENE_FEASIBILITY`
 
-The graphene campaign begins with a claim audit rather than an inherited significance number.
+The graphene campaign begins by separating two different significance statistics.
 
-### Frozen corrections
+### Raman hysteresis versus Pluecker residual
 
-- The repository defines `z = abs(residual) / standard_error`.
-- A result of `30 sigma` would be a thirty-sigma rejection, not overwhelming confirmation.
-- A residual thirty times smaller than its uncertainty would have `z approximately 0.033`.
-- The theorem concerns a two-dimensional state or control chart, not the spatial dimension of the material.
-- Monolayer graphene has important nuisance variables including substrate, encapsulation, carrier density, strain, disorder, contamination, and electronic versus lattice temperature.
+The earlier preprint **Multiscale Violation of Onsager Reciprocity**, Research Square DOI `10.21203/rs.3.rs-9055273/v2`, reports Raman heating-cooling hysteresis loop areas above 30 sigma under a loop-area statistic. That is evidence for a nonzero loop under its own calibration and uncertainty contract.
+
+The G01 campaign is different. It uses
+
+\[
+z_P=\frac{|P(B)|}{\sigma_P}.
+\]
+
+For this statistic:
+
+- `z_P <= 5` means `NOT_FALSIFIED`;
+- `z_P > 5` means `FALSIFIED_MEASUREMENT_CONTRACT`;
+- `z_P = 30` would be a thirty-sigma Pluecker rejection;
+- a residual thirty times smaller than uncertainty would give `z_P approximately 0.033`.
+
+The repository therefore rejects only the **conflation** of the two statistics, not the earlier Raman-loop result.
+
+### State-manifold correction
+
+The theorem concerns a two-dimensional state or control chart, not the spatial dimension of the material. Monolayer graphene also has important nuisance variables including substrate, encapsulation, carrier density, strain, disorder, contamination, contact geometry, and electronic versus lattice temperature.
 
 ### Candidate chart and channels
 
@@ -73,9 +88,10 @@ ThermoML graphene hits are dominated by composites, graphene oxide, and aerogels
 Current status:
 
 ```text
-G00 claimed 30-sigma interpretation               REJECTED
+G00 Raman / Pluecker statistic distinction        FROZEN
 G01 ThermoML pristine-graphene route               INSUFFICIENT
-G01 online primary-source inventory                IN PROGRESS
+G01 online primary-source ledger                   PASS_FEASIBILITY_LEDGER
+G01 four machine-readable response surfaces        NOT YET ASSEMBLED
 G01 graphene Pluecker significance                 NOT YET COMPUTED
 ```
 
@@ -83,19 +99,22 @@ See:
 
 - `graphene/G00_CLAIM_AUDIT.md`
 - `graphene/G01_SOURCE_INVENTORY.md`
+- `graphene/G01_SOURCE_LEDGER.json`
 - `protocols/G01_GRAPHENE_FEASIBILITY.json`
+- `results/G01_FEASIBILITY_AUDIT.json`
 
 ## Reproduce
 
 ```bash
 python -m pip install -e ".[test]"
 python -m pytest
+python scripts/validate_g01_source_ledger.py
 python scripts/run_t01_synthetic_audit.py
 python scripts/run_t01_iapws95_control.py
 ```
 
-The ThermoML workflows download the pinned NIST archive, verify its SHA-256, extract the frozen source slots, reproduce the independent water test, and run the bootstrap audit.
+The ThermoML workflows download the pinned NIST archive, verify its SHA-256, extract the frozen source slots, reproduce the independent water test, and run the bootstrap audit. The G01 workflow verifies the graphene significance semantics and source-acquisition ledger on Python 3.11 and 3.12.
 
 ## Claim boundary
 
-`NOT_FALSIFIED` does not prove that the Recognition framework is uniquely selected by nature. It means a frozen measurement contract did not reject the Pluecker constraint. No graphene result may be announced until its own chart, sources, covariance model, and residual are frozen and reproduced.
+`NOT_FALSIFIED` does not prove that the Recognition framework is uniquely selected by nature. It means a frozen measurement contract did not reject the Pluecker constraint. No graphene Pluecker result may be announced until its own chart, sources, covariance model, and residual are frozen and reproduced.
