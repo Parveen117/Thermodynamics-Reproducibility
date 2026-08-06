@@ -1,0 +1,84 @@
+{
+  "campaign": "G08_GRAPHENE_FOUR_CHANNEL_SCHEMA",
+  "status": "INCONCLUSIVE_COMMON_DOMAIN",
+  "schema_audit_status": "PASS_STATIC_SCHEMA_AUDIT_WITH_CI_VERIFICATION_PENDING",
+  "source_doi": "10.1038/s41567-025-02972-z",
+  "state_chart": [
+    "temperature_K",
+    "carrier_density_1e12_cm_minus_2"
+  ],
+  "candidate_channels": [
+    {
+      "channel_id": "G_CONDUCTANCE",
+      "sheet": "Fig_1c",
+      "observable": "electrical conductance G",
+      "layout": "fourteen repeated n-G series indexed by temperature",
+      "temperature_series_count": 14,
+      "density_unit_conversion": "m^-2 divided by 1e16 gives 1e12 cm^-2",
+      "reported_uncertainty_in_sheet": false
+    },
+    {
+      "channel_id": "KE_THERMAL_CONDUCTANCE",
+      "sheet": "Fig_3a",
+      "observable": "electronic thermal conductance K_e",
+      "temperature_support_K": [110.0, 170.0, 260.0],
+      "temperature_range_K": [110.0, 260.0],
+      "density_observable_pair_count": 3,
+      "reported_uncertainty_in_sheet": false
+    },
+    {
+      "channel_id": "SIGMA_Q",
+      "sheet": "Fig_3c",
+      "observable": "quantum-critical conductivity Sigma_Q",
+      "layout": "temperature-by-density grid",
+      "grid_shape": [6, 7],
+      "density_support_1e12_cm_minus_2": [-0.3, -0.15, -0.05, 0.0, 0.05, 0.2, 0.5],
+      "reported_uncertainty_in_sheet": false
+    },
+    {
+      "channel_id": "LORENZ_RATIO",
+      "sheet": "Fig_5c",
+      "observable": "measured Lorenz ratio L/L0",
+      "temperature_support_K": [40.0, 57.0, 90.0, 100.0],
+      "temperature_range_K": [40.0, 100.0],
+      "measured_density_observable_pair_count": 4,
+      "excluded_ideal_pair_count": 4,
+      "excluded_phenomenological_pair_count": 4,
+      "reported_uncertainty_in_sheet": false
+    }
+  ],
+  "common_domain_audit": {
+    "decisive_pair": [
+      "KE_THERMAL_CONDUCTANCE",
+      "LORENZ_RATIO"
+    ],
+    "ke_temperature_range_K": [110.0, 260.0],
+    "lorenz_temperature_range_K": [40.0, 100.0],
+    "continuous_temperature_range_intersection_K": null,
+    "exact_temperature_support_intersection_K": [],
+    "four_channel_common_temperature_domain_nonempty": false,
+    "reason": "The maximum measured Lorenz-ratio temperature is 100 K, below the minimum electronic-thermal-conductance temperature of 110 K. A four-channel fit would therefore require temperature extrapolation, which is forbidden by the frozen contract."
+  },
+  "additional_blockers": {
+    "channel_level_uncertainty_model_frozen": false,
+    "six_independently_sourced_brackets_available": false,
+    "shared_publication_and_device_covariance_resolved": false,
+    "derived_channels_present": true
+  },
+  "fit_allowed": false,
+  "experimental_plucker_significance_computed": false,
+  "fit_blockers": [
+    "EMPTY_COMMON_TEMPERATURE_DOMAIN",
+    "UNCERTAINTY_MODEL_NOT_FROZEN",
+    "SOURCE_INDEPENDENCE_NOT_MET"
+  ],
+  "ci_verification": {
+    "workflow": "G08 graphene four-channel schema",
+    "head_sha": "642acf325a5ee694b0fd3ca146dba1d93179035d",
+    "status": "NOT_STARTED_BY_GITHUB",
+    "reason": "GitHub reported that recent account payments failed or the Actions spending limit must be increased.",
+    "scientific_interpretation": "The red check is an account billing failure, not a schema or scientific failure."
+  },
+  "next_stage": "G09_COMMON_DOMAIN_CHANNEL_REPLACEMENT",
+  "claim_boundary": "The 2025 source-data package supplies four candidate response channels, but these four do not share a non-extrapolative temperature domain and cannot support a Pluecker fit. No graphene Pluecker significance is claimed."
+}
