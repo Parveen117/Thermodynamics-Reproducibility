@@ -1,0 +1,39 @@
+{
+  "campaign": "G12_TEMPERATURE_COORDINATE_REDESIGN",
+  "claim_boundary": "G12 selects and types the temperature coordinate. It does not create a fourth response channel, identify equilibrium and transient temperatures, or authorize a graphene Pluecker fit or significance.",
+  "cross_sector_brackets_allowed": false,
+  "equilibrium_and_transient_temperatures_identified": false,
+  "errors": [],
+  "experimental_plucker_significance_computed": false,
+  "fit_allowed": false,
+  "fourth_channel_ready": false,
+  "global_T_over_TF_chart_allowed": false,
+  "next_requirement": "One directly measured equilibrium response surface on the same T-n window, with uncertainty and independent provenance.",
+  "next_stage": "G13_EQ_HIGH_FOURTH_CHANNEL_SEARCH",
+  "sector_decisions": {
+    "EQ_HIGH_TN": "SELECT_PRIMARY",
+    "EQ_LOW_TN": "KEEP_AS_SEPARATE_FALLBACK_SECTOR",
+    "NONEQUILIBRIUM_TE_TL_N": "PHYSICALLY_HONEST_BUT_OUTSIDE_TWO_DIMENSIONAL_THEOREM",
+    "REDUCED_DEGENERACY_T_OVER_TF_N": "REJECT_AS_GLOBAL_CHART",
+    "TRANSIENT_HOT_TE_N": "SEPARATE_COMPANION_CAMPAIGN"
+  },
+  "selected_coordinates": [
+    "equilibrium_sample_temperature_K",
+    "carrier_density_1e12_cm_minus_2"
+  ],
+  "selected_existing_channel_count": 3,
+  "selected_existing_channels": [
+    "G_CONDUCTANCE",
+    "KE_THERMAL_CONDUCTANCE",
+    "SIGMA_Q"
+  ],
+  "selected_sector_dimension": 2,
+  "selected_sector_id": "EQ_HIGH_TN",
+  "selected_sector_regular_at_dirac_point": true,
+  "selected_temperature_window_K": [
+    110.0,
+    260.0
+  ],
+  "status": "PASS_SECTORIZED_TEMPERATURE_REDESIGN",
+  "three_dimensional_nonequilibrium_chart_reduced_to_two_dimensions": false
+}
