@@ -65,6 +65,24 @@
       "status": "AUTHOR_DATA_REQUEST_OR_REPRODUCIBLE_DIGITIZATION"
     },
     {
+      "source_id": "G01_SIGMA_KAPPA_MAJUMDAR_2025",
+      "channels": ["electrical_conductivity", "electronic_thermal_conductivity"],
+      "citation": "A. Majumdar et al., Universality in quantum critical flow of charge and heat in ultraclean graphene, Nature Physics 21, 1374-1379 (2025)",
+      "doi": "10.1038/s41567-025-02972-z",
+      "material": "ultraclean hBN-encapsulated graphene devices",
+      "controls_reported": ["temperature", "carrier_density"],
+      "access": {
+        "article_online": true,
+        "nims_mdr_record": "6f293ba2-7f08-417f-a717-a8421b2624b7",
+        "accepted_manuscript_online": true,
+        "supporting_information_online": true,
+        "machine_readable_raw_table_verified": false
+      },
+      "role": "highest-priority same-device two-channel transport source",
+      "limitation": "same-device channels are valuable for a control but do not by themselves provide four independently sourced response surfaces",
+      "status": "ACQUIRE_SUPPLEMENT_AND_AUDIT_TABLE_TOPOLOGY"
+    },
+    {
       "source_id": "G01_KE_YIGEN_2015",
       "channel": "electronic_thermal_conductivity",
       "citation": "S. Yigen, Electronic Thermal Conductivity Measurements in Graphene, PhD thesis, Concordia University (2015)",
@@ -112,6 +130,6 @@
     "pristine_monolayer_four_surface_archive": false,
     "status": "INSUFFICIENT_FOR_PRIMARY_GRAPHENE_TEST"
   },
-  "current_gate": "NO_FOUR_CHANNEL_MACHINE_READABLE_CONTRACT",
+  "current_gate": "TWO_CHANNEL_COMMON_DEVICE_ROUTE_AVAILABLE_BUT_NO_FOUR_CHANNEL_MACHINE_READABLE_CONTRACT",
   "significance_computed": false
 }
