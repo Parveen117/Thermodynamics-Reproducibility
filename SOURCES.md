@@ -13,10 +13,14 @@ International Association for the Properties of Water and Steam, **R6-95(2018): 
 
 National Institute of Standards and Technology, Thermodynamics Research Center, **ThermoML Archive**.
 
-- Archive: https://www.nist.gov/mml/acmd/trc/thermoml/thermoml-archive
+- Archive page: https://www.nist.gov/mml/acmd/trc/thermoml/thermoml-archive
 - Standard description: https://www.nist.gov/mml/acmd/trc/thermoml
+- Dataset DOI: 10.18434/mds2-2422
+- Pinned snapshot: `ThermoML.v2020-09-30.tgz`
+- Pinned snapshot SHA-256: `231161b5e443dc1ae0e5da8429d86a88474cb722016e5b790817bb31c58d7ec2`
+- Snapshot coverage: ThermoML entries published through calendar year 2019.
 - Role in this repository: provenance-rich experimental property records, including methods, constraints, and uncertainty descriptions where supplied.
-- Claim boundary: NIST states that ThermoML values and metadata are checked for completeness and representation accuracy but are not critically evaluated. Every real-data verdict must therefore include source sensitivity and uncertainty-model audits.
+- Claim boundary: NIST states that ThermoML values and metadata are checked for completeness and representation accuracy but are not critically evaluated. Every real-data verdict therefore preserves source sensitivity and uncertainty-model boundaries.
 
 ## Recognition sources
 
@@ -31,4 +35,4 @@ National Institute of Standards and Technology, Thermodynamics Research Center, 
 
 ## Citation discipline
 
-Downloaded records must retain original bibliographic identifiers and the ThermoML citation requested by NIST. Raw source files are immutable; transformations are recorded in machine-readable manifests with content hashes.
+Downloaded records retain original bibliographic identifiers and the ThermoML citation requested by NIST. Raw source files remain immutable; transformations, manifests, revisions, and content hashes are recorded separately.
