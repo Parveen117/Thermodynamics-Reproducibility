@@ -1,0 +1,29 @@
+name: T01 Pluecker falsification
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[test]"
+      - name: Unit tests
+        run: python -m pytest
+      - name: Reproduce synthetic certificate
+        run: |
+          python scripts/run_t01_synthetic_audit.py
+          git diff --exit-code results/T01_SYNTHETIC_AUDIT.json
