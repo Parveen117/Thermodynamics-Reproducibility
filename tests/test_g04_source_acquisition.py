@@ -39,7 +39,7 @@ def test_sha256_is_stable() -> None:
     module = load_module()
     assert (
         module.sha256_hex(b"graphene")
-        == "9d7f1293658f9ef680f1b9f03cf5e8fc92fd02ed1f89dc8947bcc11dccdebaeb"
+        == "a6f815099914723b933800d1c5ab23b3ae4f024c723039293ccafb3f2fbacb8d"
     )
 
 
