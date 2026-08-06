@@ -1,0 +1,92 @@
+{
+  "campaign": "G09_COMMON_DOMAIN_CHANNEL_REPLACEMENT",
+  "base_channels": [
+    "G_CONDUCTANCE",
+    "KE_THERMAL_CONDUCTANCE",
+    "SIGMA_Q"
+  ],
+  "target_chart": [
+    "electronic_temperature_K",
+    "carrier_density_1e12_cm_minus_2"
+  ],
+  "required_temperature_range_K": [110.0, 260.0],
+  "replacement_requirements": {
+    "independent_publication_preferred": true,
+    "two_dimensional_temperature_density_support": true,
+    "machine_readable_or_reproducibly_digitizable": true,
+    "reported_uncertainty_or_reconstructable_covariance": true,
+    "no_temperature_extrapolation": true,
+    "no_silent_device_class_mixing": true,
+    "no_algebraic_derivation_from_existing_three_channels": true
+  },
+  "candidates": [
+    {
+      "candidate_id": "CE_AAMIR_2021",
+      "observable": "electronic heat capacity C_e",
+      "doi": "10.1021/acs.nanolett.1c01553",
+      "publication_independent": true,
+      "controls_reported": ["electronic_temperature", "carrier_density"],
+      "source_file_pin": {
+        "filename": "nl1c01553_si_001.pdf",
+        "sha256": "f3665ddf503d23400452d10366a39e783ab58ceabe5c80b04a03f2c375c7ef05",
+        "page_count": 31,
+        "topology": "PDF_TEXT_AND_FIGURES_ONLY"
+      },
+      "machine_readable_table_verified": false,
+      "uncertainty_markers_present_in_supplement": true,
+      "device_class": "monolayer graphene calorimeter device",
+      "status": "BEST_REPLACEMENT_PENDING_DIGITIZATION_OR_AUTHOR_DATA"
+    },
+    {
+      "candidate_id": "DE_BLOCK_2021",
+      "observable": "electronic thermal diffusivity D_e",
+      "doi": "10.1038/s41565-021-00957-6",
+      "publication_independent": true,
+      "controls_reported": ["electronic_temperature", "carrier_density_or_gate_voltage"],
+      "source_file_pin": {
+        "filename": "41565_2021_957_MOESM1_ESM.pdf",
+        "sha256": "b60cec3dcec1468d9885f00bfa53912f9259a755992c7f247234aca8bb6d3b0b",
+        "page_count": 21,
+        "topology": "PDF_TEXT_AND_FIGURES_ONLY"
+      },
+      "machine_readable_table_verified": false,
+      "underlying_data_availability": "available from corresponding author on reasonable request",
+      "uncertainty_markers_present_in_supplement": true,
+      "device_class": "hBN-encapsulated monolayer graphene",
+      "status": "STRONG_REPLACEMENT_PENDING_AUTHOR_DATA_OR_DIGITIZATION"
+    },
+    {
+      "candidate_id": "CQ_XIA_DROESCHER",
+      "observable": "quantum capacitance or inverse compressibility",
+      "publication_independent": true,
+      "controls_reported": ["carrier_density_or_gate_voltage"],
+      "temperature_density_surface_verified": false,
+      "machine_readable_table_verified": false,
+      "status": "REJECT_CURRENTLY_ONE_DIMENSIONAL"
+    },
+    {
+      "candidate_id": "ETA_OVER_S_MAJUMDAR_FIG4B",
+      "observable": "eta/s",
+      "publication_independent": false,
+      "controls_reported": ["temperature", "doping_regime_category"],
+      "numeric_carrier_density_surface_verified": false,
+      "derived_from_shared_transport_and_thermodynamic_inputs": true,
+      "status": "REJECT_DERIVED_AND_CATEGORICAL_DENSITY"
+    },
+    {
+      "candidate_id": "SIGMA_VIA_KE_JOIN_MAJUMDAR_FIG3A_FIG3B",
+      "observable": "electrical conductivity Sigma reconstructed by joining K_e tables",
+      "publication_independent": false,
+      "requires_join_through_existing_channel": "KE_THERMAL_CONDUCTANCE",
+      "algebraically_independent_of_base_channels": false,
+      "status": "REJECT_CIRCULAR_CHANNEL_CONSTRUCTION"
+    }
+  ],
+  "decision_contract": {
+    "ready_status": "READY_FOR_FOUR_CHANNEL_FIT",
+    "not_ready_status": "INCONCLUSIVE_REPLACEMENT_DATA_ACQUISITION",
+    "candidate_may_be_ready_only_if_all_requirements_pass": true,
+    "post_hoc_relaxation_forbidden": true
+  },
+  "claim_boundary": "G09 selects an acquisition target for the missing common-domain channel. It does not authorize digitization, fitting, bracket construction, or a graphene Pluecker significance."
+}
