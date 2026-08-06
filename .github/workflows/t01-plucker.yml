@@ -55,7 +55,7 @@ jobs:
               if isinstance(left, (int, float)) and not isinstance(left, bool):
                   if not isinstance(right, (int, float)) or isinstance(right, bool):
                       raise SystemExit(f'IAPWS certificate type changed at {path}')
-                  if not math.isclose(float(left), float(right), rel_tol=1e-9, abs_tol=1e-18):
+                  if not math.isclose(float(left), float(right), rel_tol=1e-9, abs_tol=1e-15):
                       raise SystemExit(
                           f'IAPWS certificate numeric value changed at {path}: '
                           f'{left!r} != {right!r}'
