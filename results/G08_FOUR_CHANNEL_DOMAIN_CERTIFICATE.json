@@ -1,7 +1,7 @@
 {
   "campaign": "G08_GRAPHENE_FOUR_CHANNEL_SCHEMA",
   "status": "INCONCLUSIVE_COMMON_DOMAIN",
-  "schema_audit_status": "PASS_STATIC_SCHEMA_AUDIT_WITH_CI_VERIFICATION_PENDING",
+  "schema_audit_status": "PASS_SCHEMA_AUDIT",
   "source_doi": "10.1038/s41567-025-02972-z",
   "state_chart": [
     "temperature_K",
@@ -74,10 +74,11 @@
   ],
   "ci_verification": {
     "workflow": "G08 graphene four-channel schema",
-    "head_sha": "642acf325a5ee694b0fd3ca146dba1d93179035d",
-    "status": "NOT_STARTED_BY_GITHUB",
-    "reason": "GitHub reported that recent account payments failed or the Actions spending limit must be increased.",
-    "scientific_interpretation": "The red check is an account billing failure, not a schema or scientific failure."
+    "workflow_run_id": 31084232955,
+    "head_sha": "bfe97238fe9a83a23f2423cea8e4b45d5afb8fc1",
+    "status": "SUCCESS",
+    "artifact_id": 8960723561,
+    "artifact_digest": "sha256:b742f442cb1ef87569b152a113a396139606c66a53a3cd8d7badbfe41d4b73fa"
   },
   "next_stage": "G09_COMMON_DOMAIN_CHANNEL_REPLACEMENT",
   "claim_boundary": "The 2025 source-data package supplies four candidate response channels, but these four do not share a non-extrapolative temperature domain and cannot support a Pluecker fit. No graphene Pluecker significance is claimed."
