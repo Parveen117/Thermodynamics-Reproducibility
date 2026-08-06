@@ -1,0 +1,117 @@
+{
+  "campaign": "G01_GRAPHENE_FEASIBILITY",
+  "chart_target": ["electronic_temperature", "carrier_density"],
+  "sources": [
+    {
+      "source_id": "G01_CE_AAMIR_2021",
+      "channel": "electronic_heat_capacity",
+      "citation": "M. A. Aamir et al., Ultrasensitive Calorimetric Measurements of the Electronic Heat Capacity of Graphene, Nano Letters 21, 5330-5337 (2021)",
+      "doi": "10.1021/acs.nanolett.1c01553",
+      "material": "monolayer graphene device",
+      "controls_reported": ["electronic_temperature", "carrier_density"],
+      "access": {
+        "article_online": true,
+        "supporting_information_online": true,
+        "machine_readable_raw_table_verified": false,
+        "supporting_file": "nl1c01553_si_001.pdf"
+      },
+      "role": "primary candidate for C_e(T_e,n)",
+      "status": "ACQUIRE_AND_INSPECT_SUPPORTING_INFORMATION"
+    },
+    {
+      "source_id": "G01_CQ_XIA_2009",
+      "channel": "quantum_capacitance",
+      "citation": "J. Xia et al., Measurement of the quantum capacitance of graphene, Nature Nanotechnology 4, 505-509 (2009)",
+      "doi": "10.1038/nnano.2009.177",
+      "material": "graphene",
+      "controls_reported": ["gate_potential", "carrier_density"],
+      "access": {
+        "article_online": true,
+        "machine_readable_raw_table_verified": false
+      },
+      "role": "experimental quantum-capacitance anchor",
+      "limitation": "readily visible result is primarily one-dimensional in gate potential or carrier density",
+      "status": "INSPECT_FOR_TEMPERATURE_RESOLVED_DATA"
+    },
+    {
+      "source_id": "G01_CQ_DROESCHER_2010",
+      "channel": "quantum_capacitance",
+      "citation": "S. Droescher et al., Quantum capacitance and density of states of graphene",
+      "identifier": "arXiv:1001.4690",
+      "material": "graphene",
+      "controls_reported": ["carrier_density"],
+      "access": {
+        "preprint_online": true,
+        "machine_readable_raw_table_verified": false
+      },
+      "role": "independent capacitance source",
+      "limitation": "one-dimensional density dependence unless additional temperature sweeps are recovered",
+      "status": "COVERAGE_AUDIT"
+    },
+    {
+      "source_id": "G01_DE_BLOCK_2021",
+      "channel": "electronic_thermal_diffusivity",
+      "citation": "A. Block et al., Observation of giant and tunable thermal diffusivity of a Dirac fluid at room temperature, Nature Nanotechnology 16, 1195-1200 (2021)",
+      "doi": "10.1038/s41565-021-00957-6",
+      "material": "hBN-encapsulated monolayer graphene",
+      "controls_reported": ["electronic_temperature", "carrier_density"],
+      "access": {
+        "article_online": true,
+        "supporting_information_online": true,
+        "machine_readable_raw_table_verified": false,
+        "data_availability": "available from corresponding author on reasonable request"
+      },
+      "role": "strongest chart-matched D_e(T_e,n) source",
+      "status": "AUTHOR_DATA_REQUEST_OR_REPRODUCIBLE_DIGITIZATION"
+    },
+    {
+      "source_id": "G01_KE_YIGEN_2015",
+      "channel": "electronic_thermal_conductivity",
+      "citation": "S. Yigen, Electronic Thermal Conductivity Measurements in Graphene, PhD thesis, Concordia University (2015)",
+      "repository": "Concordia University Spectrum",
+      "material": "suspended graphene transistors",
+      "controls_reported": ["electron_temperature", "carrier_density"],
+      "access": {
+        "thesis_pdf_online": true,
+        "machine_readable_raw_table_verified": false
+      },
+      "role": "alternative fourth-channel source",
+      "status": "TABLE_AND_FIGURE_AUDIT"
+    },
+    {
+      "source_id": "G01_SIGMA_TRANSPORT_POOL",
+      "channel": "electrical_conductivity",
+      "material": "monolayer graphene",
+      "controls_required": ["temperature", "carrier_density"],
+      "access": {
+        "candidate_literature_online": true,
+        "machine_readable_raw_table_verified": false
+      },
+      "limitation": "conductivity is highly sensitive to disorder, contacts, suspension, encapsulation, and mobility",
+      "status": "IDENTIFY_EXPERIMENTAL_SOURCE_NOT_THEORY_CURVE"
+    },
+    {
+      "source_id": "G01_ALPHA_YOON_2011",
+      "channel": "lattice_thermal_expansion",
+      "citation": "D. Yoon et al., Negative Thermal Expansion Coefficient of Graphene Measured by Raman Spectroscopy, Nano Letters 11, 3227-3231 (2011)",
+      "doi": "10.1021/nl201488g",
+      "material": "substrate-supported single-layer graphene",
+      "controls_reported": ["lattice_temperature"],
+      "access": {
+        "article_online": true,
+        "supporting_information_online": true
+      },
+      "role": "hidden-variable warning, not current electronic-chart channel",
+      "limitation": "substrate mismatch, strain, contamination, and out-of-plane coupling materially affect the inferred coefficient",
+      "status": "EXCLUDED_FROM_TE_N_CHANNEL_SET"
+    }
+  ],
+  "thermoml": {
+    "search_term": "graphene",
+    "finding": "hits are dominated by graphene composites, graphene oxide, reduced graphene oxide, aerogels, and hybrid materials",
+    "pristine_monolayer_four_surface_archive": false,
+    "status": "INSUFFICIENT_FOR_PRIMARY_GRAPHENE_TEST"
+  },
+  "current_gate": "NO_FOUR_CHANNEL_MACHINE_READABLE_CONTRACT",
+  "significance_computed": false
+}
