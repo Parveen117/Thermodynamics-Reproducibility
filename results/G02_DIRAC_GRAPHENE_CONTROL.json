@@ -1,0 +1,56 @@
+{
+  "campaign": "G02_DIRAC_GRAPHENE_CONTROL",
+  "status": "PASS_CONTROL",
+  "claim_boundary": "All four channels come from one ideal massless-Dirac model on a common two-variable chart. This checks graphene thermodynamic algebra and the numerical pipeline; it is not independent experimental evidence and has no experimental sigma significance.",
+  "chart": {
+    "theta": "T / T0",
+    "chemical_potential": "mu / (k_B T0)",
+    "eta_restriction": "abs(mu / (k_B T)) <= 8"
+  },
+  "channel_order": [
+    "net_density",
+    "energy",
+    "entropy",
+    "compressibility"
+  ],
+  "control_states": [
+    {"theta": 0.6, "chemical_potential": -2.0},
+    {"theta": 0.8, "chemical_potential": -0.5},
+    {"theta": 1.0, "chemical_potential": 0.0},
+    {"theta": 1.2, "chemical_potential": 0.75},
+    {"theta": 1.5, "chemical_potential": 2.5}
+  ],
+  "numerical_contract": {
+    "quadrature": "256-node fixed Gauss-Legendre on [0, 60]",
+    "finite_difference_relative_step": 0.0001,
+    "maximum_normalized_plucker_residual_gate": 1e-14,
+    "maximum_skew_rank_tail_ratio_gate": 1e-12,
+    "maximum_neutrality_formula_error_gate": 1e-10,
+    "maximum_mu_parity_error_gate": 1e-10
+  },
+  "cross_version_audit": {
+    "maximum_normalized_plucker_residual": 9.623875392445127e-18,
+    "maximum_skew_rank_tail_ratio": 1.137913056238364e-16,
+    "maximum_neutrality_formula_error": 9.464077248116687e-15,
+    "maximum_mu_parity_error": 0.0,
+    "python_3_11": {
+      "artifact_id": 8957996183,
+      "artifact_sha256": "224dff3251d215af6fa5bdd064758b4b6a5c15a1f2d3bee1f986dcc52d69cdc8",
+      "maximum_skew_rank_tail_ratio": 1.137913056238364e-16
+    },
+    "python_3_12": {
+      "artifact_id": 8957996754,
+      "artifact_sha256": "ea94a9e3b6480b5d10a7f49a9068982edd8a790fd622109c4ffca7bd70b22fc4",
+      "maximum_skew_rank_tail_ratio": 6.946622205950169e-17
+    }
+  },
+  "interpretation": {
+    "allowed": "The ideal common-model graphene response system is numerically Pluecker-flat on the frozen two-variable chart.",
+    "forbidden": [
+      "This is a graphene experimental confirmation.",
+      "This result has an experimental sigma significance.",
+      "Spatial two-dimensionality alone caused the pass."
+    ]
+  },
+  "next_gate": "Acquire compatible experimental response surfaces on a frozen two-control graphene chart."
+}
