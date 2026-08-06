@@ -20,14 +20,12 @@ B=uv^T-vu^T,
 
 then `P(B)=0` is an algebraic identity. That calculation is an implementation control, not a falsification test. The empirical campaign therefore estimates the six bracket channels from disjoint publication slots with a declared covariance model.
 
-### Completed ladder
+### Completed water ladder
 
 1. `T01A_COMMON_GRADIENT_CONTROL`: `PASS_CONTROL`.
-2. `T01B_INDEPENDENT_BRACKET_SYNTHETIC`: the detector rejects a large injected inconsistency at 11.28 sigma.
+2. `T01B_INDEPENDENT_BRACKET_SYNTHETIC`: detector rejects a large injected inconsistency at 11.28 sigma.
 3. `T01C_IAPWS95_CONTROL`: `PASS_CONTROL` over five stable liquid-water states.
 4. `T01D_THERMOML_EXPERIMENTAL`: `NOT_FALSIFIED` using twelve distinct ThermoML publications.
-
-### T01D primary result
 
 ```text
 state                                T = 318.15 K, P = 12.5 MPa
@@ -38,148 +36,98 @@ rejection threshold                  5.0
 status                               NOT_FALSIFIED
 ```
 
-A deterministic 200,000-draw bootstrap gives `z = 0.22892698956261887` and contains zero in its 95%, 99%, and 99.9% intervals.
+## Graphene response campaign
 
-The result is recorded in:
+The transport-source campaign is separate from the earlier graphene Raman heating-cooling hysteresis statistic. The Raman experiment uses nonzero loop area significance. This campaign asks whether four response channels can support an independent Pluecker test on one frozen two-control chart.
 
-- `results/T01D_FINAL_CERTIFICATE.json`
-- `results/T01D_RESULT.md`
+### G01–G07: sources, model control and topology
 
-## G01 graphene feasibility
+- `G01`: freezes the chart and significance semantics.
+- `G02`: ideal massless-Dirac common-model control, `PASS_CONTROL`.
+- `G03`: identifies the first experimental bridge.
+- `G04`: pins four official PDFs without redistributing them.
+- `G05`: discovers and pins nine official Nature Physics XLSX workbooks.
+- `G06`: maps compact source-data labels.
+- `G07`: freezes numerical layouts for 22 high-priority sheets.
 
-`G01_GRAPHENE_FEASIBILITY`
+### G08: first four-channel attempt
 
-The graphene campaign begins by separating two different significance statistics.
+Candidate channels:
 
-### Raman hysteresis versus Pluecker residual
+1. electrical conductance `G(T,n)`;
+2. electronic thermal conductance `K_e(T,n)`;
+3. quantum-critical conductivity `Sigma_Q(T,n)`;
+4. measured Lorenz ratio `L/L0(T,n)`.
 
-The earlier preprint **Multiscale Violation of Onsager Reciprocity**, Research Square DOI `10.21203/rs.3.rs-9055273/v2`, reports Raman heating-cooling hysteresis loop areas above 30 sigma under a loop-area statistic. That is evidence for a nonzero loop under its own calibration and uncertainty contract.
-
-The G01 campaign is different. It uses
-
-\[
-z_P=\frac{|P(B)|}{\sigma_P}.
-\]
-
-For this statistic:
-
-- `z_P <= 5` means `NOT_FALSIFIED`;
-- `z_P > 5` means `FALSIFIED_MEASUREMENT_CONTRACT`;
-- `z_P = 30` would be a thirty-sigma Pluecker rejection;
-- a residual thirty times smaller than uncertainty would give `z_P approximately 0.033`.
-
-The repository therefore rejects only the **conflation** of the two statistics, not the earlier Raman-loop result.
-
-### State-manifold correction
-
-The theorem concerns a two-dimensional state or control chart, not the spatial dimension of the material. Monolayer graphene also has important nuisance variables including substrate, encapsulation, carrier density, strain, disorder, contamination, contact geometry, and electronic versus lattice temperature.
-
-### Candidate chart and channels
-
-The strongest initial chart is `(T_e, n)`, electronic temperature and carrier density, with candidate channels:
-
-1. electronic heat capacity `C_e`;
-2. quantum capacitance or inverse compressibility;
-3. electrical conductivity;
-4. electronic thermal diffusivity or thermal conductivity.
-
-ThermoML graphene hits are dominated by composites, graphene oxide, and aerogels rather than pristine monolayer graphene response surfaces. Online experimental graphene data exist, but a compatible four-channel machine-readable contract has not yet been assembled.
-
-Current status:
+The common temperature domain is empty:
 
 ```text
-G00 Raman / Pluecker statistic distinction        FROZEN
-G01 ThermoML pristine-graphene route               INSUFFICIENT
-G01 online primary-source ledger                   PASS_FEASIBILITY_LEDGER
-G01 four machine-readable response surfaces        NOT YET ASSEMBLED
-G01 graphene Pluecker significance                 NOT YET COMPUTED
+K_e temperature range        110-260 K
+measured L/L0 range           40-100 K
+status                        INCONCLUSIVE_COMMON_DOMAIN
 ```
 
-See:
+No extrapolation is permitted.
 
-- `graphene/G00_CLAIM_AUDIT.md`
-- `graphene/G01_SOURCE_INVENTORY.md`
-- `graphene/G01_SOURCE_LEDGER.json`
-- `protocols/G01_GRAPHENE_FEASIBILITY.json`
-- `results/G01_FEASIBILITY_AUDIT.json`
+### G09: replacement ranking
 
-## G02 ideal Dirac-graphene control
+Replacement priority:
 
-`G02_DIRAC_GRAPHENE_CONTROL`
+1. Aamir 2021 electronic heat capacity `C_e`;
+2. Block 2021 electronic thermal diffusivity `D_e`.
 
-The ideal graphene control uses the explicit two-variable state chart
+Circular same-source reconstructions and theory-derived substitutes are rejected.
 
-\[
-\theta=T/T_0,
-\qquad
-m=\mu/(k_B T_0),
-\]
+### G10: electronic heat-capacity coverage
 
-with four dimensionless channels:
-
-1. net Dirac carrier density;
-2. total electronic energy density;
-3. electronic entropy density;
-4. quantum-compressibility response.
-
-The model checks neutrality-point closed forms, electron-hole parity, the rank-two skew-matrix tail, and the Pluecker residual at five states spanning electron, neutrality, and hole sectors.
-
-Cross-version result:
+Measured density-resolved `C_e(n)` support occurs at 15.5, 60 and 100 K. The current base channels begin at 110 K. A measured `C_e(T_e)` curve extends to approximately 195 K but only at one fixed density.
 
 ```text
-status                                      PASS_CONTROL
-maximum normalized Pluecker residual        9.623875392445127e-18
-maximum skew rank-tail ratio                1.137913056238364e-16
-maximum neutrality formula error            9.464077248116687e-15
-maximum electron-hole parity error          0.0
-Python versions                             3.11 and 3.12
-experimental sigma significance             NONE
+status                     INCONCLUSIVE_TWO_DIMENSIONAL_COMMON_DOMAIN
+density-resolved overlap   EMPTY
+fixed-density overlap      110-195 K
+replacement ready          false
 ```
 
-This is a common-model numerical control, not experimental confirmation. Its job is to calibrate the graphene pipeline before literature-derived surfaces are allowed to vote.
+A one-density temperature curve cannot supply local derivatives in both `T` and `n`.
 
-See:
+### G11: thermal-diffusivity state-variable audit
 
-- `graphene/G02_DIRAC_CONTROL.md`
-- `src/thermo_recognition/graphene_dirac.py`
-- `scripts/run_g02_dirac_graphene_control.py`
-- `tests/test_graphene_dirac.py`
-- `results/G02_DIRAC_GRAPHENE_CONTROL.json`
+Block 2021 measures spatiotemporal thermoelectric current and fitted spatial widths at fixed lattice temperature `T_l = 300 K`. Its control variable is a transient peak electron temperature inferred from optical power.
 
-## G03 experimental bridge
-
-`G03_GRAPHENE_EXPERIMENTAL_BRIDGE`
-
-The strongest newly identified bridge is the 2025 Nature Physics study **Universality in quantum critical flow of charge and heat in ultraclean graphene**, which combines measured electrical and electronic thermal conductivity in high-quality devices near the Dirac point. NIMS MDR hosts the accepted manuscript and supplementary PDF.
-
-That source improves same-device coverage to two channels. It does not yet create a four-channel independent Pluecker experiment.
-
-Current gate:
+The base channels instead use equilibrium sample temperature. These are different physical coordinates:
 
 ```text
-same-device electrical + thermal conductivity      AVAILABLE FOR ACQUISITION
-heat-capacity candidate                             AVAILABLE AS PDF/SI
-thermal-diffusivity candidate                       RAW DATA ON REQUEST / DIGITIZE
-quantum-capacitance temperature surface             UNRESOLVED
-four compatible experimental surfaces              NOT MET
-experimental graphene Pluecker residual             FORBIDDEN UNTIL GATE PASSES
+equilibrium sample temperature     != transient peak electron temperature
 ```
 
-See `protocols/G03_GRAPHENE_EXPERIMENTAL_BRIDGE.json`.
+The complete published `D(T_F,T_e)` surfaces are Boltzmann calculations, while the measured objects are `Delta I_TE` maps and width-based diffusivity estimates.
+
+```text
+status              INCONCLUSIVE_STATE_VARIABLE_ALIGNMENT_AND_MEASURED_SURFACE
+replacement ready   false
+fit allowed         false
+```
+
+Raw maps, fit covariance, power-to-temperature calibration, density calibration, focus-width uncertainty and instrument-response covariance are required from the authors before any stronger use.
+
+## Current scientific boundary
+
+The campaign has not produced an experimental graphene Pluecker score. It has instead identified three independent blockers:
+
+1. empty common temperature support in the first four-channel set;
+2. insufficient two-dimensional heat-capacity coverage in the replacement set;
+3. incompatible meanings of temperature in the thermal-diffusivity replacement.
+
+The next stage is `G12_TEMPERATURE_COORDINATE_REDESIGN`.
 
 ## Reproduce
 
 ```bash
 python -m pip install -e ".[test]"
 python -m pytest
-python scripts/validate_g01_source_ledger.py
-python scripts/run_g02_dirac_graphene_control.py
-python scripts/run_t01_synthetic_audit.py
-python scripts/run_t01_iapws95_control.py
+python scripts/run_g10_ce_coverage_audit.py
+python scripts/run_g11_de_coverage_audit.py
 ```
 
-The ThermoML workflows download the pinned NIST archive, verify its SHA-256, extract the frozen source slots, reproduce the independent water test, and run the bootstrap audit. The graphene workflows verify significance semantics, source acquisition, ideal Dirac thermodynamics, and the common-model Pluecker control on Python 3.11 and 3.12.
-
-## Claim boundary
-
-`NOT_FALSIFIED` does not prove that the Recognition framework is uniquely selected by nature. It means a frozen measurement contract did not reject the Pluecker constraint. No graphene experimental Pluecker result may be announced until its own chart, sources, covariance model, and residual are frozen and reproduced.
+`NOT_FALSIFIED` does not prove that the Recognition framework is uniquely selected by nature. It means a frozen measurement contract did not reject the stated constraint. No graphene experimental Pluecker significance may be announced until chart semantics, source independence, uncertainty and a common two-dimensional domain are all frozen and reproduced.
