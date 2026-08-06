@@ -28,8 +28,10 @@
       "source_id": "G04_AAMIR_2021_SUPPLEMENT",
       "doi": "10.1021/acs.nanolett.1c01553",
       "direct_urls": [
-        "https://pubs.acs.org/doi/suppl/10.1021/acs.nanolett.1c01553/suppl_file/nl1c01553_si_001.pdf"
+        "https://pubs.acs.org/doi/suppl/10.1021/acs.nanolett.1c01553/suppl_file/nl1c01553_si_001.pdf",
+        "https://pubs.acs.org/doi/suppl/10.1021/acs.nanolett.1c01553/suppl_file/nl1c01553_si_001.pdf?download=1"
       ],
+      "figshare_search_title": "Ultrasensitive Calorimetric Measurements of the Electronic Heat Capacity of Graphene",
       "landing_url": "https://pubs.acs.org/doi/10.1021/acs.nanolett.1c01553",
       "expected_filename": "nl1c01553_si_001.pdf",
       "channels": ["electronic_heat_capacity"],
