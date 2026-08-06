@@ -1,0 +1,52 @@
+name: G06 graphene source-data variable map
+
+on:
+  push:
+    paths:
+      - ".github/workflows/g06-source-data-variable-map.yml"
+      - "protocols/G06_SOURCE_DATA_VARIABLE_MAP.json"
+      - "scripts/run_g06_variable_map.py"
+      - "tests/test_g06_variable_map.py"
+      - "results/G05_SOURCE_DATA_CERTIFICATE.json"
+  pull_request:
+    paths:
+      - ".github/workflows/g06-source-data-variable-map.yml"
+      - "protocols/G06_SOURCE_DATA_VARIABLE_MAP.json"
+      - "scripts/run_g06_variable_map.py"
+      - "tests/test_g06_variable_map.py"
+      - "results/G05_SOURCE_DATA_CERTIFICATE.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  map-variables:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install -e ".[test]"
+          python -m pip install "openpyxl==3.1.5"
+      - name: Test variable-map classifier
+        run: python -m pytest tests/test_g06_variable_map.py
+      - name: Audit pinned workbooks without storing numerical values
+        run: python scripts/run_g06_variable_map.py
+      - name: Confirm raw workbooks were not retained
+        run: |
+          if find . -type f \( -iname '*.xlsx' -o -iname '*.xls' \) -print -quit | grep -q .; then
+            echo 'Raw workbook unexpectedly retained' >&2
+            exit 1
+          fi
+      - name: Upload text-only variable map
+        uses: actions/upload-artifact@v4
+        with:
+          name: g06-graphene-source-data-variable-map
+          path: results/G06_VARIABLE_MAP.json
+          if-no-files-found: error
