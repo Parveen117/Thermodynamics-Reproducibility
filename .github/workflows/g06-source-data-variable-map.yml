@@ -6,14 +6,18 @@ on:
       - ".github/workflows/g06-source-data-variable-map.yml"
       - "protocols/G06_SOURCE_DATA_VARIABLE_MAP.json"
       - "scripts/run_g06_variable_map.py"
+      - "scripts/run_g06_variable_map_v2.py"
       - "tests/test_g06_variable_map.py"
+      - "tests/test_g06_variable_map_v2.py"
       - "results/G05_SOURCE_DATA_CERTIFICATE.json"
   pull_request:
     paths:
       - ".github/workflows/g06-source-data-variable-map.yml"
       - "protocols/G06_SOURCE_DATA_VARIABLE_MAP.json"
       - "scripts/run_g06_variable_map.py"
+      - "scripts/run_g06_variable_map_v2.py"
       - "tests/test_g06_variable_map.py"
+      - "tests/test_g06_variable_map_v2.py"
       - "results/G05_SOURCE_DATA_CERTIFICATE.json"
   workflow_dispatch:
 
@@ -34,10 +38,13 @@ jobs:
         run: |
           python -m pip install -e ".[test]"
           python -m pip install "openpyxl==3.1.5"
-      - name: Test variable-map classifier
-        run: python -m pytest tests/test_g06_variable_map.py
+      - name: Test variable-map classifiers
+        run: |
+          python -m pytest \
+            tests/test_g06_variable_map.py \
+            tests/test_g06_variable_map_v2.py
       - name: Audit pinned workbooks without storing numerical values
-        run: python scripts/run_g06_variable_map.py
+        run: python scripts/run_g06_variable_map_v2.py
       - name: Confirm raw workbooks were not retained
         run: |
           if find . -type f \( -iname '*.xlsx' -o -iname '*.xls' \) -print -quit | grep -q .; then
