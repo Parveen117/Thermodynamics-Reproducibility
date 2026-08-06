@@ -1,0 +1,104 @@
+{
+  "campaign": "G10_CE_COVERAGE_AND_AUTHOR_DATA_CONTRACT",
+  "source": {
+    "doi": "10.1021/acs.nanolett.1c01553",
+    "arxiv": "2007.14280",
+    "supplement_filename": "nl1c01553_si_001.pdf",
+    "supplement_sha256": "f3665ddf503d23400452d10366a39e783ab58ceabe5c80b04a03f2c375c7ef05",
+    "supplement_page_count": 31
+  },
+  "measurement_identity": {
+    "electronic_heat_capacity": "C_e = G_th * tau_e",
+    "specific_heat": "c = C_e / device_area",
+    "required_inputs": [
+      "G_th",
+      "tau_e",
+      "device_area",
+      "carrier_density",
+      "electronic_temperature"
+    ]
+  },
+  "published_measurement_map": [
+    {
+      "figure": "Fig_3A",
+      "observable": "G_th versus carrier density",
+      "temperature_support_K": [15.5, 60.0, 100.0],
+      "role": "MEASURED_INPUT"
+    },
+    {
+      "figure": "Fig_3B",
+      "observable": "tau_e versus carrier density",
+      "temperature_support_K": [15.5, 60.0, 100.0],
+      "role": "MEASURED_INPUT"
+    },
+    {
+      "figure": "Fig_3B_inset",
+      "observable": "tau_e versus electronic temperature",
+      "fixed_carrier_density_1e12_cm_minus_2": -0.38,
+      "role": "ONE_DIMENSIONAL_TEMPERATURE_SUPPORT"
+    },
+    {
+      "figure": "Fig_4A",
+      "observable": "c versus electronic temperature",
+      "temperature_range_K": [15.0, 195.0],
+      "fixed_carrier_density_1e12_cm_minus_2": -0.38,
+      "role": "MEASURED_FIXED_DENSITY_CURVE"
+    },
+    {
+      "figure": "Fig_4B",
+      "observable": "c versus carrier density",
+      "temperature_support_K": [15.5, 60.0, 100.0],
+      "role": "MEASURED_DENSITY_RESOLVED_CURVES"
+    },
+    {
+      "figure": "Fig_S18",
+      "observable": "G_th, tau_e and c in the main-text device at three lattice temperatures",
+      "role": "EXTENDED_MEASURED_CROSS_CHECK"
+    },
+    {
+      "figure": "Fig_S20",
+      "observable": "G_th, unnormalized tau_e and heat-capacity estimate in a second device",
+      "role": "EXPLORATORY_SECOND_DEVICE",
+      "fit_allowed": false,
+      "reason": "tau_e cannot be normalized because G_th coverage is too sparse"
+    },
+    {
+      "figure": "Fig_S22",
+      "observable": "numerically calculated electronic heat capacity versus temperature and density",
+      "role": "THEORY_ONLY",
+      "fit_allowed": false
+    }
+  ],
+  "uncertainty_contract": {
+    "G_th_primary_source": "contact-resistance uncertainty",
+    "tau_e_primary_source": "standard deviation of measured relaxation data",
+    "c_propagation": "propagate G_th and tau_e uncertainty including covariance",
+    "required_author_data": [
+      "pointwise G_th estimates and uncertainty components",
+      "pointwise tau_e estimates and uncertainty components",
+      "covariance between G_th and tau_e or raw fit outputs sufficient to reconstruct it",
+      "gate-voltage to carrier-density calibration and uncertainty",
+      "contact-resistance calibration and uncertainty",
+      "ground-state tau_e normalization or interpolation corrections",
+      "device area and its uncertainty",
+      "device and sweep identifiers"
+    ]
+  },
+  "replacement_gate": {
+    "base_temperature_range_K": [110.0, 260.0],
+    "density_resolved_ce_temperature_support_K": [15.5, 60.0, 100.0],
+    "fixed_density_ce_temperature_range_K": [15.0, 195.0],
+    "minimum_distinct_temperatures_in_overlap": 3,
+    "minimum_distinct_densities_in_overlap": 5,
+    "no_temperature_extrapolation": true,
+    "no_density_extrapolation": true,
+    "two_dimensional_local_support_required": true
+  },
+  "author_request_target": {
+    "corresponding_author": "Dmitri K. Efetov",
+    "public_contact_from_article": "dmitri.efetov@icfo.eu",
+    "highest_priority_request": "Numerical measured c(T_e,n), G_th(T_e,n), and tau_e(T_e,n) arrays with uncertainty and covariance, especially density sweeps at temperatures from 110 K to 195 K.",
+    "raw_spectra_or_trace_request": "Frequency-response or fit-level data sufficient to reproduce tau_e and its normalization where redistribution is permitted."
+  },
+  "claim_boundary": "G10 audits whether the measured heat-capacity data can replace the missing fourth response channel. Theory curves and the second-device unnormalized estimate are not experimental replacement surfaces. No Pluecker residual or significance is computed."
+}
