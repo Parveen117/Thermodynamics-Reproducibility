@@ -1,0 +1,102 @@
+{
+  "campaign": "H01_GRAPHENE_RAMAN_HYSTERESIS",
+  "paper": {
+    "title": "Multiscale Violation of Onsager Reciprocity: Thermomechanical Proof, Atomic Evidence, and Graphene Predictions",
+    "doi": "10.21203/rs.3.rs-9055273/v2",
+    "companion_experiment_doi": "10.21203/rs.3.rs-8954542/v1",
+    "author": "Monty Dabas"
+  },
+  "experiment": {
+    "material": "monolayer CVD graphene on 300 nm SiO2/Si",
+    "instrument": "confocal micro-Raman",
+    "laser_wavelength_nm": 532,
+    "laser_power_mW": 0.5,
+    "spectral_resolution_cm_minus_1": 1.9,
+    "acquisition_time_s": 30,
+    "objective": "50x, NA >= 0.75",
+    "spectral_window_cm_minus_1": [1200, 3200],
+    "temperature_K": [300, 350, 400, 450, 500],
+    "temperature_stability_K": 1,
+    "stabilization_time_min": 5,
+    "spatial_spots": ["Spot 1", "Spot 2"],
+    "phonon_modes": ["G", "2D"],
+    "calibration_peak_cm_minus_1": 520.0,
+    "maximum_allowed_calibration_drift_cm_minus_1": 0.5
+  },
+  "peak_model": {
+    "model": "Lorentzian peak plus linear baseline",
+    "parameters": ["peak_center", "FWHM", "amplitude", "baseline_slope", "baseline_intercept"],
+    "fit_method": "nonlinear least squares",
+    "uncertainty_source": "fit covariance matrix"
+  },
+  "loop_definition": {
+    "difference": "delta_omega(T) = omega_cool(T) - omega_heat(T)",
+    "area": "A = integral abs(delta_omega(T)) dT",
+    "integration": "trapezoidal on the measured temperature grid",
+    "units": "cm^-1 K",
+    "significance": "z_H = A / sigma_A",
+    "detection_threshold_sigma": 3.0,
+    "important_semantics": "Larger z_H is stronger evidence that the loop area is nonzero. This is not the Pluecker statistic."
+  },
+  "published_targets": [
+    {
+      "spot": "Spot 1",
+      "mode": "G",
+      "area_cm_minus_1_K": 749.7,
+      "uncertainty_cm_minus_1_K": 24.9,
+      "reported_significance_sigma": 30
+    },
+    {
+      "spot": "Spot 1",
+      "mode": "2D",
+      "area_cm_minus_1_K": 711.1,
+      "uncertainty_cm_minus_1_K": 34.2,
+      "reported_significance_sigma": 21
+    },
+    {
+      "spot": "Spot 2",
+      "mode": "G",
+      "area_cm_minus_1_K": 189.0,
+      "uncertainty_cm_minus_1_K": 31.5,
+      "reported_significance_sigma": 6
+    },
+    {
+      "spot": "Spot 2",
+      "mode": "2D",
+      "area_cm_minus_1_K": 295.1,
+      "uncertainty_cm_minus_1_K": 55.7,
+      "reported_significance_sigma": 5
+    }
+  ],
+  "controls": {
+    "laser_power_series_mW": [0.3, 0.5, 0.7],
+    "post_cycle_damage_check": "I(D)/I(G) must not show persistent increase",
+    "multiple_spots_required": true,
+    "ramp_rate_independence": "preliminary in the paper",
+    "post_cycle_room_temperature_return_check": true
+  },
+  "raw_data_gate": {
+    "required_columns": [
+      "spot",
+      "mode",
+      "temperature_K",
+      "branch",
+      "peak_center_cm_minus_1",
+      "peak_center_standard_error_cm_minus_1"
+    ],
+    "required_branches": ["heating", "cooling"],
+    "required_temperature_grid_K": [300, 350, 400, 450, 500],
+    "status": "NOT_YET_PINNED_IN_THIS_REPOSITORY"
+  },
+  "allowed_statuses": [
+    "PASS_PUBLISHED_SUMMARY_AUDIT",
+    "FAIL_PUBLISHED_SUMMARY_AUDIT",
+    "DETECTED_HYSTERESIS",
+    "NOT_DETECTED",
+    "INCONCLUSIVE_RAW_DATA_MISSING",
+    "INCONCLUSIVE_UNCERTAINTY_MODEL",
+    "INCONCLUSIVE_RETURN_CLASS",
+    "FAIL_CONTROL"
+  ],
+  "claim_boundary": "A nonzero Raman heating-cooling loop establishes path dependence under the experimental and uncertainty contract. By itself it does not prove microscopic Onsager violation, entropy production, or uniquely identify thermodynamic curvature; artifact controls, return class, calibration, and raw-data reproducibility remain separate gates."
+}
