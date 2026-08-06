@@ -1,0 +1,46 @@
+name: G02 ideal Dirac graphene control
+
+on:
+  push:
+    paths:
+      - ".github/workflows/g02-dirac-graphene-control.yml"
+      - "src/thermo_recognition/graphene_dirac.py"
+      - "src/thermo_recognition/plucker.py"
+      - "scripts/run_g02_dirac_graphene_control.py"
+      - "tests/test_graphene_dirac.py"
+  pull_request:
+    paths:
+      - ".github/workflows/g02-dirac-graphene-control.yml"
+      - "src/thermo_recognition/graphene_dirac.py"
+      - "src/thermo_recognition/plucker.py"
+      - "scripts/run_g02_dirac_graphene_control.py"
+      - "tests/test_graphene_dirac.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  control:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[test]"
+      - name: Test ideal graphene model
+        run: python -m pytest tests/test_graphene_dirac.py tests/test_plucker.py
+      - name: Run G02 control
+        run: python scripts/run_g02_dirac_graphene_control.py
+      - name: Upload G02 certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: g02-dirac-graphene-python-${{ matrix.python-version }}
+          path: results/G02_DIRAC_GRAPHENE_CONTROL.json
+          if-no-files-found: error
