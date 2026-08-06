@@ -65,9 +65,13 @@ No failed result may be renamed as curvature, hidden memory, or a new constituti
 python -m pip install -e ".[test]"
 python -m pytest
 python scripts/run_t01_synthetic_audit.py
+python scripts/run_t01_iapws95_control.py
 ```
 
-The generated certificate must match `results/T01_SYNTHETIC_AUDIT.json` exactly.
+The generated certificates must match:
+
+- `results/T01_SYNTHETIC_AUDIT.json`
+- `results/T01C_IAPWS95_CONTROL.json`
 
 ## Source hierarchy
 
@@ -80,9 +84,20 @@ The generated certificate must match `results/T01_SYNTHETIC_AUDIT.json` exactly.
 ```text
 T01A common-gradient algebra                     PASS_CONTROL
 T01B small independent inconsistency             NOT_FALSIFIED
-T01B large independent inconsistency             FALSIFIED_MEASUREMENT_CONTRACT
-T01C IAPWS-95 water control                      NEXT
-T01D ThermoML independent experimental test      BLOCKED ON DATASET ASSEMBLY
+T01B large independent inconsistency             FALSIFIED_MEASUREMENT_CONTRACT (11.28 sigma)
+T01C IAPWS-95 water control                      PASS_CONTROL
+T01D ThermoML independent experimental test      NEXT DATA CAMPAIGN
 ```
 
-The local validation suite currently contains seven passing tests. GitHub Actions reproduces the test suite and synthetic certificate on Python 3.11 and 3.12.
+IAPWS-95 control range:
+
+```text
+states tested                                    5
+T range                                          285 K to 350 K
+P range                                          0.1 MPa to 10 MPa
+maximum flat-closure error                       2.220446049250313e-16
+maximum sound-bulk relative error                1.9050453295659672e-16
+maximum normalized Pluecker residual             3.533498065462128e-17
+```
+
+The validation suite contains thirteen passing test cases. GitHub Actions reproduces both certificates on Python 3.11 and 3.12.
