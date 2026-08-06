@@ -16,6 +16,7 @@
       "temperature_metadata_row": 2,
       "unit_row": 3,
       "data_start_row": 5,
+      "density_scale_to_chart_unit": 1e-16,
       "pair_columns": [
         ["B", "C"], ["D", "E"], ["F", "G"], ["H", "I"],
         ["J", "K"], ["L", "M"], ["N", "O"], ["P", "Q"],
@@ -37,6 +38,7 @@
       "temperature_metadata_column": "y",
       "unit_row": 2,
       "data_start_row": 5,
+      "density_scale_to_chart_unit": 1.0,
       "pair_columns": [["B", "C"], ["D", "E"], ["F", "G"]],
       "measurement_class": "EXTRACTED_THERMAL_TRANSPORT_RESPONSE",
       "reported_uncertainty_in_sheet": false
@@ -58,6 +60,7 @@
       "observable_start_column": "C",
       "observable_end_column": "I",
       "unit_row": 2,
+      "density_scale_to_chart_unit": 1.0,
       "measurement_class": "FIT_EXTRACTED_TRANSPORT_PARAMETER",
       "reported_uncertainty_in_sheet": false
     },
@@ -72,6 +75,7 @@
       "temperature_metadata_row": 3,
       "unit_row": 2,
       "data_start_row": 5,
+      "density_scale_to_chart_unit": 1.0,
       "pair_columns": [["B", "C"], ["D", "E"], ["F", "G"], ["H", "I"]],
       "excluded_model_columns": {
         "ideal": [["J", "K"], ["L", "M"], ["N", "O"], ["P", "Q"]],
