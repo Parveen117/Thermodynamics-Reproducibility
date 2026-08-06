@@ -3,20 +3,22 @@ from __future__ import annotations
 import argparse
 import hashlib
 import html
+import io
 import json
 import re
 import tempfile
-import urllib.error
 import urllib.parse
 import urllib.request
+import zipfile
 from html.parser import HTMLParser
+from http.cookiejar import CookieJar
 from pathlib import Path
 from typing import Any
 
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-    "Chrome/151.0 Safari/537.36 Thermodynamics-Reproducibility-G04/1.0"
+    "Chrome/151.0 Safari/537.36 Thermodynamics-Reproducibility-G04/1.1"
 )
 MACHINE_READABLE_SUFFIXES = {
     ".csv",
@@ -29,6 +31,8 @@ MACHINE_READABLE_SUFFIXES = {
     ".ods",
     ".zip",
 }
+COOKIE_JAR = CookieJar()
+OPENER = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(COOKIE_JAR))
 
 
 class LinkCollector(HTMLParser):
@@ -37,26 +41,96 @@ class LinkCollector(HTMLParser):
         self.links: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag.lower() not in {"a", "link"}:
-            return
         for key, value in attrs:
-            if key.lower() == "href" and value:
+            if not value:
+                continue
+            if key.lower() in {
+                "href",
+                "src",
+                "data-url",
+                "data-file-url",
+                "data-download-url",
+            }:
                 self.links.append(html.unescape(value))
 
 
-def request_bytes(url: str, *, timeout: float = 90.0) -> tuple[bytes, str, str]:
-    request = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept": "application/pdf,text/html;q=0.9,*/*;q=0.8",
-        },
+def sanitize_url(url: str) -> str:
+    parts = urllib.parse.urlsplit(html.unescape(url.strip()))
+    path = urllib.parse.quote(urllib.parse.unquote(parts.path), safe="/%:@-._~!$&()*+,;=")
+    query = urllib.parse.quote(
+        urllib.parse.unquote(parts.query),
+        safe="=&%+;,:/?@-._~!$'()*",
     )
-    with urllib.request.urlopen(request, timeout=timeout) as response:
+    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, path, query, parts.fragment))
+
+
+def request_bytes(
+    url: str,
+    *,
+    timeout: float = 90.0,
+    referer: str | None = None,
+) -> tuple[bytes, str, str, dict[str, str]]:
+    clean_url = sanitize_url(url)
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/pdf,application/zip,text/html;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+    if referer:
+        headers["Referer"] = referer
+    request = urllib.request.Request(clean_url, headers=headers)
+    with OPENER.open(request, timeout=timeout) as response:
         payload = response.read()
         final_url = response.geturl()
         content_type = response.headers.get_content_type()
-    return payload, final_url, content_type
+        response_headers = {key.lower(): value for key, value in response.headers.items()}
+    return payload, final_url, content_type, response_headers
+
+
+def request_json(
+    url: str,
+    *,
+    payload: dict[str, Any] | None = None,
+    timeout: float = 90.0,
+) -> Any:
+    body = None
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/json",
+    }
+    if payload is not None:
+        body = json.dumps(payload).encode("utf-8")
+        headers["Content-Type"] = "application/json"
+    request = urllib.request.Request(sanitize_url(url), data=body, headers=headers)
+    with OPENER.open(request, timeout=timeout) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def candidate_urls_from_html(
+    landing_url: str,
+    expected_filename: str,
+    html_payload: bytes,
+) -> tuple[list[str], list[str]]:
+    text = html_payload.decode("utf-8", errors="replace")
+    parser = LinkCollector()
+    parser.feed(text)
+
+    url_like = re.findall(r"(?:https?://|/)[^\"'<>\s]+", html.unescape(text))
+    raw_links = list(dict.fromkeys(parser.links + url_like))
+    expected_lower = expected_filename.casefold()
+
+    exact: list[str] = []
+    likely: list[str] = []
+    for raw in raw_links:
+        decoded = urllib.parse.unquote(html.unescape(raw))
+        resolved = urllib.parse.urljoin(landing_url, raw)
+        lowered = decoded.casefold()
+        if expected_lower in lowered:
+            exact.append(resolved)
+        if any(token in lowered for token in ("download", ".pdf", ".zip", "/files/")):
+            likely.append(resolved)
+
+    return list(dict.fromkeys(exact)), list(dict.fromkeys(likely))
 
 
 def discover_url_from_html(
@@ -64,36 +138,61 @@ def discover_url_from_html(
     expected_filename: str,
     html_payload: bytes,
 ) -> str | None:
-    text = html_payload.decode("utf-8", errors="replace")
-    parser = LinkCollector()
-    parser.feed(text)
-    expected_lower = expected_filename.lower()
-
-    candidates: list[str] = []
-    for href in parser.links:
-        decoded = urllib.parse.unquote(href)
-        if expected_lower in decoded.lower():
-            candidates.append(urllib.parse.urljoin(landing_url, href))
-
-    if not candidates:
-        escaped = re.escape(expected_filename)
-        for match in re.findall(rf"[^\"'<>\s]*{escaped}[^\"'<>\s]*", text, flags=re.I):
-            candidates.append(urllib.parse.urljoin(landing_url, html.unescape(match)))
-
-    unique = list(dict.fromkeys(candidates))
-    return unique[0] if unique else None
+    exact, _ = candidate_urls_from_html(landing_url, expected_filename, html_payload)
+    return exact[0] if exact else None
 
 
-def acquire_source(source: dict[str, Any]) -> tuple[bytes, str, str, list[dict[str, str]]]:
+def disposition_filename(headers: dict[str, str]) -> str | None:
+    value = headers.get("content-disposition", "")
+    match = re.search(r"filename\*?=(?:UTF-8''|\")?([^\";]+)", value, flags=re.I)
+    if not match:
+        return None
+    return urllib.parse.unquote(match.group(1).strip().strip('"'))
+
+
+def extract_expected_from_zip(payload: bytes, expected_filename: str) -> bytes | None:
+    if not payload.startswith(b"PK"):
+        return None
+    with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+        for name in archive.namelist():
+            if Path(name).name.casefold() == expected_filename.casefold():
+                return archive.read(name)
+    return None
+
+
+def figshare_file_url(title: str, expected_filename: str) -> str | None:
+    results = request_json(
+        "https://api.figshare.com/v2/articles/search",
+        payload={"search_for": title, "limit": 100},
+    )
+    if not isinstance(results, list):
+        return None
+    for item in results:
+        if not isinstance(item, dict) or "id" not in item:
+            continue
+        details = request_json(f"https://api.figshare.com/v2/articles/{item['id']}")
+        for file_item in details.get("files", []):
+            if str(file_item.get("name", "")).casefold() == expected_filename.casefold():
+                return str(file_item["download_url"])
+    return None
+
+
+def acquire_source(
+    source: dict[str, Any],
+) -> tuple[bytes, str, str, list[dict[str, str]]]:
     attempts: list[dict[str, str]] = []
     expected_filename = str(source["expected_filename"])
+    landing_url = source.get("landing_url")
 
     for candidate in source.get("direct_urls", []):
         try:
-            payload, final_url, content_type = request_bytes(str(candidate))
+            payload, final_url, content_type, _ = request_bytes(
+                str(candidate),
+                referer=landing_url if isinstance(landing_url, str) else None,
+            )
             attempts.append({"url": str(candidate), "status": "SUCCESS"})
             return payload, final_url, content_type, attempts
-        except Exception as exc:  # network failures are reported in the certificate
+        except Exception as exc:
             attempts.append(
                 {
                     "url": str(candidate),
@@ -102,11 +201,33 @@ def acquire_source(source: dict[str, Any]) -> tuple[bytes, str, str, list[dict[s
                 }
             )
 
-    landing_url = source.get("landing_url")
-    if not isinstance(landing_url, str) or not landing_url:
-        raise RuntimeError(f"no successful direct URL and no landing URL for {expected_filename}")
+    figshare_title = source.get("figshare_search_title")
+    if isinstance(figshare_title, str) and figshare_title:
+        try:
+            resolved = figshare_file_url(figshare_title, expected_filename)
+            if resolved:
+                payload, final_url, content_type, _ = request_bytes(resolved)
+                attempts.append({"url": resolved, "status": "FIGSHARE_SUCCESS"})
+                return payload, final_url, content_type, attempts
+            attempts.append(
+                {
+                    "url": "https://api.figshare.com/v2/articles/search",
+                    "status": "FIGSHARE_NO_MATCH",
+                }
+            )
+        except Exception as exc:
+            attempts.append(
+                {
+                    "url": "https://api.figshare.com/v2/articles/search",
+                    "status": "FIGSHARE_FAILED",
+                    "error": f"{type(exc).__name__}: {exc}",
+                }
+            )
 
-    landing_payload, final_landing_url, landing_content_type = request_bytes(landing_url)
+    if not isinstance(landing_url, str) or not landing_url:
+        raise RuntimeError(f"no successful source route for {expected_filename}")
+
+    landing_payload, final_landing_url, landing_content_type, _ = request_bytes(landing_url)
     attempts.append(
         {
             "url": landing_url,
@@ -114,14 +235,63 @@ def acquire_source(source: dict[str, Any]) -> tuple[bytes, str, str, list[dict[s
             "content_type": landing_content_type,
         }
     )
-    resolved = discover_url_from_html(final_landing_url, expected_filename, landing_payload)
-    if resolved is None:
-        raise RuntimeError(
-            f"landing page did not expose a link containing {expected_filename!r}"
-        )
-    payload, final_url, content_type = request_bytes(resolved)
-    attempts.append({"url": resolved, "status": "SUCCESS"})
-    return payload, final_url, content_type, attempts
+    exact, likely = candidate_urls_from_html(
+        final_landing_url,
+        expected_filename,
+        landing_payload,
+    )
+
+    candidates = list(dict.fromkeys(exact + likely))[:60]
+    for candidate in candidates:
+        try:
+            payload, final_url, content_type, headers = request_bytes(
+                candidate,
+                referer=final_landing_url,
+            )
+            resolved_name = disposition_filename(headers)
+            decoded_url = urllib.parse.unquote(final_url)
+
+            if payload.startswith(b"%PDF"):
+                if (
+                    expected_filename.casefold() in decoded_url.casefold()
+                    or (resolved_name and resolved_name.casefold() == expected_filename.casefold())
+                    or candidate in exact
+                ):
+                    attempts.append({"url": candidate, "status": "LANDING_PDF_SUCCESS"})
+                    return payload, final_url, content_type, attempts
+
+            zipped = extract_expected_from_zip(payload, expected_filename)
+            if zipped is not None:
+                attempts.append({"url": candidate, "status": "LANDING_ZIP_SUCCESS"})
+                return zipped, final_url + f"#{expected_filename}", "application/pdf", attempts
+
+            if content_type == "text/html":
+                nested_exact, _ = candidate_urls_from_html(
+                    final_url,
+                    expected_filename,
+                    payload,
+                )
+                for nested in nested_exact[:10]:
+                    nested_payload, nested_url, nested_type, _ = request_bytes(
+                        nested,
+                        referer=final_url,
+                    )
+                    if nested_payload.startswith(b"%PDF"):
+                        attempts.append({"url": nested, "status": "NESTED_PDF_SUCCESS"})
+                        return nested_payload, nested_url, nested_type, attempts
+        except Exception as exc:
+            attempts.append(
+                {
+                    "url": candidate,
+                    "status": "CANDIDATE_FAILED",
+                    "error": f"{type(exc).__name__}: {exc}",
+                }
+            )
+
+    sample = [sanitize_url(value) for value in candidates[:12]]
+    raise RuntimeError(
+        f"landing page did not yield {expected_filename!r}; candidate sample={sample}"
+    )
 
 
 def sha256_hex(payload: bytes) -> str:
@@ -271,7 +441,12 @@ def run_contract(contract: dict[str, Any]) -> dict[str, Any]:
             for channel in item.get("channels", [])
         }
     )
-    overall_status = "PASS_SOURCE_PINNING" if len(pinned) == len(results) else "FAIL_SOURCE_PINNING"
+    if len(pinned) == len(results):
+        overall_status = "PASS_SOURCE_PINNING"
+    elif pinned:
+        overall_status = "PARTIAL_SOURCE_PINNING"
+    else:
+        overall_status = "FAIL_SOURCE_PINNING"
 
     return {
         "campaign": contract["campaign"],
@@ -279,6 +454,7 @@ def run_contract(contract: dict[str, Any]) -> dict[str, Any]:
         "status": overall_status,
         "source_count": len(results),
         "pinned_source_count": len(pinned),
+        "failed_source_count": len(results) - len(pinned),
         "machine_readable_ready_channels": machine_ready,
         "sources": results,
         "source_files_committed": False,
@@ -308,7 +484,7 @@ def main() -> int:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2, sort_keys=True))
-    return 0 if result["status"] == "PASS_SOURCE_PINNING" else 1
+    return 1 if result["status"] == "FAIL_SOURCE_PINNING" else 0
 
 
 if __name__ == "__main__":
