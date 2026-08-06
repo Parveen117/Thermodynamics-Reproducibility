@@ -29,8 +29,17 @@ jobs:
           git diff --exit-code results/T01_SYNTHETIC_AUDIT.json
       - name: Reproduce IAPWS-95 water control
         run: |
+          cp results/T01C_IAPWS95_CONTROL.json /tmp/T01C_IAPWS95_CONTROL.expected.json
           python scripts/run_t01_iapws95_control.py
-          git diff --exit-code results/T01C_IAPWS95_CONTROL.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path('/tmp/T01C_IAPWS95_CONTROL.expected.json').read_text())
+          actual = json.loads(Path('results/T01C_IAPWS95_CONTROL.json').read_text())
+          if actual != expected:
+              raise SystemExit('IAPWS-95 certificate content changed')
+          PY
       - name: Upload IAPWS-95 certificate
         uses: actions/upload-artifact@v4
         with:
