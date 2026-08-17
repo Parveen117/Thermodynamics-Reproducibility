@@ -1,0 +1,13 @@
+{
+  "proof_id": "battery-kh-falsification-v0-lock",
+  "protocol_id": "battery-kh-falsification-v0",
+  "committed_at_utc": "2026-08-17T19:23:35Z",
+  "canonical_folder_sha256": "e3e65095b38ce14af01360bab5675ef96582f3af92c8c32d5e175d7462e09fd0",
+  "lock_file_sha256": "f7b30a15832081e2e79d7103f407633429809780140b9bc135bb989ee228feb6",
+  "locked_file_count": 10,
+  "commitment_scope": "candidate protocol, frozen source-data hashes, extractor, TAUT-1 control, paired statistics, tests, extractor audit, and developer exposure ledger",
+  "result_status": "no prediction capsule generated; no model scored",
+  "timestamp_method": "public GitHub commit receipt",
+  "opentimestamps_status": "not_claimed: official web stamper computed the lock-file hash but did not return a calendar receipt within 120 seconds",
+  "merge_authorization": "not_granted: private repository Geometric Guard offline signature remains a separate later step"
+}
