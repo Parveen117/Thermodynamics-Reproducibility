@@ -10,6 +10,7 @@ requires-python = ">=3.11"
 dependencies = [
   "iapws==1.5.5",
   "numpy>=1.26",
+  "scipy>=1.11",
 ]
 
 [project.optional-dependencies]

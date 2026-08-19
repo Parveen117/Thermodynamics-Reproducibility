@@ -113,3 +113,7 @@ The ThermoML workflows download the pinned NIST archive, verify its SHA-256, ext
 ## Claim boundary
 
 `NOT_FALSIFIED` does not prove that the Recognition framework is uniquely selected by nature. It means the frozen independent measurement contract did not reject the Pluecker constraint. Stronger work should repeat the campaign across alternative state points, bandwidths, and unused source ensembles without redefining this completed primary result.
+
+## Second campaign
+
+`T02_RAMAN_THERMAL_HYSTERESIS` — independent re-analysis of the graphene Raman thermal-cycle data behind the paper's Table V (raw Horiba exports included, manifest-hashed). Paper loop areas reproduce; the loop does not close at 300 K, so reversible curvature is **not established**; a predeclared cycle-2 decision rule is pinned in the certificate. See `results/T02_RESULT.md`.
