@@ -1,0 +1,35 @@
+name: T02 Raman thermal hysteresis (graphene, CeNSE 2026-02-19)
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[test]"
+      - name: Data manifest + fits + pinned certificate
+        run: python -m pytest tests/test_t02_raman.py
+      - name: Regenerate certificate and diff against committed result
+        run: |
+          cp results/T02_RAMAN_HYSTERESIS.json /tmp/expected.json
+          python scripts/run_t02_raman_hysteresis.py
+          python - <<'PY'
+          import json
+          a=json.load(open('/tmp/expected.json')); b=json.load(open('results/T02_RAMAN_HYSTERESIS.json'))
+          assert a["certificate_sha256"]==b["certificate_sha256"], (a["certificate_sha256"], b["certificate_sha256"])
+          print("T02 certificate reproduced:", b["certificate_sha256"])
+          PY

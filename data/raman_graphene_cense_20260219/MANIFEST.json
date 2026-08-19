@@ -1,0 +1,29 @@
+{
+  "files": {
+    "Spot 1 300K_01.txt": "16719e61e4239f2e5ac8029ea799b74269d64527e3459dd9394e5b92ae2c3fef",
+    "Spot 1 350K reverse_01.txt": "d7baaae68585afe30a3974f66fc740b61453eafd36210fcfed33115f5ee1971f",
+    "Spot 1 350K_01.txt": "ea2113f0b1bf3bec4cacf5219806a1a5938cd9fb557a640eaf41c1fa2f53e990",
+    "Spot 1 400K reverse_01.txt": "ecf70f884fb206820adc1c1ff342c4ce65050ab9e79251406b9cced2e91a2480",
+    "Spot 1 400K_01.txt": "12f86a8d820b5ad52622bea0c5dee8033062849606a261a05a76d335e2d2197b",
+    "Spot 1 450K reverse_01.txt": "734dcb0cbc5fbc631dea5e6babe766e65978e4a556450b5b3a89ba977aa50268",
+    "Spot 1 450K_01.txt": "4d7bf451bfa741ec2ba86aadf6a507becc52bfff167ba413ba67afd2263189ae",
+    "Spot 1 500K reverse_01.txt": "10e27f2c42b03ae742d5563b12a705d2d837a9517e6e1d99c1377159475a6e13",
+    "Spot 1 500K_01.txt": "eac97de31b67387b41b640cab0a608c4b0d736a968f8740c2e7935521e99357e",
+    "Spot 1 RT reverse_01.txt": "ed41bd81de90d3fb89f93c10704fabe33bec4f7ae7c22e71d120942e80c61e57",
+    "Spot 1 RT_01.txt": "65194a6ae862cd41df2e3009e180a3c154c360b5a3c40031dcd303634dd2bb83",
+    "Spot 2 300K REVERSE_01.txt": "0d8f92b743c4b9cdf73f89a25f999e0af1395bd6fa95263c8ff539f01e97ed9e",
+    "Spot 2 300K_01.txt": "072f01be7e353bd85483665913fea1c0ff88ffedc9dbc4f4bbbe227432f6b130",
+    "Spot 2 350K REVERSE_01.txt": "3dbcd0a05b0cf266bd63844f97c92555995bcd5b27b3c161ebd754f2bc0d7718",
+    "Spot 2 350K_01.txt": "77a2c6f3d367309ebb5e88c57b0d318eaf784c027dd43ef4aee944837ae18eb1",
+    "Spot 2 400K REVERSE_01.txt": "41f0bcdda5d54c9c5ee20b59884e461fafb4c1c9fbb00b2b0a88db6b08971c3c",
+    "Spot 2 400K_01.txt": "2c65c6bd743e8da2cc82af99bb4e75ae05d4ffb745f33356379da686d56f8098",
+    "Spot 2 450K REVERSE_01.txt": "f0978b1dc5d31ca79a9d4dbfbdcb3763d87a30640f5fe18295713ccc39ed2c44",
+    "Spot 2 450K_01.txt": "23e4f29f62de41925cf192872def033217676dd506166ea2f7d0bc1bae750f12",
+    "Spot 2 500K REVERSE_01.txt": "d9791a28101aa65cba32e05d3214f087e10727c90ab3651090a8b929f2ec8a6b",
+    "Spot 2 500K_01.txt": "90e8b298d1a05851bdd74d2bfe1cba7593328c0e46644c263c4807615e64a7d4",
+    "Spot 2 RT  REVERSE_01.txt": "7c5988a545bb42b8289130196a19dfae85cccd32f66056b123e4a5b5219d8793",
+    "Spot 2 RT_01.txt": "12ac78ead6856b5af577510ca3c626841a68192fdb9b9c622e35e390ec9ddc60",
+    "Spot 3 RT_01.txt": "6ed23c01d3df333b64dc9983bcdb631dcc784423717834b49c6fe137d98c0267"
+  },
+  "source": "Horiba LabSpec 6 exports, CeNSE IISc Bangalore, 19 Feb 2026, 532 nm, 30 s acq, 1050-3000 cm-1"
+}

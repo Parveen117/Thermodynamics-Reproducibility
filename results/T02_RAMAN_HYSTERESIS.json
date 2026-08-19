@@ -1,0 +1,682 @@
+{
+  "certificate_sha256": "064f6c42336ceef80c9725b6747a49a34f47f16c470a8e08214bcc19dc121c2c",
+  "claim_boundary": "Single thermal cycle per spot on SiO2-supported CVD graphene in ambient. Reproducible first-cycle hysteresis is observed; the loop does not close at 300 K, consistent with an irreversible component (doping/adsorbate/strain). Reversible thermodynamic curvature is NOT established by this dataset; the predeclared cycle-2 rule is the test.",
+  "classification": "FIRST_CYCLE_HYSTERESIS_WITH_NONCLOSURE",
+  "data_manifest_sha256": "23c8ad23553fd4bacbebdbcbad22b6b12e76c1670107936bfcad603aaa92f56e",
+  "fits": [
+    {
+      "2D": {
+        "center": 2685.5359222905686,
+        "center_err": 0.08337131948342906,
+        "fwhm": 33.753673572061466,
+        "fwhm_err": 0.2847965153173218
+      },
+      "G": {
+        "center": 1594.8901541158261,
+        "center_err": 0.0644790811759549,
+        "fwhm": 10.025137475958674,
+        "fwhm_err": 0.19793931746244928
+      },
+      "T_K": 300,
+      "branch": "heating",
+      "file": "Spot 1 300K_01.txt",
+      "rt_file": false,
+      "sha256": "16719e61e4239f2e5ac8029ea799b74269d64527e3459dd9394e5b92ae2c3fef",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2681.61136922311,
+        "center_err": 0.12813306534557573,
+        "fwhm": 41.813009857864394,
+        "fwhm_err": 0.4593356663759695
+      },
+      "G": {
+        "center": 1595.740165481044,
+        "center_err": 0.09296747888849731,
+        "fwhm": 12.759038140533915,
+        "fwhm_err": 0.2918546049549839
+      },
+      "T_K": 350,
+      "branch": "cooling",
+      "file": "Spot 1 350K reverse_01.txt",
+      "rt_file": false,
+      "sha256": "d7baaae68585afe30a3974f66fc740b61453eafd36210fcfed33115f5ee1971f",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2676.4057997754694,
+        "center_err": 0.07683167855928906,
+        "fwhm": 36.89734224315188,
+        "fwhm_err": 0.2694924760439484
+      },
+      "G": {
+        "center": 1590.6121252726277,
+        "center_err": 0.06482302854564889,
+        "fwhm": 11.6094789337845,
+        "fwhm_err": 0.2019767012147317
+      },
+      "T_K": 350,
+      "branch": "heating",
+      "file": "Spot 1 350K_01.txt",
+      "rt_file": false,
+      "sha256": "ea2113f0b1bf3bec4cacf5219806a1a5938cd9fb557a640eaf41c1fa2f53e990",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2674.845898196275,
+        "center_err": 0.19370487463328026,
+        "fwhm": 43.81338885467929,
+        "fwhm_err": 0.7083822308506349
+      },
+      "G": {
+        "center": 1592.7273055671988,
+        "center_err": 0.16449788448813243,
+        "fwhm": 15.91603252486243,
+        "fwhm_err": 0.5308049809734948
+      },
+      "T_K": 400,
+      "branch": "cooling",
+      "file": "Spot 1 400K reverse_01.txt",
+      "rt_file": false,
+      "sha256": "ecf70f884fb206820adc1c1ff342c4ce65050ab9e79251406b9cced2e91a2480",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2675.2363121734406,
+        "center_err": 0.10398918406032469,
+        "fwhm": 40.24170659805389,
+        "fwhm_err": 0.3724052701820397
+      },
+      "G": {
+        "center": 1589.6983293315295,
+        "center_err": 0.09752762425924126,
+        "fwhm": 13.963450054081404,
+        "fwhm_err": 0.31017271571689753
+      },
+      "T_K": 400,
+      "branch": "heating",
+      "file": "Spot 1 400K_01.txt",
+      "rt_file": false,
+      "sha256": "12f86a8d820b5ad52622bea0c5dee8033062849606a261a05a76d335e2d2197b",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2673.1563584724454,
+        "center_err": 0.2863992903553299,
+        "fwhm": 41.94137078952828,
+        "fwhm_err": 1.038965005180818
+      },
+      "G": {
+        "center": 1591.6631121535213,
+        "center_err": 0.22292551364460714,
+        "fwhm": 13.214995024018556,
+        "fwhm_err": 0.7036138126899044
+      },
+      "T_K": 450,
+      "branch": "cooling",
+      "file": "Spot 1 450K reverse_01.txt",
+      "rt_file": false,
+      "sha256": "734dcb0cbc5fbc631dea5e6babe766e65978e4a556450b5b3a89ba977aa50268",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2667.25768189033,
+        "center_err": 0.1836647980610786,
+        "fwhm": 38.70722056014717,
+        "fwhm_err": 0.6603568277027758
+      },
+      "G": {
+        "center": 1587.9923806218121,
+        "center_err": 0.14162616665547,
+        "fwhm": 12.230434195858432,
+        "fwhm_err": 0.44427797976434696
+      },
+      "T_K": 450,
+      "branch": "heating",
+      "file": "Spot 1 450K_01.txt",
+      "rt_file": false,
+      "sha256": "4d7bf451bfa741ec2ba86aadf6a507becc52bfff167ba413ba67afd2263189ae",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2664.3397337411125,
+        "center_err": 0.544094663423863,
+        "fwhm": 48.20660875768975,
+        "fwhm_err": 2.08423455511684
+      },
+      "G": {
+        "center": 1587.0951445091666,
+        "center_err": 0.379825573768732,
+        "fwhm": 14.854301717077586,
+        "fwhm_err": 1.2196678570885533
+      },
+      "T_K": 500,
+      "branch": "cooling",
+      "file": "Spot 1 500K reverse_01.txt",
+      "rt_file": false,
+      "sha256": "10e27f2c42b03ae742d5563b12a705d2d837a9517e6e1d99c1377159475a6e13",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2665.6333528582045,
+        "center_err": 0.4856292849010454,
+        "fwhm": 46.82548645660795,
+        "fwhm_err": 1.83943477398056
+      },
+      "G": {
+        "center": 1585.9419409646302,
+        "center_err": 0.39544986526910303,
+        "fwhm": 15.646518417945241,
+        "fwhm_err": 1.2800915396518249
+      },
+      "T_K": 500,
+      "branch": "heating",
+      "file": "Spot 1 500K_01.txt",
+      "rt_file": false,
+      "sha256": "eac97de31b67387b41b640cab0a608c4b0d736a968f8740c2e7935521e99357e",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2688.9306686706677,
+        "center_err": 0.09925346442830311,
+        "fwhm": 33.84944311058027,
+        "fwhm_err": 0.33853491894981136
+      },
+      "G": {
+        "center": 1599.8433638583642,
+        "center_err": 0.06903891707531974,
+        "fwhm": 9.704858415414645,
+        "fwhm_err": 0.21123920719468448
+      },
+      "T_K": 300,
+      "branch": "cooling",
+      "file": "Spot 1 RT reverse_01.txt",
+      "rt_file": true,
+      "sha256": "ed41bd81de90d3fb89f93c10704fabe33bec4f7ae7c22e71d120942e80c61e57",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2684.315047744595,
+        "center_err": 0.07813251378634158,
+        "fwhm": 33.868276500255575,
+        "fwhm_err": 0.2673046250502807
+      },
+      "G": {
+        "center": 1593.3876580418525,
+        "center_err": 0.0722417173017266,
+        "fwhm": 11.068488888340909,
+        "fwhm_err": 0.2237543417955781
+      },
+      "T_K": 300,
+      "branch": "heating",
+      "file": "Spot 1 RT_01.txt",
+      "rt_file": true,
+      "sha256": "65194a6ae862cd41df2e3009e180a3c154c360b5a3c40031dcd303634dd2bb83",
+      "spot": 1
+    },
+    {
+      "2D": {
+        "center": 2687.941783590219,
+        "center_err": 0.10399795668134701,
+        "fwhm": 34.889429723290334,
+        "fwhm_err": 0.35695680856471046
+      },
+      "G": {
+        "center": 1597.8004268139614,
+        "center_err": 0.07408872374057533,
+        "fwhm": 10.116824621658008,
+        "fwhm_err": 0.2274446573255366
+      },
+      "T_K": 300,
+      "branch": "cooling",
+      "file": "Spot 2 300K REVERSE_01.txt",
+      "rt_file": false,
+      "sha256": "0d8f92b743c4b9cdf73f89a25f999e0af1395bd6fa95263c8ff539f01e97ed9e",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2682.2114212769234,
+        "center_err": 0.08296496446380149,
+        "fwhm": 33.565943428564,
+        "fwhm_err": 0.2838305343243427
+      },
+      "G": {
+        "center": 1594.9727275221985,
+        "center_err": 0.06004902374053075,
+        "fwhm": 10.438773531698402,
+        "fwhm_err": 0.1849665875482237
+      },
+      "T_K": 300,
+      "branch": "heating",
+      "file": "Spot 2 300K_01.txt",
+      "rt_file": false,
+      "sha256": "072f01be7e353bd85483665913fea1c0ff88ffedc9dbc4f4bbbe227432f6b130",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2672.9668044510213,
+        "center_err": 0.17719535558532998,
+        "fwhm": 38.27494045056748,
+        "fwhm_err": 0.6294348195894774
+      },
+      "G": {
+        "center": 1593.464313685066,
+        "center_err": 0.12222771104242572,
+        "fwhm": 10.940327151174099,
+        "fwhm_err": 0.37816405921311147
+      },
+      "T_K": 350,
+      "branch": "cooling",
+      "file": "Spot 2 350K REVERSE_01.txt",
+      "rt_file": false,
+      "sha256": "3dbcd0a05b0cf266bd63844f97c92555995bcd5b27b3c161ebd754f2bc0d7718",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2673.0989164189577,
+        "center_err": 0.12486414568822982,
+        "fwhm": 38.45144550636458,
+        "fwhm_err": 0.44391894588890846
+      },
+      "G": {
+        "center": 1592.999986942703,
+        "center_err": 0.08417299832645214,
+        "fwhm": 11.284992164142816,
+        "fwhm_err": 0.2612124663932835
+      },
+      "T_K": 350,
+      "branch": "heating",
+      "file": "Spot 2 350K_01.txt",
+      "rt_file": false,
+      "sha256": "77a2c6f3d367309ebb5e88c57b0d318eaf784c027dd43ef4aee944837ae18eb1",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2674.555673303894,
+        "center_err": 0.34153148303589687,
+        "fwhm": 44.00177060129559,
+        "fwhm_err": 1.2508767906576401
+      },
+      "G": {
+        "center": 1592.2467711585596,
+        "center_err": 0.22876244857156733,
+        "fwhm": 12.958154628665044,
+        "fwhm_err": 0.7202222424730491
+      },
+      "T_K": 400,
+      "branch": "cooling",
+      "file": "Spot 2 400K REVERSE_01.txt",
+      "rt_file": false,
+      "sha256": "41f0bcdda5d54c9c5ee20b59884e461fafb4c1c9fbb00b2b0a88db6b08971c3c",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2675.6529662430166,
+        "center_err": 0.19197574020616087,
+        "fwhm": 42.5937494498485,
+        "fwhm_err": 0.6963774636009161
+      },
+      "G": {
+        "center": 1591.9072652072539,
+        "center_err": 0.15708092571262675,
+        "fwhm": 16.489959501052493,
+        "fwhm_err": 0.5095757256953225
+      },
+      "T_K": 400,
+      "branch": "heating",
+      "file": "Spot 2 400K_01.txt",
+      "rt_file": false,
+      "sha256": "2c65c6bd743e8da2cc82af99bb4e75ae05d4ffb745f33356379da686d56f8098",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2666.281374843989,
+        "center_err": 0.5558815609318526,
+        "fwhm": 43.03210257682683,
+        "fwhm_err": 2.055408676498935
+      },
+      "G": {
+        "center": 1589.6936377268312,
+        "center_err": 0.33827035347277695,
+        "fwhm": 11.305325084170635,
+        "fwhm_err": 1.0518085117345535
+      },
+      "T_K": 450,
+      "branch": "cooling",
+      "file": "Spot 2 450K REVERSE_01.txt",
+      "rt_file": false,
+      "sha256": "f0978b1dc5d31ca79a9d4dbfbdcb3763d87a30640f5fe18295713ccc39ed2c44",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2667.6082463057037,
+        "center_err": 0.33194474986277134,
+        "fwhm": 43.17216971093303,
+        "fwhm_err": 1.225066345169446
+      },
+      "G": {
+        "center": 1588.9244169067906,
+        "center_err": 0.2245859264752121,
+        "fwhm": 13.135999591453345,
+        "fwhm_err": 0.7096046675712538
+      },
+      "T_K": 450,
+      "branch": "heating",
+      "file": "Spot 2 450K_01.txt",
+      "rt_file": false,
+      "sha256": "23e4f29f62de41925cf192872def033217676dd506166ea2f7d0bc1bae750f12",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2664.0324276327133,
+        "center_err": 0.7611034710187843,
+        "fwhm": 43.49863228791672,
+        "fwhm_err": 2.8360902955310827
+      },
+      "G": {
+        "center": 1588.7588817109693,
+        "center_err": 0.5283761146891938,
+        "fwhm": 13.10166527502187,
+        "fwhm_err": 1.6691724158559045
+      },
+      "T_K": 500,
+      "branch": "cooling",
+      "file": "Spot 2 500K REVERSE_01.txt",
+      "rt_file": false,
+      "sha256": "d9791a28101aa65cba32e05d3214f087e10727c90ab3651090a8b929f2ec8a6b",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2663.079586198403,
+        "center_err": 0.583887901515037,
+        "fwhm": 42.47475203150007,
+        "fwhm_err": 2.1669787934208142
+      },
+      "G": {
+        "center": 1586.9001904942895,
+        "center_err": 0.3919696869244372,
+        "fwhm": 12.814736276098191,
+        "fwhm_err": 1.2367965691718679
+      },
+      "T_K": 500,
+      "branch": "heating",
+      "file": "Spot 2 500K_01.txt",
+      "rt_file": false,
+      "sha256": "90e8b298d1a05851bdd74d2bfe1cba7593328c0e46644c263c4807615e64a7d4",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2684.7792922597373,
+        "center_err": 0.07720455706616057,
+        "fwhm": 32.32788904566981,
+        "fwhm_err": 0.26177372100400503
+      },
+      "G": {
+        "center": 1593.156431404854,
+        "center_err": 0.05575024093205623,
+        "fwhm": 8.996554614537187,
+        "fwhm_err": 0.16970624046513422
+      },
+      "T_K": 300,
+      "branch": "cooling",
+      "file": "Spot 2 RT  REVERSE_01.txt",
+      "rt_file": true,
+      "sha256": "7c5988a545bb42b8289130196a19dfae85cccd32f66056b123e4a5b5219d8793",
+      "spot": 2
+    },
+    {
+      "2D": {
+        "center": 2682.6305140007303,
+        "center_err": 0.08204064942518281,
+        "fwhm": 35.613090405956086,
+        "fwhm_err": 0.2838183733734244
+      },
+      "G": {
+        "center": 1593.221524997137,
+        "center_err": 0.07498517695124038,
+        "fwhm": 12.679910926331134,
+        "fwhm_err": 0.23542510945905162
+      },
+      "T_K": 300,
+      "branch": "heating",
+      "file": "Spot 2 RT_01.txt",
+      "rt_file": true,
+      "sha256": "12ac78ead6856b5af577510ca3c626841a68192fdb9b9c622e35e390ec9ddc60",
+      "spot": 2
+    }
+  ],
+  "loops": [
+    {
+      "T_K": [
+        300,
+        350,
+        400,
+        450,
+        500
+      ],
+      "band": "G",
+      "branch_separation_per_T": [
+        4.95,
+        5.13,
+        3.03,
+        3.67,
+        1.15
+      ],
+      "closure_gap_300K_cm1": 4.953,
+      "closure_gap_err": 0.094,
+      "closure_gap_sigma": 52.4,
+      "cooling": [
+        1599.843,
+        1595.74,
+        1592.727,
+        1591.663,
+        1587.095
+      ],
+      "file_300K_cooling": "Spot 1 RT reverse_01.txt",
+      "file_300K_heating": "Spot 1 300K_01.txt",
+      "fraction_of_area_from_300K_endpoint": 0.166,
+      "heating": [
+        1594.89,
+        1590.612,
+        1589.698,
+        1587.992,
+        1585.942
+      ],
+      "loop_area_cm1K": 744.05,
+      "loop_area_err": 22.17,
+      "loop_area_sigma": 33.6,
+      "spot": 1,
+      "verdicts": [
+        "HYSTERESIS_OBSERVED",
+        "NONCLOSURE_AT_300K",
+        "CURVATURE_NOT_ESTABLISHED"
+      ]
+    },
+    {
+      "T_K": [
+        300,
+        350,
+        400,
+        450,
+        500
+      ],
+      "band": "2D",
+      "branch_separation_per_T": [
+        3.39,
+        5.21,
+        0.39,
+        5.9,
+        1.29
+      ],
+      "closure_gap_300K_cm1": 3.395,
+      "closure_gap_err": 0.13,
+      "closure_gap_sigma": 26.2,
+      "cooling": [
+        2688.931,
+        2681.611,
+        2674.846,
+        2673.156,
+        2664.34
+      ],
+      "file_300K_cooling": "Spot 1 RT reverse_01.txt",
+      "file_300K_heating": "Spot 1 300K_01.txt",
+      "fraction_of_area_from_300K_endpoint": 0.123,
+      "heating": [
+        2685.536,
+        2676.406,
+        2675.236,
+        2667.258,
+        2665.633
+      ],
+      "loop_area_cm1K": 691.94,
+      "loop_area_err": 28.44,
+      "loop_area_sigma": 24.3,
+      "spot": 1,
+      "verdicts": [
+        "HYSTERESIS_OBSERVED",
+        "NONCLOSURE_AT_300K",
+        "CURVATURE_NOT_ESTABLISHED"
+      ]
+    },
+    {
+      "T_K": [
+        300,
+        350,
+        400,
+        450,
+        500
+      ],
+      "band": "G",
+      "branch_separation_per_T": [
+        2.83,
+        0.46,
+        0.34,
+        0.77,
+        1.86
+      ],
+      "closure_gap_300K_cm1": 2.828,
+      "closure_gap_err": 0.095,
+      "closure_gap_sigma": 29.7,
+      "cooling": [
+        1597.8,
+        1593.464,
+        1592.247,
+        1589.694,
+        1588.759
+      ],
+      "file_300K_cooling": "Spot 2 300K REVERSE_01.txt",
+      "file_300K_heating": "Spot 2 300K_01.txt",
+      "fraction_of_area_from_300K_endpoint": 0.361,
+      "heating": [
+        1594.973,
+        1593.0,
+        1591.907,
+        1588.924,
+        1586.9
+      ],
+      "loop_area_cm1K": 195.81,
+      "loop_area_err": 30.59,
+      "loop_area_sigma": 6.4,
+      "spot": 2,
+      "verdicts": [
+        "HYSTERESIS_OBSERVED",
+        "NONCLOSURE_AT_300K",
+        "CURVATURE_NOT_ESTABLISHED"
+      ]
+    },
+    {
+      "T_K": [
+        300,
+        350,
+        400,
+        450,
+        500
+      ],
+      "band": "2D",
+      "branch_separation_per_T": [
+        5.73,
+        0.13,
+        1.1,
+        1.33,
+        0.95
+      ],
+      "closure_gap_300K_cm1": 5.73,
+      "closure_gap_err": 0.133,
+      "closure_gap_sigma": 43.1,
+      "cooling": [
+        2687.942,
+        2672.967,
+        2674.556,
+        2666.281,
+        2664.032
+      ],
+      "file_300K_cooling": "Spot 2 300K REVERSE_01.txt",
+      "file_300K_heating": "Spot 2 300K_01.txt",
+      "fraction_of_area_from_300K_endpoint": 0.486,
+      "heating": [
+        2682.211,
+        2673.099,
+        2675.653,
+        2667.608,
+        2663.08
+      ],
+      "loop_area_cm1K": 294.89,
+      "loop_area_err": 46.21,
+      "loop_area_sigma": 6.4,
+      "spot": 2,
+      "verdicts": [
+        "HYSTERESIS_OBSERVED",
+        "NONCLOSURE_AT_300K",
+        "CURVATURE_NOT_ESTABLISHED"
+      ]
+    }
+  ],
+  "paper_comparison": {
+    "S1_2D": {
+      "agree_within_combined_1sigma": true,
+      "paper_tableV": 711.1,
+      "refit": 691.94
+    },
+    "S1_G": {
+      "agree_within_combined_1sigma": true,
+      "paper_tableV": 749.7,
+      "refit": 744.05
+    },
+    "S2_2D": {
+      "agree_within_combined_1sigma": true,
+      "paper_tableV": 295.1,
+      "refit": 294.89
+    },
+    "S2_G": {
+      "agree_within_combined_1sigma": true,
+      "paper_tableV": 189.0,
+      "refit": 195.81
+    }
+  },
+  "predeclared_cycle2_rule": {
+    "applies_to": "same spot, both G and 2D",
+    "reopen_ratio_curvature": 0.6,
+    "reopen_ratio_drift": 0.2
+  },
+  "protocol": "T02_RAMAN_THERMAL_HYSTERESIS_V1"
+}
