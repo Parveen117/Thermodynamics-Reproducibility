@@ -1,0 +1,698 @@
+{
+  "schema_version": 1,
+  "repository": "Parveen117/Thermodynamics-Reproducibility",
+  "recorded_at_utc": "2026-10-26T14:24:22.218045+00:00",
+  "scope": "Default-branch content immediately before the 2026-10-26 provenance update.",
+  "baseline_branch": "main",
+  "baseline_commit": "118596980f3dfd72329a3966c867867bf51fb99a",
+  "baseline_tree": "64f80adab0a117d2503d402d2343bc7b9ed97eac",
+  "baseline_commit_url": "https://github.com/Parveen117/Thermodynamics-Reproducibility/commit/118596980f3dfd72329a3966c867867bf51fb99a",
+  "git_object_hash_algorithm": "sha1",
+  "content_hash_algorithm": "sha256",
+  "limits": [
+    "Git timestamps are metadata, not independent trusted timestamps.",
+    "This manifest excludes its own later provenance update.",
+    "A prior DOI covers its archived version, not later commits.",
+    "Hashes establish content identity, not scientific validity, authorship adjudication, or legal priority."
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/t01-plucker.yml",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "892e9f0885a4587ef078cad59839f657853ba2dd",
+      "size_bytes": 1473,
+      "sha256": "a36cd48b5b401248826ecccede5101a3d34b8077a9564a3baa6c77632307e1bc"
+    },
+    {
+      "path": ".github/workflows/t01d-bootstrap.yml",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "5868af50ea340fc5944d0c7edb6fc16a3c58ec2f",
+      "size_bytes": 2802,
+      "sha256": "380861b7655b16f131e367dbc882de9a881363fafb94eef670931bf97ad83c88"
+    },
+    {
+      "path": ".github/workflows/t01d-candidate-extraction.yml",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "4f5357bea4137d5a2757b5c626ef8c6115c6f4e2",
+      "size_bytes": 2826,
+      "sha256": "04a74dca81039335a85aa1c40b924489492d84f05931452d31e5ef1e624b2de2"
+    },
+    {
+      "path": ".github/workflows/t01d-independent-plucker-v2.yml",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "eb7f268aa929bf1a020660fa1899123bbbe8a258",
+      "size_bytes": 3327,
+      "sha256": "5f1b33200afa4e78ba73b81171e4e5b1cf02ee02e90fd0635bf63fddeeefbe34"
+    },
+    {
+      "path": ".github/workflows/t01d-independent-plucker.yml",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "d99089c2da92299c73b87846a23e123a2d37b140",
+      "size_bytes": 3278,
+      "sha256": "2861a91a94901daaa468d79736e5a77c5a169808c075306d27a0f560273b8d4d"
+    },
+    {
+      "path": ".github/workflows/t01d-thermoml-inventory.yml",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "46145c7aa547e9df22687a0ab3ad3eee75659388",
+      "size_bytes": 3092,
+      "sha256": "1b04607fe3ce35d7b24b77e9587a1252eef86084243e6fe66d9c5eaadb7fcc43"
+    },
+    {
+      "path": ".github/workflows/t02-raman-hysteresis.yml",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "30ae086dae762921bc28d7aa2cd0e21495faff9f",
+      "size_bytes": 1152,
+      "sha256": "94529d21d93de1f9b9bd02a652e752050ab4611fa6a9143d4ecede9f33f35824"
+    },
+    {
+      "path": "PR_BODY_FINAL.md",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "9825ed20aa95eea5e70f0c5e51cca64984e2e9a4",
+      "size_bytes": 1466,
+      "sha256": "8486b471da4b54ba2ae961dba46eaedcfd3c0f353a60627243cd1260a1be48d8"
+    },
+    {
+      "path": "PR_FINAL_SUMMARY.md",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "58df24c79c0bc7983c969d4297e3aac1f9a2d5fc",
+      "size_bytes": 1349,
+      "sha256": "ea7e7c8f454fa61b82f8d2f1943a0276e12e477d3848a9ad3e30d45813d9f43a"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "3590a9cf13d358815c672f5085591b027cd61c8d",
+      "size_bytes": 4524,
+      "sha256": "b1c9b461b6a1a81cb5f3a9ad3b6853f8aaaa56983bac7466b57268df196b5ba7"
+    },
+    {
+      "path": "SOURCES.md",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "7d4abc87a3d03fa778bf7ad447fdf34f37d8af4e",
+      "size_bytes": 2525,
+      "sha256": "eadd8f6104716a8378e3e8694d624ef8d0bec17420310949eff0e79c5a952dd5"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/MANIFEST.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "55500be1a0706e2676560ef9f600ce69239cf177",
+      "size_bytes": 2463,
+      "sha256": "23c8ad23553fd4bacbebdbcbad22b6b12e76c1670107936bfcad603aaa92f56e"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 300K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "5fc4cb4b1d6e2cc909bdc95aa4802a8bbe5b0eef",
+      "size_bytes": 65470,
+      "sha256": "16719e61e4239f2e5ac8029ea799b74269d64527e3459dd9394e5b92ae2c3fef"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 350K reverse_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "440846bf0eeb5218688d4b49cb0d3515f657173c",
+      "size_bytes": 65885,
+      "sha256": "d7baaae68585afe30a3974f66fc740b61453eafd36210fcfed33115f5ee1971f"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 350K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "f8f471af515eec60fe54fe54f18d1d2538f4d2e3",
+      "size_bytes": 65600,
+      "sha256": "ea2113f0b1bf3bec4cacf5219806a1a5938cd9fb557a640eaf41c1fa2f53e990"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 400K reverse_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "55ae5b65d1cc58b16c29b8771c82ad9dbb16a4dd",
+      "size_bytes": 65666,
+      "sha256": "ecf70f884fb206820adc1c1ff342c4ce65050ab9e79251406b9cced2e91a2480"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 400K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "3369e04cd80679a989827a5a23ea85fd9ad8c337",
+      "size_bytes": 65575,
+      "sha256": "12f86a8d820b5ad52622bea0c5dee8033062849606a261a05a76d335e2d2197b"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 450K reverse_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "cb8650bb23fbe37bedc32b96acce0b2efd0f7a3e",
+      "size_bytes": 65519,
+      "sha256": "734dcb0cbc5fbc631dea5e6babe766e65978e4a556450b5b3a89ba977aa50268"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 450K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "6f07ad54bc96b3195c0bce4c779370719b2ef877",
+      "size_bytes": 65468,
+      "sha256": "4d7bf451bfa741ec2ba86aadf6a507becc52bfff167ba413ba67afd2263189ae"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 500K reverse_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "ee362a3a683746bd2e4a6902902238c44aa6f24a",
+      "size_bytes": 65394,
+      "sha256": "10e27f2c42b03ae742d5563b12a705d2d837a9517e6e1d99c1377159475a6e13"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 500K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "c6b2ba9adef16addaf4f637d64f34f653dcc8f18",
+      "size_bytes": 65402,
+      "sha256": "eac97de31b67387b41b640cab0a608c4b0d736a968f8740c2e7935521e99357e"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 RT reverse_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "6d6b38d0df9c7ae9d1ba814a477a837017cbd48f",
+      "size_bytes": 65709,
+      "sha256": "ed41bd81de90d3fb89f93c10704fabe33bec4f7ae7c22e71d120942e80c61e57"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 1 RT_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "16c920ba8771c150e741cda66d819c0e1b9d76c3",
+      "size_bytes": 65712,
+      "sha256": "65194a6ae862cd41df2e3009e180a3c154c360b5a3c40031dcd303634dd2bb83"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 300K REVERSE_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "cf2b899d996c717864d70418ad438b1728fe0c3f",
+      "size_bytes": 65862,
+      "sha256": "0d8f92b743c4b9cdf73f89a25f999e0af1395bd6fa95263c8ff539f01e97ed9e"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 300K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "f43e0056d600880f6f72c848f8462545265db706",
+      "size_bytes": 65946,
+      "sha256": "072f01be7e353bd85483665913fea1c0ff88ffedc9dbc4f4bbbe227432f6b130"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 350K REVERSE_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "d3101d9c6f21ef55c1d0093733641ed4c4b683a4",
+      "size_bytes": 65708,
+      "sha256": "3dbcd0a05b0cf266bd63844f97c92555995bcd5b27b3c161ebd754f2bc0d7718"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 350K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "af578336866e848a2ea5212475cc3344cb5df656",
+      "size_bytes": 65692,
+      "sha256": "77a2c6f3d367309ebb5e88c57b0d318eaf784c027dd43ef4aee944837ae18eb1"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 400K REVERSE_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "a77837d584cb09395900d47ea6510c8c6301429c",
+      "size_bytes": 65484,
+      "sha256": "41f0bcdda5d54c9c5ee20b59884e461fafb4c1c9fbb00b2b0a88db6b08971c3c"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 400K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "75f0852b5119eb707ad0e1655d35b389881679e6",
+      "size_bytes": 65764,
+      "sha256": "2c65c6bd743e8da2cc82af99bb4e75ae05d4ffb745f33356379da686d56f8098"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 450K REVERSE_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "04244231f4e03217737d81fefd9e6f7d92e1dd45",
+      "size_bytes": 65376,
+      "sha256": "f0978b1dc5d31ca79a9d4dbfbdcb3763d87a30640f5fe18295713ccc39ed2c44"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 450K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "4eeaa4da8a91f06ec68a80bd1143a33049faffd6",
+      "size_bytes": 65391,
+      "sha256": "23e4f29f62de41925cf192872def033217676dd506166ea2f7d0bc1bae750f12"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 500K REVERSE_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "c7dbbf3b2cf84c0da42cc6144214f09d7493d2a8",
+      "size_bytes": 65279,
+      "sha256": "d9791a28101aa65cba32e05d3214f087e10727c90ab3651090a8b929f2ec8a6b"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 500K_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "d8114d6212171b99b0b6beb08cf4a5b1339ee8e6",
+      "size_bytes": 65256,
+      "sha256": "90e8b298d1a05851bdd74d2bfe1cba7593328c0e46644c263c4807615e64a7d4"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 RT  REVERSE_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "1780db44dcf13918c072ede9fa3cdfccd263f27b",
+      "size_bytes": 65424,
+      "sha256": "7c5988a545bb42b8289130196a19dfae85cccd32f66056b123e4a5b5219d8793"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 2 RT_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "dbfd2090555a26c8609808b8231aecefd8d4868e",
+      "size_bytes": 65874,
+      "sha256": "12ac78ead6856b5af577510ca3c626841a68192fdb9b9c622e35e390ec9ddc60"
+    },
+    {
+      "path": "data/raman_graphene_cense_20260219/Spot 3 RT_01.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "810751735c256bbaabd60bc5e23bd20899234489",
+      "size_bytes": 60526,
+      "sha256": "6ed23c01d3df333b64dc9983bcdb631dcc784423717834b49c6fe137d98c0267"
+    },
+    {
+      "path": "proofs/battery-kh-falsification-v0-lock.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "b9f2d7e32771a83151f00241d9a0da3efa15f029",
+      "size_bytes": 931,
+      "sha256": "1f24429bc9a119c48368cfc15d8c370ce10b0155a7d00688b8178a48b0b0c161"
+    },
+    {
+      "path": "protocols/T01D_CANDIDATE_MANIFEST.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "9d66141258dfed8164f4378904d0d8db8933a99c",
+      "size_bytes": 3827,
+      "sha256": "e20c6aa4c064a1fa123e0aa11ed4f8cfbdf07abf8cc2cfad37726507ddf695d0"
+    },
+    {
+      "path": "protocols/T01D_CANDIDATE_MANIFEST_V2.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "04d320929332fe2fa62553563622d2be691d3512",
+      "size_bytes": 3586,
+      "sha256": "3ba1c681410e4d5f77162b41b93f10d91987931bcd05b3e8a9ff648dcc743190"
+    },
+    {
+      "path": "protocols/T01D_FIT_CONTRACT.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "39214c73b457c0b32775ebb037ee06698b33793c",
+      "size_bytes": 2608,
+      "sha256": "d79d7fdd8ce51cc0529c4c7f900f005962715dccce566eda9e58c6a4832de877"
+    },
+    {
+      "path": "protocols/T01D_FIT_CONTRACT_NOTE.md",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "20c07dd16713cf64e204c7f62c69f7f86561dce0",
+      "size_bytes": 921,
+      "sha256": "63efde119e29d7710ab48ed45ebdbd1c2e08778d84e940621cf2837173597623"
+    },
+    {
+      "path": "protocols/T01D_MANIFEST_REVISION_01.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "920aa97906c23f99b03f538778da20ddcd1a76a1",
+      "size_bytes": 1619,
+      "sha256": "095ec0f2dd42b00866c1a02a6e040c92b3bc3c2142499c98ca50116c4b906cf6"
+    },
+    {
+      "path": "protocols/T01_MEASUREMENT_CONTRACT.md",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "a730e9a86b2968fdfc2b2d676e08c2dae166d9ba",
+      "size_bytes": 2904,
+      "sha256": "594264a7cabf89ce62f09869593e001e7e955fb84e2923ea677a5c3946cc2886"
+    },
+    {
+      "path": "protocols/archive/T01D_CANDIDATE_MANIFEST_V1_INCONCLUSIVE.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "d803ee3d8cc29ae9f68ca21d0bc23685e90d75a0",
+      "size_bytes": 3525,
+      "sha256": "5bd4cd476468852e91302f60b8c61c83c52e481f79d5ac78e7a16a2e0176fc8e"
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "7627b143033615faa125f7b15ca597bad3107a1c",
+      "size_bytes": 523,
+      "sha256": "1cda70bd947b36f68ff09c837681ae77562f28712d5ec36920a998e7ac6b5071"
+    },
+    {
+      "path": "results/T01C_IAPWS95_CONTROL.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "08260311fd37c97800166fc9ca0c207b9f80cc8f",
+      "size_bytes": 5486,
+      "sha256": "47b83fe46bd3fb3a2060fa1dabec797b4b83a98a9b93924b6df45eb97ccf3e07"
+    },
+    {
+      "path": "results/T01D_FINAL_CERTIFICATE.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "471881f5d3e75a58906d87c27df14d3b6799c6a4",
+      "size_bytes": 4274,
+      "sha256": "28c84dce18447420223b04f09be6ba7a12533a189094c51cff2a1c2badd856d2"
+    },
+    {
+      "path": "results/T01D_FINAL_CERTIFICATE.sha256",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "adfab00a930324d9f829ef5d39287610bbc62855",
+      "size_bytes": 78,
+      "sha256": "3ea370d1e371c7e28d7ffcee22a89da733c26940a2747c43023c571e14405eb5"
+    },
+    {
+      "path": "results/T01D_FINAL_STATUS.txt",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "fc66bfdea894ca74e284c13a8d12b86e3fc47724",
+      "size_bytes": 530,
+      "sha256": "a5b2fe9d7a8fa21369c1003282c6cc77f361f6dec0377987d381732257da3b8d"
+    },
+    {
+      "path": "results/T01D_RESULT.md",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "65c9486cf360931ef19ea0c99c07fce19a835d16",
+      "size_bytes": 3240,
+      "sha256": "b7d27ba0fbbc2dbd93b334b0f08747d1839a3f6e20f0ef998e07725bd927f5d1"
+    },
+    {
+      "path": "results/T01D_WORKFLOW_EVIDENCE.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "31fa9c0f283f7bc05935ff6cc28f7d26ef9ab494",
+      "size_bytes": 675,
+      "sha256": "497fac8082af4c41c749ee3026843dfc202e949997808703168422255e413b1f"
+    },
+    {
+      "path": "results/T01_SYNTHETIC_AUDIT.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "a905a50511071ec349817544cc0c15147d1c4778",
+      "size_bytes": 2380,
+      "sha256": "8d19359bb89850ac77fd427bca07785bf5934e68bc2f29215c5c2e2b475c6873"
+    },
+    {
+      "path": "results/T02_RAMAN_HYSTERESIS.json",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "c5f510211b58a550a275bd32c5bf380dfd53ed8f",
+      "size_bytes": 18410,
+      "sha256": "278adbe87a3a1c736ac44349146191c17ab5b514370111c55ecfc4ece7b7ed4b"
+    },
+    {
+      "path": "results/T02_RAMAN_HYSTERESIS.png",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "dc1acaf4747144d5213f45b505abf19dbd55e822",
+      "size_bytes": 225296,
+      "sha256": "13949cd699544089074765616dbae91330deaab6f372032c6a0653aeab01a169"
+    },
+    {
+      "path": "results/T02_RAMAN_HYSTERESIS.sha256",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "616b434af71d224166621925d2e7d72bbd2b2a04",
+      "size_bytes": 65,
+      "sha256": "6d5a43ab0b2279b18c584c2f93b6cf0c4a3e1cb7abc3f626a82354336c3dac14"
+    },
+    {
+      "path": "results/T02_RESULT.md",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "c2853a1375a9891c549e9e3ecec438b93def554f",
+      "size_bytes": 1539,
+      "sha256": "a18d72b136f1fd54b758e1304308069ecf0a92c52d366983510e5e9e54278209"
+    },
+    {
+      "path": "scripts/__pycache__/run_t02_raman_hysteresis.cpython-312.pyc",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "33a28c5306266f49a51e89b1445db1915f450ad9",
+      "size_bytes": 12237,
+      "sha256": "c50efbfffa67b3dfc4c257edfe9c102f7984827597933b77c9f191536c2e0b1b"
+    },
+    {
+      "path": "scripts/build_t01d_water_inventory.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "50de77757f7b18557eabecaa5ec264a9b33e8f7f",
+      "size_bytes": 15268,
+      "sha256": "0e4bffc1b6dae80d169e671823466acfcc2d38d9a3f0cf79d6da38b234003090"
+    },
+    {
+      "path": "scripts/extract_t01d_candidate_points.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "f3fa8d81dab63f50919b8b359fb492d592f77c7b",
+      "size_bytes": 18622,
+      "sha256": "5b40a19fb42ece86d8ab62e3d2f45da12df70afe642ff1cd5a18057f00bec13e"
+    },
+    {
+      "path": "scripts/run_t01_iapws95_control.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "71a0297fbb18496a9f974ac022f22142111d0dc8",
+      "size_bytes": 1684,
+      "sha256": "e50078ac3ddeb8e05d8d134308a6c70b08f713dd9cdd0e233b2cc44824d24bbb"
+    },
+    {
+      "path": "scripts/run_t01_synthetic_audit.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "3e5dfe1187048c72db92b2f4cdfe858030f030ef",
+      "size_bytes": 2344,
+      "sha256": "22b5dea5ab4deb22f3d7d2a74454338e09ef9be2e4e0ad25d64c138bbc3433a7"
+    },
+    {
+      "path": "scripts/run_t01d_independent_plucker.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "7b95f6f4c6d922b3e9eed5ff1233a1ba5c68b9f8",
+      "size_bytes": 13490,
+      "sha256": "232da13fa29a2057e8bc668d45c9bc38f45eaae1ee6658b37b8346df5633be0a"
+    },
+    {
+      "path": "scripts/run_t01d_parametric_bootstrap.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "eeaf0f4cfb01d2685177f2bcbc5a670dc29f9135",
+      "size_bytes": 4264,
+      "sha256": "6155c8a03037700ed83c776e8cc3796c676f48cee4549378f2b77252b9d299d1"
+    },
+    {
+      "path": "scripts/run_t02_raman_hysteresis.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "d69fcba87ddcf61d1ddac3a9662fc2763e85715a",
+      "size_bytes": 7692,
+      "sha256": "5ca93770b7940c14f67792962be40b45b1675222621f4b2dc6ffe9c451a5af34"
+    },
+    {
+      "path": "src/thermo_recognition/__init__.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "98e765193dae7f21c0bc419d6cdb6aebcd02f70e",
+      "size_bytes": 676,
+      "sha256": "5752c0fdac41992dd607d8144a037f382876eef066e0ce92fd5ac4e7ea95958e"
+    },
+    {
+      "path": "src/thermo_recognition/iapws_control.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "90dd2c2ada4a68789a64d75b5dfce7b8001319cb",
+      "size_bytes": 5791,
+      "sha256": "4c93ee445e88dc73239fa1422e6bf4d6f2ad2cbce5fc49164728f65b6b913bc4"
+    },
+    {
+      "path": "src/thermo_recognition/plucker.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "12cfbba44eb60ac6d633cd4c5904abf1077ebf90",
+      "size_bytes": 7467,
+      "sha256": "84e8e44cca0ad4a58180f8d5dd11bd91a467d8b81464d82fac937cacce05f612"
+    },
+    {
+      "path": "tests/__pycache__/test_iapws_control.cpython-312-pytest-9.1.1.pyc",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "62869dee3156db279e18c0d13dff397e52fbe77e",
+      "size_bytes": 6039,
+      "sha256": "a1f14cf42d1e9c86006c39a25f328f85f152362442fbd6ada4e70a4eb83aa7a9"
+    },
+    {
+      "path": "tests/__pycache__/test_plucker.cpython-312-pytest-9.1.1.pyc",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "1c60d93fb9489c890c6bc334fbd04b9eed699d61",
+      "size_bytes": 16777,
+      "sha256": "effb8378feb6c7502a2fa737044eda4656595fc0233acfc0110f3e467175a2e2"
+    },
+    {
+      "path": "tests/__pycache__/test_t01d_extraction.cpython-312-pytest-9.1.1.pyc",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "c857b45a1a8091f558c1868cab85cd2ba0fd68cc",
+      "size_bytes": 9289,
+      "sha256": "f4f885a2e250d8da1195f7db25292be49ae56f599ce34bd15e247ababefc527e"
+    },
+    {
+      "path": "tests/__pycache__/test_t01d_fit.cpython-312-pytest-9.1.1.pyc",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "9c013de5333e451d8dc537364ce1acc3bacf724b",
+      "size_bytes": 8259,
+      "sha256": "bf5f47825e749b25a4d6b2fcc524391a46e5907b775485f3feae6ea4da7a28bd"
+    },
+    {
+      "path": "tests/__pycache__/test_t02_raman.cpython-312-pytest-9.1.1.pyc",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "5c4e8ac8e0f6307c994c631d19ed34f4aa9c18c1",
+      "size_bytes": 11364,
+      "sha256": "3830210f498d344d700226b9d3eb7eb9379c0f95e9cd7634e45cb74ed17bde64"
+    },
+    {
+      "path": "tests/__pycache__/test_thermoml_inventory.cpython-312-pytest-9.1.1.pyc",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "f094c29a12e9329cf05efa974c2e62595c2c498b",
+      "size_bytes": 12020,
+      "sha256": "c789a5e1edeedb4059ceb8160cafdcfd3488da5d804b18f162e7b6f4b67a08a6"
+    },
+    {
+      "path": "tests/test_iapws_control.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "32e177bd1b9084933946d4494e1a18b166e00298",
+      "size_bytes": 904,
+      "sha256": "f61b265f81b5ba6d2b604cb1a3d4d7f0467068aded09004c0d2d31c3c04b71a6"
+    },
+    {
+      "path": "tests/test_plucker.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "40bbdfcb676dbd55bfa32d10830122f2d3ceeb82",
+      "size_bytes": 2903,
+      "sha256": "00bdb3f66a5874e3cd5702420f9069a93aeccecec2166d3dca740b7f2b52b607"
+    },
+    {
+      "path": "tests/test_t01d_extraction.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "066e9c729741070323ed718a4cf27fd09e874468",
+      "size_bytes": 4500,
+      "sha256": "39572021e908ed21f22b8450c0160c0069d313b606d9a7a0033aac7d6a01f150"
+    },
+    {
+      "path": "tests/test_t01d_fit.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "7754fbedcba8029d8e65179f1f4b3d8a2240383f",
+      "size_bytes": 2407,
+      "sha256": "75b9686a5ae686c804050cfbf9cd821fcf9937467466cb8eaa3e893106666e27"
+    },
+    {
+      "path": "tests/test_t02_raman.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "04e83056154b6a23d3d7aec2ee02a22f6502f647",
+      "size_bytes": 1483,
+      "sha256": "97e9d06223d21e8fe666b6298f78e3a21be4aa07c449d9ba7fc154c254b33591"
+    },
+    {
+      "path": "tests/test_thermoml_inventory.py",
+      "mode": "100644",
+      "git_object_type": "blob",
+      "git_object_sha1": "d8a0159cf3c724376903bfb9b590abe64a31ebc2",
+      "size_bytes": 4504,
+      "sha256": "cd940632e46932f88d62e85f1fb344c1cb666ce1c135a73b28f9a448a043c73c"
+    }
+  ],
+  "published_releases": [
+    {
+      "tag": "v1.0",
+      "published_at": "2026-08-10T23:00:03Z",
+      "url": "https://github.com/Parveen117/Thermodynamics-Reproducibility/releases/tag/v1.0",
+      "immutable": false,
+      "tag_object": {
+        "sha": "0429666809243eec2ae9283f663d9e29dbf65b84",
+        "type": "commit",
+        "url": "https://api.github.com/repos/Parveen117/Thermodynamics-Reproducibility/git/commits/0429666809243eec2ae9283f663d9e29dbf65b84"
+      }
+    }
+  ],
+  "zenodo_archive": {
+    "repository": "Parveen117/Thermodynamics-Reproducibility",
+    "record_id": 21879729,
+    "doi": "10.5281/zenodo.21879729",
+    "concept_doi": "10.5281/zenodo.21879728",
+    "version": "v1.0",
+    "record_created_at": "2026-08-10T23:00:08.302474+00:00",
+    "record_modified_at": "2026-08-10T23:00:08.610593+00:00",
+    "metadata_license": {
+      "id": "cc-by-4.0"
+    },
+    "record_url": "https://zenodo.org/records/21879729",
+    "metadata_url": "https://zenodo.org/api/records/21879729",
+    "archive_files": [
+      {
+        "filename": "Parveen117/Thermodynamics-Reproducibility-v1.0.zip",
+        "size_bytes": 64591,
+        "download_url": "https://zenodo.org/api/records/21879729/files/Parveen117/Thermodynamics-Reproducibility-v1.0.zip/content",
+        "zenodo_checksum": "md5:e696c76831546527ffe241233762e678",
+        "sha256": "71626246720d2c3c44b0ead7f0cf23dfd460fa9bc1cd9b43dabb408961a54126",
+        "git_blob_comparison": {
+          "matched": true,
+          "files_checked": 39,
+          "missing": [],
+          "extra": [],
+          "changed": []
+        }
+      }
+    ],
+    "verification_time": "2026-10-26T14:20:50.809924+00:00",
+    "release_commit": "0429666809243eec2ae9283f663d9e29dbf65b84",
+    "status": "verified"
+  }
+}
